@@ -6,8 +6,28 @@
 	<dict>
 		<key>Dramaq2020.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>5</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1558BC4E24115AB50072DB26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1558BC6424115ABB0072DB26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1558BC6F24115ABB0072DB26</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

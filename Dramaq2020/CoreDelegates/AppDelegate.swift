@@ -11,10 +11,28 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        let storyboardName = launchedBefore ? "Main" : "Onboarding"
+        let onboarding = UIStoryboard(name: "Onboarding", bundle: nil)
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        
+        let vc = launchedBefore ? main.instantiateInitialViewController()! : onboarding.instantiateViewController(identifier: "OnboardingViewController")
+        
+        self.window?.rootViewController = vc
+        self.window?.makeKeyAndVisible()
+        
+        if launchedBefore  {
+            print("not first launch")
+        } else {
+            print("first launch")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
         return true
     }
 
