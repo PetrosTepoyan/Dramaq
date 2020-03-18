@@ -18,7 +18,7 @@ class ManagingRealm {
     var records: [[Record]] = []
     
     func retrieveRecords_isDeletedIncluded() -> [[Record]] {
-        let realmRecords = realm.objects(RealmRecord.self).sorted(by: { $0.date! > $1.date!})
+        let realmRecords = realm.objects(RealmRecord.self).sorted(by: { $0.date > $1.date})
 
         
         var recordsFlattened = realmRecords.map { Record(id: $0.id,
@@ -33,10 +33,10 @@ class ManagingRealm {
         
         let dateCounts = Set(recordsFlattened.map {$0.date}).count
         for _ in 0...dateCounts{
-            let nestedArr = recordsFlattened.filter {$0.date?.getDay() == recordsFlattened[0].date?.getDay()}
+            let nestedArr = recordsFlattened.filter {$0.date.getDay() == recordsFlattened[0].date.getDay()}
             records.append(nestedArr)
 
-            recordsFlattened.removeAll( where: { $0.date?.getDay() == nestedArr[0].date?.getDay() } )
+            recordsFlattened.removeAll( where: { $0.date.getDay() == nestedArr[0].date.getDay() } )
         }
 
         records = records.filter { $0.isEmpty == false }
@@ -45,7 +45,7 @@ class ManagingRealm {
     }
     
     func retrieveRecords() -> [[Record]] {
-        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date! > $1.date!})
+        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
 
         
         let recordsFlattened = realmRecords.map { Record(id: $0.id,
@@ -69,22 +69,22 @@ class ManagingRealm {
         
         let dateCounts = Set(recordsFlattened.map {$0.date}).count
         for _ in 0...dateCounts{
-            let nestedArr = recordsFlattened.filter {$0.date?.getDay() == recordsFlattened[0].date?.getDay()}
+            let nestedArr = recordsFlattened.filter {$0.date.getDay() == recordsFlattened[0].date.getDay()}
             multiRecords.append(nestedArr)
 
-            recordsFlattened.removeAll( where: { $0.date?.getDay() == nestedArr[0].date?.getDay() } )
+            recordsFlattened.removeAll( where: { $0.date.getDay() == nestedArr[0].date.getDay() } )
         }
         return multiRecords.filter { $0.isEmpty == false }
     }
     
     func retrievePrices() -> [Double] {
-        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date! > $1.date!})
+        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
         return realmRecords.map { $0.price }
     }
     
     func retrieveTimes() -> [String] {
-        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date! > $1.date!})
-        return realmRecords.map { ($0.date?.getTime())! }
+        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
+        return realmRecords.map { ($0.date.getTime()) }
     }
     
 }

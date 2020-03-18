@@ -32,4 +32,13 @@ extension Date {
         let formattedDate = format.string(from: self)
         return formattedDate
     }
+    
+    func getDayExpExp() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "EEEE, MMMM d, yyyy"
+        let formattedDate = format.string(from: self)
+        return formattedDate
+    }
+    
+    
 }

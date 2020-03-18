@@ -40,7 +40,7 @@ enum NearByTypes : String {
     case funeral_home
     case furniture_store
     case gas_station
-    case gym
+    case gym 
     case hair_care
     case hardware_store
     case hindu_temple
@@ -92,4 +92,7 @@ enum NearByTypes : String {
     case travel_agency
     case veterinary_care
     case zoo
+    case health
 }
+
+

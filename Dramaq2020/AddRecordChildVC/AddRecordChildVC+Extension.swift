@@ -21,7 +21,7 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
             if nearbyPlaces.isEmpty {
                 return 1
             } else {
-                return 5
+                return 12
             }
         }
         
@@ -47,13 +47,17 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
             
             
             
-            let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: "NearbyPlaceCell", for: indexPath)
+            let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: "NearbyPlaceCell", for: indexPath) as! NearbyViewCell
             
             if !nearbyPlaces.isEmpty {
                 let place = nearbyPlaces[indexPath.row]
-                print(place)
                 cell.textLabel?.text = place.name
                 cell.detailTextLabel?.text = place.vicinity
+                print(place.types)
+                cell.category = extractCategoryFromPlaceResponse(place: place)
+                // check // create a class for the cell and add category as property extractCategoryFromPlaceResponse(place: Place)
+                
+                
             }
             
             cell.selectionStyle = UITableViewCell.SelectionStyle.default
@@ -81,9 +85,16 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard tableView == nearbyPlacesTableView else { return }
-
-        placeTF.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
+        let cell = tableView.cellForRow(at: indexPath) as! NearbyViewCell
+        
+        placeTF.text = cell.textLabel?.text
         placeTF.endEditing(true)
+        category = cell.category
+        
+        let arrSubviews = (upperStack.arrangedSubviews + lowerStack.arrangedSubviews) as! [CategoryView]
+        let relatedCategory = arrSubviews.filter { $0.categoryIdentifier == category }
+        guard !relatedCategory.isEmpty else { return }
+        categoryImagePressed(on: relatedCategory[0])
     }
     
 }

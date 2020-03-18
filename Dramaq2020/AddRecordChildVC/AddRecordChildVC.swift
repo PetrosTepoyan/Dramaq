@@ -41,7 +41,6 @@ class AddRecordChildVC: CompactChildViewController {
     }()
     
     var locationManager:CLLocationManager!
-    
     var latitude: Double! = 40.193391
     var longitude: Double! = 44.503770
     
@@ -52,27 +51,19 @@ class AddRecordChildVC: CompactChildViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        keywords = []
         priceTF.delegate = self
+        priceTF.becomeFirstResponder()
         
         scrollView.contentSize = scrollableView.frame.size
-        
         upperStack.spacing = 30
         lowerStack.spacing = 30
         
         setupCategoryImages()
         
         view.clipsToBounds = true
-        viewCenter = self.view.center
         
-        priceTF.becomeFirstResponder()
         
-        nearbyPlacesTableView.clipsToBounds = true
-        nearbyPlacesTableView.layer.cornerRadius = 30
-        nearbyPlacesTableView.alpha = 0.0
-        nearbyPlacesTableView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-        nearbyPlacesTableView.canCancelContentTouches = false
-        
+        setupNearbyPlacesTableView()
         setupLoc()
         
     }
@@ -85,7 +76,6 @@ class AddRecordChildVC: CompactChildViewController {
         super.viewDidAppear(true)
         let color = UIColor(named: category.rawValue)
         view.backgroundColor = color
-        
     }
     
     @IBAction func keywordAddButtonTouchUpInside(_ sender: Any) {
@@ -136,7 +126,7 @@ class AddRecordChildVC: CompactChildViewController {
         
         
         if sender.state == .ended {         // The drag ended
-            addTheRecord(vCTR, parentHome)
+            addTheRecord(parentHome)
             dismissTheWindow(vCTR, parentHome)
             
             viewGetBackAnimation()
@@ -154,7 +144,7 @@ class AddRecordChildVC: CompactChildViewController {
 }
 extension AddRecordChildVC {
     
-    fileprivate func addTheRecord(_ vCTR: CGPoint, _ parentHome: HomeController) {
+    func addTheRecord(_ parentHome: HomeController) {
         
         
         if recordWillBeAddedFrame.contains(dragLabel.globalFrame!) {
@@ -163,7 +153,7 @@ extension AddRecordChildVC {
             viewToDissapear()
             parentHome.cancelLabel.removeFromSuperview()
             
-            let price = priceTF.text
+            var price = priceTF.text
             let place = placeTF.text
             
             guard idOfEditingRecord == nil else {
@@ -205,15 +195,19 @@ extension AddRecordChildVC {
                 realm.add(myRec)
             }
             
+            if price == "" {
+                price = "0.0"
+            }
+            
             let theRecordToAdd = Record(id: id,
-                                        price: Double(price!),
+                                        price: Double(price!)!,
                                         place: place!,
                                         date: Date(),
                                         category: category,
                                         keywords: keywords,
                                         currency: currency)
             
-            
+            print("The record will be added", theRecordToAdd)
             
             guard parentHome.records.count != 0 else {
                 parentHome.records.insert( [theRecordToAdd] , at: 0 )
@@ -221,7 +215,7 @@ extension AddRecordChildVC {
                 return
             }
             
-            if parentHome.records[0][0].date?.getDay() != Date().getDay(){
+            if parentHome.records[0][0].date.getDay() != Date().getDay(){
                 parentHome.records.insert( [theRecordToAdd] , at: 0 )
             }
             else {
@@ -326,10 +320,13 @@ extension AddRecordChildVC {
                 let categoryView = CategoryView(category: i)
                 (categoryView.subviews[0] as! UIStackView).arrangedSubviews[1].alpha = 0.0
                 stacks[ind].addArrangedSubview(categoryView)
+//                categoryView.frame.size.height = 60
+//                categoryView.frame.size.width  = 50
+                categoryView.translatesAutoresizingMaskIntoConstraints = false
                 categoryView.heightAnchor.constraint(equalToConstant: 60).isActive = true
                 categoryView.widthAnchor.constraint(equalToConstant: 50).isActive = true
                 
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(categoryImagePressed))
+                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(categoryImagePressedOnTap))
                 
                 categoryView.addGestureRecognizer(tapGesture)
             }
@@ -345,13 +342,19 @@ extension AddRecordChildVC {
         
     }
     
-    @objc func categoryImagePressed(_ sender: UITapGestureRecognizer){
+    @objc func categoryImagePressedOnTap(_ sender: UITapGestureRecognizer){
         let categoryPressed = sender.view! as! CategoryView
-        let centerOfCategoryPressedX = (categoryPressed.globalFrame!.maxX + categoryPressed.globalFrame!.minX) / 2 - 50
-        let centerOfCategoryPressedY = (categoryPressed.globalFrame!.maxY + categoryPressed.globalFrame!.minY) / 2 - 110
+        
+        categoryImagePressed(on: categoryPressed)
+        
+    }
+    
+    func categoryImagePressed(on categoryView: CategoryView) {
+        let centerOfCategoryPressedX = (categoryView.globalFrame!.maxX + categoryView.globalFrame!.minX) / 2 - 50
+        let centerOfCategoryPressedY = (categoryView.globalFrame!.maxY + categoryView.globalFrame!.minY) / 2 - 110
         let center = CGPoint(x: centerOfCategoryPressedX, y: centerOfCategoryPressedY)
         
-        category = categoryPressed.categoryIdentifier
+        category = categoryView.categoryIdentifier
         if view.subviews[0].accessibilityIdentifier == "CategoryCircleView"{
             view.subviews[0].removeFromSuperview()
         }
@@ -362,8 +365,21 @@ extension AddRecordChildVC {
         categoryLabel.clipsToBounds = true
         categoryLabel.layer.cornerRadius = 15
         categoryLabel.backgroundColor = .white
+    }
+    
+    func circleAnimation(color category: Category, from center: CGPoint){
         
+        let color = UIColor(named: category.rawValue)
+        let circleView = UIView(frame: CGRect(origin: center, size: CGSize(width: 50, height: 50)))
+        circleView.accessibilityIdentifier = "CategoryCircleView"
+        view.insertSubview(circleView, at: 0)
+        circleView.clipsToBounds = true
+        circleView.layer.cornerRadius = circleView.frame.size.height / 2
+        circleView.backgroundColor = color!
         
+        UIView.animate(withDuration: 0.3, animations: {
+            circleView.transform = CGAffineTransform(scaleX: 20, y: 20)
+        },completion: {finish in self.view.backgroundColor = color})
         
     }
     
@@ -400,7 +416,7 @@ extension AddRecordChildVC {
         
     }
     
-    fileprivate func scaleCategoryView(category: CategoryView, scale: CGFloat, angle: CGFloat, alpha: CGFloat) {
+    func scaleCategoryView(category: CategoryView, scale: CGFloat, angle: CGFloat, alpha: CGFloat) {
         UIView.animate(withDuration: 0.2, animations: {
             category.transform = CGAffineTransform(scaleX: scale, y: scale)
             category.transform = CGAffineTransform(rotationAngle: angle)
@@ -408,21 +424,7 @@ extension AddRecordChildVC {
         })
     }
     
-    func circleAnimation(color category: Category, from center: CGPoint){
-        
-        let color = UIColor(named: category.rawValue)
-        let circleView = UIView(frame: CGRect(origin: center, size: CGSize(width: 50, height: 50)))
-        circleView.accessibilityIdentifier = "CategoryCircleView"
-        view.insertSubview(circleView, at: 0)
-        circleView.clipsToBounds = true
-        circleView.layer.cornerRadius = circleView.frame.size.height / 2
-        circleView.backgroundColor = color!
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            circleView.transform = CGAffineTransform(scaleX: 20, y: 20)
-        },completion: {finish in self.view.backgroundColor = color})
-        
-    }
+    
     
 }
 
@@ -434,4 +436,14 @@ extension AddRecordChildVC: UITextFieldDelegate {
         return true
     }
     
+}
+
+extension AddRecordChildVC {
+    func setupNearbyPlacesTableView() {
+        nearbyPlacesTableView.clipsToBounds = true
+        nearbyPlacesTableView.layer.cornerRadius = 30
+        nearbyPlacesTableView.alpha = 0.0
+        nearbyPlacesTableView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        nearbyPlacesTableView.canCancelContentTouches = false
+    }
 }

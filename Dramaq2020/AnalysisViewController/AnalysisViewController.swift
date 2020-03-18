@@ -28,11 +28,11 @@ class AnalysisViewController: UIViewController{
         super.viewDidLoad()
         
         let recordsFlat = records.flatMap { $0 }
-        let recordsTuple = recordsFlat.lazy.map { ($0.category, $0.price!) }
+        let recordsTuple = recordsFlat.lazy.map { ($0.category, $0.price) }
         var category_prices_: [String : [Double]] = [:]
         
         for tuple in recordsTuple{
-            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price! }
+            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price }
             category_prices_["\(tuple.0)"] = nestedPrices
         }
         

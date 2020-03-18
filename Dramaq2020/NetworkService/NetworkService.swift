@@ -43,6 +43,8 @@ class NetworkService {
     func completionHandler(callBack: @escaping placesCallBack) {
         self.callBack = callBack
     }
+    
+    
 }
 
 struct Response: Decodable {
@@ -62,3 +64,6 @@ struct Place: Decodable {
         case types = "types"
     }
 }
+
+
+

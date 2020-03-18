@@ -105,13 +105,6 @@ extension HomeController {
         viewController.view.alpha = 0.0
         viewController.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
         
-        viewController.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            viewController.view.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            viewController.view.centerYAnchor.constraint(equalTo: view.centerYAnchor)
-        ])
-        
-        
         let blurView = getBlurSetup()
         
         setupCancelLabel()
@@ -216,7 +209,7 @@ extension HomeController {
         
         
         let frequentRecords = records.flatMap { $0 }.filter {
-            ($0.date?.getTime().toDate())! > time1 && ($0.date?.getTime().toDate())! < time2
+            ($0.date.getTime().toDate()) > time1 && ($0.date.getTime().toDate()) < time2
             
         }
         

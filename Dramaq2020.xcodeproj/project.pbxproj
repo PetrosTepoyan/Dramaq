@@ -13,6 +13,7 @@
 		15092A20241947740044D973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15092A1F241947740044D973 /* NetworkService.swift */; };
 		15092A222419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15092A212419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift */; };
 		15180831241F9AE50049920D /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15180830241F9AE50049920D /* UIApplication+Extension.swift */; };
+		15180833241FE9480049920D /* NearbyPlaceViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15180832241FE9480049920D /* NearbyPlaceViewCell.swift */; };
 		1558BC5324115AB50072DB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC5224115AB50072DB26 /* AppDelegate.swift */; };
 		1558BC5524115AB50072DB26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC5424115AB50072DB26 /* SceneDelegate.swift */; };
 		1558BC5A24115AB50072DB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1558BC5824115AB50072DB26 /* Main.storyboard */; };
@@ -103,6 +104,7 @@
 		15092A1F241947740044D973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		15092A212419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordChildVC+NearbyPlaces.swift"; sourceTree = "<group>"; };
 		15180830241F9AE50049920D /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		15180832241FE9480049920D /* NearbyPlaceViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyPlaceViewCell.swift; sourceTree = "<group>"; };
 		1558BC4F24115AB50072DB26 /* Dramaq2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramaq2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1558BC5224115AB50072DB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1558BC5424115AB50072DB26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				159EA94C2411B60100F106B2 /* AddRecordChildVC+Extension.swift */,
 				1558BC8C24115AE90072DB26 /* CategoryView.swift */,
 				159EA94A2411B4CC00F106B2 /* KeywordViewCell.swift */,
+				15180832241FE9480049920D /* NearbyPlaceViewCell.swift */,
 			);
 			path = AddRecordChildVC;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				1558BCB324115B050072DB26 /* Date+Extension.swift in Sources */,
 				15ED2695241543090029DDDB /* CurrencyTable.swift in Sources */,
 				155B33E02412690C005D5104 /* SearchTextField.swift in Sources */,
+				15180833241FE9480049920D /* NearbyPlaceViewCell.swift in Sources */,
 				157C73642413E95400B558CD /* AnalysisViewController.swift in Sources */,
 				1558BCA724115AF30072DB26 /* PTScrollView.swift in Sources */,
 				1558BCAB24115AF30072DB26 /* PTDate.swift in Sources */,

@@ -14,7 +14,7 @@ class RealmRecord: Object {
     @objc dynamic var id: Int = 0
     @objc dynamic var price: Double = 0.0
     @objc dynamic var place: String = ""
-    @objc dynamic var date: Date?
+    @objc dynamic var date: Date = Date()
     @objc dynamic var category: String = "Unknown"
     @objc dynamic var keywords: String?
     @objc dynamic var currency: String?

@@ -10,14 +10,23 @@ import UIKit
 
 extension HomeController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchedRecordFlat = records.flatMap { $0 }.filter({$0.place!.lowercased().prefix(searchText.count) == searchText.lowercased()})
+        
+        let searchedRecordFlat = records
+            .flatMap { $0 }
+            .filter {
+                $0.place.lowercased()                              .contains(searchText.lowercased()) ||
+                $0.date.getDayExpExp().lowercased()                .contains(searchText.lowercased()) ||
+                String($0.price)                                   .contains(searchText.lowercased()) ||
+                String(Substring($0.category.rawValue)).lowercased().contains(searchText.lowercased())
+        }
+        
+        
         
         searchedRecord = ManagingRealm().unflattenRecords(flatRecords: searchedRecordFlat)
         searching = true
         tableView.reloadData()
+        
     }
-    
-    
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         
@@ -26,8 +35,8 @@ extension HomeController: UISearchBarDelegate {
             hidingRecordsAnimation()
             scrollViewIsShown.toggle()
         }
-        searching = false
         
+        searching = false
         searchBar.text = ""
         tableView.reloadData()
     }
@@ -47,7 +56,8 @@ extension HomeController: UISearchBarDelegate {
             scrollViewIsShown.toggle()
         }
         searching = false
-        
+        searchBar.text = ""
+        tableView.reloadData()
     }
 }
 

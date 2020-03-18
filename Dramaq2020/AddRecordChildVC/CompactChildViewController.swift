@@ -28,6 +28,11 @@ class CompactChildViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        view.center = parent!.view.center
+    }
+    
     @objc func draggedView(_ sender:UIPanGestureRecognizer){
         
         self.view.bringSubviewToFront(view)

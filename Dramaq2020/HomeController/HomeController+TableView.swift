@@ -29,9 +29,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         
         var datesForSections: [Date] = []
         if searching {
-            datesForSections = searchedRecord.map { $0[0].date! }
+            datesForSections = searchedRecord.map { $0[0].date }
         } else {
-            datesForSections = records.map { $0[0].date! }
+            datesForSections = records.map { $0[0].date }
         }
         
         let dateView = DateSectionView(date: datesForSections[section])
@@ -143,9 +143,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         let recordsFlattened = ManagingRealm().retrieveRecords_isDeletedIncluded().flatMap { $0 }.sorted(by: { $1.id > $0.id })
         let record = recordsFlattened[id]
         
-        viewController.priceL   .text = "\(record.price!)"
-        viewController.placeL   .text = "\(record.place!)"
-        viewController.dateL    .text = "\(record.date!.getDay()) | \(record.date!.getTime())"
+        viewController.priceL   .text = "\(record.price)"
+        viewController.placeL   .text = "\(record.place)"
+        viewController.dateL    .text = "\(record.date.getDay()) | \(record.date.getTime())"
         viewController.keywordsL.text = "\(record.keywords?.joined(separator: ";") ?? "")"
         viewController.view.backgroundColor = UIColor(named: Category(rawValue: "\(record.category)")!.rawValue)
     }
@@ -206,7 +206,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         let action = UIContextualAction(style: .normal, title: "") { (action, view, completion) in
             let id = record.id!
             
-            let childView = self.displayAddRecordChildVC(price: String(record.price!), place: String(record.place!), category: "\(record.category)", keywords: record.keywords)
+            let childView = self.displayAddRecordChildVC(price: String(record.price), place: String(record.place), category: "\(record.category)", keywords: record.keywords)
             childView.idOfEditingRecord = id
             
         }

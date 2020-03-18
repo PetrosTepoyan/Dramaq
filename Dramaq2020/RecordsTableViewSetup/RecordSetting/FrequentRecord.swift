@@ -36,8 +36,8 @@ class FrequentRecord: UIView {
     convenience init(record: Record){
         self.init()
         
-        self.price    = record.price!
-        self.place    = record.place!
+        self.price    = record.price
+        self.place    = record.place
         self.category = record.category
         
         setupFrequentView(price: record.price, place: record.place, category: record.category)
@@ -54,7 +54,7 @@ class FrequentRecord: UIView {
     }
     
     func setupFrequentView(price: Double?, place: String?, category: Category?) {
-        let record = Record(price: price, place: place, date: Date(), category: Category.Unknown, keywords: nil, currency: currency)
+        let record = Record(price: price!, place: place!, date: Date(), category: Category.Unknown, keywords: nil, currency: currency)
         let hStack = UIStackView()
         addSubview(hStack)
         
@@ -65,8 +65,8 @@ class FrequentRecord: UIView {
         let priceLabel = PTLabel()
         let placeLabel = PTLabel()
                 
-        priceLabel.text = "\(record.price ?? 0.0)"
-        placeLabel.text = "\(record.place ?? "NS")"
+        priceLabel.text = "\(record.price)"
+        placeLabel.text = "\(record.place)"
         
         hStack.addArrangedSubview(priceLabel)
         hStack.addArrangedSubview(placeLabel)
