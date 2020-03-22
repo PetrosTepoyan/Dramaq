@@ -16,6 +16,11 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         if searching {
             return searchedRecord.count
         } else {
+            guard !records.isEmpty else {
+                setupEmptyRecordsView(message: "Press 'Add a record' button above to add your first record!")
+                return records.count
+            }
+            removeEmptyRecordsView()
             return records.count
         }
     }
@@ -105,6 +110,8 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! RecordViewCell
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "showReviewViewController") as! ReviewViewController
         
@@ -112,8 +119,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         view.insertSubview(viewController.view, at: 9)
         viewController.didMove(toParent: self)
         
-        viewController.view.alpha = 0.0
-        viewController.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+//        viewController.view.alpha = 0.0
+        viewController.view.transform = CGAffineTransform(scaleX: 1, y: 0.1)
+        viewController.view.center = cell.center
         
         viewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -122,7 +130,8 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         ])
         
         let blurView = getBlurSetup()
-        
+        blurView.alpha = 0.0
+        view.insertSubview(blurView, at: 8)
         setupCancelLabel()
         cancelLabel.alpha = 0.0
         
@@ -130,14 +139,25 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             viewController.view.alpha     = 1.0
             viewController.view.transform = CGAffineTransform.identity
             self.cancelLabel.alpha        = 1.0
-            self.view.insertSubview(blurView, at: 8)
+            blurView.alpha = 1.0
             
 
         }, completion: {finish in
             
         })
         
-        let cell = tableView.cellForRow(at: indexPath) as! RecordViewCell
+//        UIView.animate(withDuration: 0.3, animations: {
+//            viewController.view.alpha     = 1.0
+//            viewController.view.transform = CGAffineTransform.identity
+//            self.cancelLabel.alpha        = 1.0
+//            blurView.alpha = 1.0
+//
+//
+//        }, completion: {finish in
+//
+//        })
+        
+        
         let recordView = cell.view.subviews[0] as! RecordView
         let id = recordView.id!
         let recordsFlattened = ManagingRealm().retrieveRecords_isDeletedIncluded().flatMap { $0 }.sorted(by: { $1.id > $0.id })
@@ -210,16 +230,18 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             childView.idOfEditingRecord = id
             
         }
-        //let image = UIImage(named: "Edit-2")
-        let image = UIImage(systemName: "trash")
+        let image = UIImage(named: "Edit-2")
         action.image = image
-        //action.backgroundColor = .white
+        action.backgroundColor = .white
         
         
         return action
     }
     
+    
+    
     func showingRecordsAnimation(){
+        let chng1: CGFloat = 100.0
         UIView.animate(
             withDuration: 0.4,
             delay: 0,
@@ -227,27 +249,25 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             initialSpringVelocity: 0.3,
             options: .curveEaseInOut,
             animations: {
-                
                 self.tableView.frame  = self.tableView.frame.offsetBy(dx: 0, dy: -270)
                 self.arrowView.center.y -= 260
                 self.arrowView.up()
-                
+                self.addARecord.center.x += 110
                 self.addARecord.center.y -= 55
-                self.analysisButton.center.y -= 80
-                self.accountButton.center.y -= 80
-                self.menuButton.center.y -= 80
+                self.analysisButton.center.y -= chng1
+                self.accountButton.center.y -= chng1
+                self.menuButton.center.y -= chng1
                 self.addRecordView.alpha = 0
                 self.searchField.center.y -= 290
                 self.searchField.center.x -= 70
-                self.addARecord.center.x += 110
-        }, completion: {finish in
-            //                    self.addRecordView.isHidden = true
-        }
-            
-        )
+                
+                
+                self.view.layoutIfNeeded()
+        }, completion: nil )
     }
     
     func hidingRecordsAnimation(){
+        let chng1: CGFloat = 100.0
         UIView.animate(
             withDuration: 0.5,
             delay: 0,
@@ -258,16 +278,17 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
                 self.tableView.frame = self.tableView.frame.offsetBy(dx: 0, dy: 270)
                 self.arrowView.center.y += 220
                 self.arrowView.down()
-                
-                //self.view.subviews[self.view.subviews.count - 2].removeFromSuperview()
+                self.addARecord.center.x -= 110
                 self.addARecord.center.y += 55
-                self.analysisButton.center.y += 80
-                self.accountButton.center.y += 80
-                self.menuButton.center.y += 80
+                self.analysisButton.center.y += chng1
+                self.accountButton.center.y += chng1
+                self.menuButton.center.y += chng1
                 self.addRecordView.alpha = 1
                 self.searchField.center.y += 290
                 self.searchField.center.x += 70
-                self.addARecord.center.x -= 110
+                
+                
+                self.view.layoutIfNeeded()
                 
         }, completion: {finish in
             self.searchField.endEditing(true)
@@ -275,11 +296,6 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             
         )
     }
-    
-    
-    
-    
-    
     
 }
 

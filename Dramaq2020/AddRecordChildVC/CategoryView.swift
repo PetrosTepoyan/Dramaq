@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Category: String {
+enum Category: String, CaseIterable {
     case Food
     case Entertainment
     case Shop
@@ -18,7 +18,8 @@ enum Category: String {
     case Medicine
     case Utilities
     case Sport
-    
+    case Religion
+    case Beauty
     
     case Unknown
 }
@@ -83,5 +84,36 @@ class CategoryView: UIView {
         
     }
     
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        
+//        super.touchesBegan(touches, with: event)
+//    }
+//    
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        UIView.animate(withDuration: 0.2,
+//                       delay: 0.0,
+//                       usingSpringWithDamping: 10,
+//                       initialSpringVelocity: 2,
+//                       options: .allowUserInteraction,
+//                       animations: {
+//                        self.transform = CGAffineTransform(scaleX: 1, y: 1)
+//                        self.transform = CGAffineTransform(rotationAngle: 0.0)
+//        },
+//                       completion: nil)
+//        super.touchesEnded(touches, with: event)
+//    }
+//    
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        UIView.animate(withDuration: 0.2,
+//                       delay: 0.0,
+//                       usingSpringWithDamping: 10,
+//                       initialSpringVelocity: 2,
+//                       options: .allowUserInteraction,
+//                       animations: {
+//                        self.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+//                        self.transform = CGAffineTransform(rotationAngle: 0.13)
+//        },
+//                       completion: nil)
+//    }
     
 }

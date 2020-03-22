@@ -17,16 +17,18 @@ class AddRecordChildVC: CompactChildViewController {
     @IBOutlet weak var priceTF: PTTextField!
     @IBOutlet weak var placeTF: PTTextField!
     @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var upperStack: UIStackView!
-    @IBOutlet weak var lowerStack: UIStackView!
     @IBOutlet weak var keywordsTF: PTTextField!
     @IBOutlet weak var keywordTableView: UITableView!
     @IBOutlet weak var nearbyPlacesTableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollableView: UIView!
+    @IBOutlet weak var categoryCollectionView: UICollectionView!
     
+    let currency = UserDefaults.standard.string(forKey: "CurrentCurrency")
     var category: Category! = Category.Unknown
+    var categoriesInCollection: [Category] = []
     var keywords: [String] = []
+
     var nearbyPlaces = [Place]() {
         didSet {
             DispatchQueue.main.async {
@@ -47,7 +49,7 @@ class AddRecordChildVC: CompactChildViewController {
     var idOfEditingRecord: Int!
     
     let recordWillBeAddedFrame = CGRect(x: -150, y: 240, width: 1000, height: 1000)
-    let recordWillBeDismissedFrame = CGRect(x: -150, y: -40, width: 1000, height: 120)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,22 +57,16 @@ class AddRecordChildVC: CompactChildViewController {
         priceTF.becomeFirstResponder()
         
         scrollView.contentSize = scrollableView.frame.size
-        upperStack.spacing = 30
-        lowerStack.spacing = 30
-        
-        setupCategoryImages()
-        
         view.clipsToBounds = true
-        
         
         setupNearbyPlacesTableView()
         setupLoc()
+        setupCategoryCollectionView()
+        
+        
+        
         
     }
-    
-    
-    
-    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -79,22 +75,18 @@ class AddRecordChildVC: CompactChildViewController {
     }
     
     @IBAction func keywordAddButtonTouchUpInside(_ sender: Any) {
-        print(keywords)
-        keywords.append(keywordsTF.text ?? "Null")
-        keywordsTF.text = ""
+        if keywordsTF.text != "" {
+            keywords.append(keywordsTF.text ?? "Null")
+            keywordsTF.text = ""
+            
+            keywordTableView.reloadData()
+        }
         
-        keywordTableView.reloadData()
         
     }
     
     @objc override func draggedView(_ sender:UIPanGestureRecognizer){
         
-        self.view.bringSubviewToFront(view)
-        let translation = sender.translation(in: self.view)
-        view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
-        sender.setTranslation(CGPoint.zero, in: self.view)
-        
-        let vCTR = view.center
         let parentHome = parent as! HomeController
         
         if sender.state == .began {         // The drag began
@@ -103,15 +95,18 @@ class AddRecordChildVC: CompactChildViewController {
             
         }
         
+        
         if sender.state == .changed {
+            super.draggedView(sender)
             let VEViews = view.subviews.filter { $0 is UIVisualEffectView }
             
-            
             if recordWillBeAddedFrame.contains(dragLabel.globalFrame!) {
+                makeHapticTouchImpact(in: recordWillBeAddedFrame)
+                
                 guard VEViews.isEmpty else { return }
                 manageBlurOnChildViewWithTheMessage(arg: 0)
                 
-            } else if recordWillBeDismissedFrame.contains(dragLabel.globalFrame!){
+            } else if super.recordWillBeDismissedFrame.contains(dragLabel.globalFrame!){
                 guard VEViews.isEmpty else { return }
                 manageBlurOnChildViewWithTheMessage(arg: 1)
                 
@@ -120,24 +115,22 @@ class AddRecordChildVC: CompactChildViewController {
                 
             }
             
-            
-            
         }
-        
         
         if sender.state == .ended {         // The drag ended
-            addTheRecord(parentHome)
-            dismissTheWindow(vCTR, parentHome)
+            let willAdd = recordWillBeAddedFrame.contains(dragLabel.globalFrame!)
             
-            viewGetBackAnimation()
-            parentHome.tableView.reloadData()
+            if willAdd {
+                addTheRecord(parentHome)
+                
+            }
+            super.draggedView(sender)
             
             let VEViews = view.subviews.filter { $0 is UIVisualEffectView }
-            guard VEViews.isEmpty else { VEViews[0].removeFromSuperview()
-                return }
-            
-            
+            guard VEViews.isEmpty else { VEViews[0].removeFromSuperview() ; return }
         }
+        
+        
     }
     
     
@@ -145,117 +138,85 @@ class AddRecordChildVC: CompactChildViewController {
 extension AddRecordChildVC {
     
     func addTheRecord(_ parentHome: HomeController) {
+
         
+        var price = priceTF.text
+        let place = placeTF.text
         
-        if recordWillBeAddedFrame.contains(dragLabel.globalFrame!) {
-            
-            removeBlurFromParentView() // <- code repeats
-            viewToDissapear()
-            parentHome.cancelLabel.removeFromSuperview()
-            
-            var price = priceTF.text
-            let place = placeTF.text
-            
-            guard idOfEditingRecord == nil else {
-                let editingRecord = realm.objects(RealmRecord.self).filter("id = \(self.idOfEditingRecord!)")[0]
-                
-                try! realm.write {
-                    editingRecord.price    = Double((price == "" ? "0.0" : price)!)!
-                    editingRecord.place    = place!
-                    editingRecord.keywords = keywords.joined(separator: ";")
-                    editingRecord.category = "\(category!)"
-                    editingRecord.currency = currency
-                    editingRecord.username = "Petros Tepoyan"
-                }
-                
-                parentHome.records = ManagingRealm().retrieveRecords()
-                
-                parentHome.tableView.reloadData()
-                
-                
-                parentHome.cancelLabel.removeFromSuperview()
-                
-                return
-            }
-            
-            
-            let id = realm.objects(RealmRecord.self).count
-            
-            let myRec = RealmRecord()
-            myRec.id       = id
-            myRec.price    = Double((price == "" ? "0.0" : price)!)!
-            myRec.place    = place!
-            myRec.keywords = keywords.joined(separator: ";")
-            myRec.date     = Date()
-            myRec.category = "\(category!)"
-            myRec.currency = currency
-            myRec.username = "Petros Tepoyan"
+        guard idOfEditingRecord == nil else {
+            let editingRecord = realm.objects(RealmRecord.self).filter("id = \(self.idOfEditingRecord!)")[0]
             
             try! realm.write {
-                realm.add(myRec)
+                editingRecord.price    = Double((price == "" ? "0.0" : price)!)!
+                editingRecord.place    = place!
+                editingRecord.keywords = keywords.joined(separator: ";")
+                editingRecord.category = "\(category!)"
+                editingRecord.currency = currency
+                editingRecord.username = "Petros Tepoyan"
             }
             
-            if price == "" {
-                price = "0.0"
-            }
-            
-            let theRecordToAdd = Record(id: id,
-                                        price: Double(price!)!,
-                                        place: place!,
-                                        date: Date(),
-                                        category: category,
-                                        keywords: keywords,
-                                        currency: currency)
-            
-            print("The record will be added", theRecordToAdd)
-            
-            guard parentHome.records.count != 0 else {
-                parentHome.records.insert( [theRecordToAdd] , at: 0 )
-                
-                return
-            }
-            
-            if parentHome.records[0][0].date.getDay() != Date().getDay(){
-                parentHome.records.insert( [theRecordToAdd] , at: 0 )
-            }
-            else {
-                parentHome.records[0].insert( theRecordToAdd, at: 0 )
-            }
-            
+            parentHome.records = ManagingRealm().retrieveRecords()
             parentHome.tableView.reloadData()
+            
+            
             parentHome.cancelLabel.removeFromSuperview()
             
-            
-            
-            
-            
+            return
         }
-    }
-    
-    fileprivate func dismissTheWindow(_ vCTR: CGPoint, _ parentHome: HomeController) {
         
-        if recordWillBeDismissedFrame.contains(dragLabel.globalFrame!) {
-            removeBlurFromParentView()
-            viewToDissapear()
-            parentHome.cancelLabel.removeFromSuperview()
-            
-            
+        
+        let id = realm.objects(RealmRecord.self).count
+        
+        let myRec = RealmRecord()
+        myRec.id       = id
+        myRec.price    = Double((price == "" ? "0.0" : price)!)!
+        myRec.place    = place!
+        myRec.keywords = keywords.joined(separator: ";")
+        myRec.date     = Date()
+        myRec.category = "\(category!)"
+        myRec.currency = currency
+        myRec.username = "Petros Tepoyan"
+        
+        try! realm.write {
+            realm.add(myRec)
         }
+        
+        if price == "" {
+            price = "0.0"
+        }
+        
+        let theRecordToAdd = Record(id: id,
+                                    price: Double(price!)!,
+                                    place: place!,
+                                    date: Date(),
+                                    category: category,
+                                    keywords: keywords,
+                                    currency: currency)
+        
+        guard parentHome.records.count != 0 else {
+            parentHome.records.insert( [theRecordToAdd] , at: 0 )
+            
+            return
+        }
+        
+        if parentHome.records[0][0].date.getDay() != Date().getDay(){
+            parentHome.records.insert( [theRecordToAdd] , at: 0 )
+        }
+        else {
+            parentHome.records[0].insert( theRecordToAdd, at: 0 )
+        }
+        
+        parentHome.tableView.reloadData()
+        dismissTheWindow(parentHome)
+        
     }
-    
-    
-    
-    
     
 }
 
 
 extension AddRecordChildVC {
     
-    func removeBlurFromParentView() {
-        let blurView = (parent as! HomeController).view.subviews.filter { $0 is UIVisualEffectView }[0]
-        blurView.removeFromSuperview()
-    }
+    
     
     func manageBlurOnChildViewWithTheMessage(arg: Int) {
         //args :
@@ -297,9 +258,7 @@ extension AddRecordChildVC {
             for i in view.subviews {
                 if i is UIVisualEffectView || i.accessibilityIdentifier == "MessageOverBlur"{
                     i.removeFromSuperview()
-                    UIView.animate(withDuration: 0.3, animations: {
-                        i.alpha = 0.0
-                    })
+                    UIView.animate( withDuration: 0.3, animations: { i.alpha = 0.0 } )
                     
                 }
             }
@@ -308,48 +267,8 @@ extension AddRecordChildVC {
         
     }
     
-    
-    func setupCategoryImages() {
-        let defaultCategoriesUpperStack = [Category.Food, Category.Entertainment, Category.Shop, Category.Transportation]
-        let defaultCategoriesLowerStack = [Category.Sport, Category.Education, Category.Medicine]
-        let defaultCategories = [defaultCategoriesUpperStack, defaultCategoriesLowerStack]
-        let stacks = [upperStack!, lowerStack! ]
-        
-        for (ind, stack) in defaultCategories.enumerated() {
-            for i in stack {
-                let categoryView = CategoryView(category: i)
-                (categoryView.subviews[0] as! UIStackView).arrangedSubviews[1].alpha = 0.0
-                stacks[ind].addArrangedSubview(categoryView)
-//                categoryView.frame.size.height = 60
-//                categoryView.frame.size.width  = 50
-                categoryView.translatesAutoresizingMaskIntoConstraints = false
-                categoryView.heightAnchor.constraint(equalToConstant: 60).isActive = true
-                categoryView.widthAnchor.constraint(equalToConstant: 50).isActive = true
-                
-                let tapGesture = UITapGestureRecognizer(target: self, action: #selector(categoryImagePressedOnTap))
-                
-                categoryView.addGestureRecognizer(tapGesture)
-            }
-            
-        }
-        
-        let hover = UIPanGestureRecognizer(target: self, action: #selector(hovering(_:)))
-        hover.delaysTouchesBegan = false
-        upperStack.addGestureRecognizer(hover)
-        
-        upperStack.center.x = priceTF.center.x
-        
-        
-    }
-    
-    @objc func categoryImagePressedOnTap(_ sender: UITapGestureRecognizer){
-        let categoryPressed = sender.view! as! CategoryView
-        
-        categoryImagePressed(on: categoryPressed)
-        
-    }
-    
     func categoryImagePressed(on categoryView: CategoryView) {
+        
         let centerOfCategoryPressedX = (categoryView.globalFrame!.maxX + categoryView.globalFrame!.minX) / 2 - 50
         let centerOfCategoryPressedY = (categoryView.globalFrame!.maxY + categoryView.globalFrame!.minY) / 2 - 110
         let center = CGPoint(x: centerOfCategoryPressedX, y: centerOfCategoryPressedY)
@@ -382,39 +301,7 @@ extension AddRecordChildVC {
         },completion: {finish in self.view.backgroundColor = color})
         
     }
-    
-    @objc func hovering(_ recognizer: UIPanGestureRecognizer) {
-        
-        let upperStack = recognizer.view! as! UIStackView
-        let categoryViews = upperStack.arrangedSubviews as! [CategoryView]
-        switch recognizer.state {
-            
-        case .changed:
-            var location = recognizer.location(in: self.view)
-            location = CGPoint(x: location.x + 10, y: location.y + 70)
-            
-            for categ in categoryViews {
-                if categ.globalFrame!.contains(location) {
-                    scaleCategoryView(category: categ, scale: 1.2, angle: 0.13, alpha: 1)
-                } else {
-                    scaleCategoryView(category: categ, scale: 1, angle: 0.0, alpha: 0)
-                }
-            }
-            
-        case .ended:
-            
-            for categ in categoryViews {
-                scaleCategoryView(category: categ, scale: 1, angle: 0.0, alpha: 0)
-                //                if categ.globalFrame!.contains(location) {
-                //                    scaleCategoryView(category: categ, scale: 1.2, angle: 0.13)
-                //                }  detect which category is hover
-            }
-            
-        default:
-            break
-        }
-        
-    }
+
     
     func scaleCategoryView(category: CategoryView, scale: CGFloat, angle: CGFloat, alpha: CGFloat) {
         UIView.animate(withDuration: 0.2, animations: {
@@ -445,5 +332,11 @@ extension AddRecordChildVC {
         nearbyPlacesTableView.alpha = 0.0
         nearbyPlacesTableView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         nearbyPlacesTableView.canCancelContentTouches = false
+    }
+    
+    func setupCategoryCollectionView(){
+        categoriesInCollection = Category.allCases
+        categoryCollectionView.backgroundColor = .clear
+        
     }
 }

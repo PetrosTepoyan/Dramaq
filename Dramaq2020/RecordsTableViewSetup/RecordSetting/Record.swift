@@ -8,7 +8,6 @@
 
 import UIKit
 
-let currency = String(UserDefaults.standard.string(forKey: "CurrentCurrency") ?? "$")
 
 struct Record {
     var id: Int!
@@ -25,6 +24,7 @@ open class RecordView: UIView {
     
     var id: Int!
     var price: Double?
+    var currency: String?
     var place: String?
     var time:  String?
     var category: Category!
@@ -34,11 +34,12 @@ open class RecordView: UIView {
     
         self.id    = record.id
         self.price = record.price
+        self.currency = record.currency
         self.place = record.place
         self.time  = record.date.getTime()
         self.category = record.category
         
-        setupRecordView(price: price, place: place, time: time, category: category)
+        setupRecordView(price: price, place: place, time: time, category: category, currency: currency)
         
         
     }
@@ -47,17 +48,18 @@ open class RecordView: UIView {
         self.init()
         
         self.price = price
+        self.currency = currency
         self.place = place
         self.time  = time
         self.category = category
         
-        setupRecordView(price: price, place: place, time: time, category: category ?? Category.Unknown)
+        setupRecordView(price: price, place: place, time: time, category: category ?? Category.Unknown, currency: currency)
         
         
     }
     
 
-    private func setupRecordView(price: Double?, place: String?, time: String?, category: Category) {
+    private func setupRecordView(price: Double?, place: String?, time: String?, category: Category, currency: String?) {
         
         
 
@@ -71,7 +73,8 @@ open class RecordView: UIView {
         let placeLabel = PTLabel()
         let timeLabel =  PTLabel()
         
-        priceLabel.text = "\((price ?? 0.0).clean)" + currency
+        priceLabel.text = "\((price ?? 0.0).clean)" + (currency ?? "$")
+
         placeLabel.text = "\(place ?? "")  "
         timeLabel.text  = time
         
@@ -79,14 +82,11 @@ open class RecordView: UIView {
         hStack.addArrangedSubview(placeLabel)
         hStack.addArrangedSubview(timeLabel)
         
+        placeLabel.minimumScaleFactor = 2
         placeLabel.numberOfLines = 2
         placeLabel.textAlignment = .right
         placeLabel.lineBreakMode = .byTruncatingTail
         
-//        placeLabel.translatesAutoresizingMaskIntoConstraints = false
-//                placeLabel.widthAnchor.constraint(equalToConstant: 110).isActive = true
-//                placeLabel.textAlignment = .right
-//                placeLabel.trailingAnchor.constraint(equalTo: timeLabel.leadingAnchor, constant: -5).isActive = true
         
         hStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

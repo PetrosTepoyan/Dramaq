@@ -6,57 +6,53 @@
 //  Copyright © 2020 Петрос Тепоян. All rights reserved.
 //
 
+
+
 import UIKit
 import Charts
 import RealmSwift
+
+struct ChartCategory {
+    var category: Category
+    var categoryColor: UIColor { UIColor(named: category.rawValue)! }
+    var sum: Double
+    
+}
 
 class AnalysisViewController: UIViewController{
     
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var magicView: UIView!
+    @IBOutlet weak var topCategoryLabel: PTLabel!
+    
     
     lazy var realm: Realm = {
         return try! Realm()
     }()
     
     var numberOfDownloadsDataEntries = [PieChartDataEntry]()
+    var category_color_sum: [ChartCategory] = [ChartCategory]()
     var category_sum: [String : Double]!
     let records = ManagingRealm().retrieveRecords()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let recordsFlat = records.flatMap { $0 }
-        let recordsTuple = recordsFlat.lazy.map { ($0.category, $0.price) }
-        var category_prices_: [String : [Double]] = [:]
-        
-        for tuple in recordsTuple{
-            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price }
-            category_prices_["\(tuple.0)"] = nestedPrices
+        let category_color_sum: [ChartCategory] = get_category_color_sum()
+        let maxSum = category_color_sum.max { (f, s) -> Bool in
+            f.sum < s.sum
         }
-        
-        category_sum = Dictionary(uniqueKeysWithValues: category_prices_.map { key, value in (key,value.reduce(0, +))}
-        )
+        topCategoryLabel.text = "\(maxSum!.category) -- \(maxSum!.sum)"
         
         
-        for i in category_sum {
-            let chart = PieChartDataEntry(value: i.value)
-            //chart.label = i.key
-            
-            numberOfDownloadsDataEntries.append(chart)
-        }
+        numberOfDownloadsDataEntries = category_color_sum.map { PieChartDataEntry(value: $0.sum, label: $0.category.rawValue) }
         
-        //        print(category_sum)
-        
-        print(Dictionary(uniqueKeysWithValues: category_sum.sorted { $1.key < $0.key } ))
-        
-        let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries, label: nil)
+        let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries)
         let chartData = PieChartData(dataSet: chartDataSet)
-        chartDataSet.colors = [NSUIColor(named: "Shop")!, NSUIColor(named: "Food")!, NSUIColor(named: "Entertainment")!, NSUIColor(named: "Unknown")!]
+        chartDataSet.colors = category_color_sum.map { $0.categoryColor }
         let sum = CountingUtilities().summation()
         pieChart.data = chartData
-//        pieChart.centerText = "Total \(sum)"
+        
         pieChart.centerAttributedText = NSAttributedString(string: "Total \(sum)", attributes: [NSAttributedString.Key.font : UIFont(name: Fonts.avenirNextMedium, size: 15)!])
         pieChart.animate(xAxisDuration: 0.3, yAxisDuration: 1, easingOption: .easeInOutCirc)
         
@@ -66,7 +62,7 @@ class AnalysisViewController: UIViewController{
         super.viewDidAppear(true)
         
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(named: "Shop")!.cgColor, UIColor(named: "Food")!.cgColor, UIColor(named: "Entertainment")!.cgColor, UIColor(named: "Unknown")!.cgColor]
+        gradientLayer.colors = category_color_sum.map { $0.categoryColor }
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 1, y: 1)
         
@@ -85,14 +81,26 @@ class AnalysisViewController: UIViewController{
         magicView.layer.cornerRadius = 30
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-
-        
-        
-    }
     
+    func get_category_color_sum() ->  [ChartCategory]{
+        let recordsFlat = records.flatMap { $0 }
+        let recordsTuple = recordsFlat.lazy.map { ($0.category, $0.price) }
+        var category_prices_: [String : [Double]] = [:]
+        
+        for tuple in recordsTuple{
+            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price }
+            category_prices_["\(tuple.0)"] = nestedPrices
+        }
+        
+        category_sum = Dictionary(uniqueKeysWithValues: category_prices_.map { key, value in (key,value.reduce(0, +))})
+        
+        category_color_sum = category_sum.map {
+            ChartCategory(category: Category(rawValue: $0.key)!, sum: $0.value)
+        }
+        
+        return category_color_sum.sorted(by: { $0.category.rawValue < $1.category.rawValue })
+    }
+
     
     
     

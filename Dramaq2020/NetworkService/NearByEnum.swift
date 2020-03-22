@@ -24,8 +24,10 @@ enum NearByTypes : String {
     case car_wash
     case casino
     case cemetery
+    case food
     case church
     case city_hall
+    case tourist_attraction
     case clothing_store
     case convenience_store
     case courthouse

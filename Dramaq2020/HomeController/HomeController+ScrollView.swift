@@ -32,10 +32,8 @@ extension HomeController: UIScrollViewDelegate {
                 
             }
             
-            
-            
         } else {
-            let cntr = CGFloat(377.5)
+            let cntr = searchField.center.y + 85
             arrowView.center.y = cntr
             
             if dy >= 40 {

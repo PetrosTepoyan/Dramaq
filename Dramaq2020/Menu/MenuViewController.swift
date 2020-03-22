@@ -10,45 +10,19 @@ import UIKit
 
 class MenuViewController: UITableViewController{
     
-    let currencyPicker = UIPickerView()
-    let currencyPickerData = ["£", "$"]
-    let rows = ["Currency"]
+    @IBOutlet weak var currencyPicker: UIPickerView!
+    let currencyPickerData = ["$ - USD", "€ - EUR", "£ - GBP", "₽ - RUB", "֏ - AMD"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        currencyPicker.delegate   = self
-        currencyPicker.dataSource = self
-        
     }
-
+    
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return rows.count
-    }
-
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuViewCell
-//        
-//        cell.view.addSubview(currencyPicker)
-//        return cell
-//    }
-    
-    
 }
 
 extension MenuViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
@@ -62,4 +36,10 @@ extension MenuViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return currencyPickerData[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let pickerCurrency = String(Array(currencyPickerData[row])[0])
+        UserDefaults.standard.set(pickerCurrency, forKey: "CurrentCurrency")
+    }
+    
 }

@@ -62,10 +62,32 @@ class PTButton: UIButton {
                 
         })
     }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.2,
+                       delay: 0.0,
+                       usingSpringWithDamping: 10,
+                       initialSpringVelocity: 2,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.transform = CGAffineTransform(scaleX: 0.92, y: 0.92)
+        },
+                       completion: nil)
+        super.touchesBegan(touches, with: event)
+    }
     
-    var categoryCollection = [Category]()
-    var categoryButtonCollection = [PTButton]()
-    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.2,
+                       delay: 0.0,
+                       usingSpringWithDamping: 10,
+                       initialSpringVelocity: 2,
+                       options: .allowUserInteraction,
+                       animations: {
+                        self.transform = CGAffineTransform(scaleX: 1, y: 1)
+        },
+                       completion: nil)
+        super.touchesEnded(touches, with: event)
+    }
 
     
 }

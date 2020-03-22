@@ -23,7 +23,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var searchField: UISearchBar!
 
     
-    var records: [[Record]] = []
+    var records = [[Record]]()
     var scrollViewIsShown: Bool = false
     let arrowView = Arrow()
     let cancelLabel = PTLabel()
@@ -42,12 +42,12 @@ class HomeController: UIViewController {
         return try! Realm()
     }()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         records = ManagingRealm().retrieveRecords()
-        
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+    
         tableView.showsVerticalScrollIndicator = false
         searchField.delegate = self
         setupAddRecordView()
@@ -55,29 +55,27 @@ class HomeController: UIViewController {
         setupArrow()
         makeAnalysisButtonBeautiful()
         hideKeyboardWhenTouching()
-        
-        UserDefaults.standard.set("֏", forKey: "CurrentCurrency")
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
-    
-        searchField.backgroundColor = .clear
-        searchField.showsScopeBar = false
-        searchField.barStyle = .default
-        searchField.searchBarStyle = .minimal
-        
+        setupSearchField()
         
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+        for i in view.subviews{
+            i.translatesAutoresizingMaskIntoConstraints = true
+        }
+    }
     @IBAction func addARecordTouchUpInside(_ sender: Any) {
         
-        var price: String? = nil
-        var place: String? = nil
-        var category: String? = nil
+        var price: String?      = nil
+        var place: String?      = nil
+        var category: String?   = nil
         var keywords: [String]? = nil
         
         if let frequentRecordTemp = (sender as? UITapGestureRecognizer)?.view{
             let frequentRecord = frequentRecordTemp as! FrequentRecord
-            price = String(frequentRecord.price!)
-            place = String(frequentRecord.place!)
+            price    = String(frequentRecord.price!)
+            place    = String(frequentRecord.place!)
             category = frequentRecord.category.map { $0.rawValue }
             
             // change FrequentRecord -> properties only are price place id
@@ -97,29 +95,31 @@ extension HomeController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "showAddRecordView") as! AddRecordChildVC
         
-        self.addChild(viewController)
-        self.view.addSubview(viewController.view)
-        view.insertSubview(viewController.view, at: 9)
-        viewController.didMove(toParent: self)
+        add(viewController)
         
         viewController.view.alpha = 0.0
-        viewController.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.9)
+        viewController.view.transform = CGAffineTransform(scaleX: 0.8, y: 0.2)
+        viewController.view.center = self.addARecord.center
         
         let blurView = getBlurSetup()
-        
+        blurView.alpha = 0.0
+        view.insertSubview(blurView, at: 8)
         setupCancelLabel()
         cancelLabel.alpha = 0.0
+        UIView.animate(withDuration: 0.6,
+                       delay: 0.0,
+                       usingSpringWithDamping: 0.9,
+                       initialSpringVelocity: 10,
+                       options: .curveEaseInOut,
+                       animations: {
+                        viewController.view.alpha     = 1.0
+                        viewController.view.transform = CGAffineTransform.identity
+                        self.cancelLabel.alpha        = 1.0
+                        blurView.alpha = 1.0
+                        viewController.view.center.y += 300
+        }, completion: nil)
         
-        UIView.animate(withDuration: 0.3, animations: {
-            viewController.view.alpha     = 1.0
-            viewController.view.transform = CGAffineTransform.identity
-            self.cancelLabel.alpha        = 1.0
-            self.view.insertSubview(blurView, at: 8)
-            
-
-        }, completion: {finish in
-            
-        })
+        
         
         viewController.priceTF.text = price
         viewController.placeTF.text = place
@@ -133,16 +133,12 @@ extension HomeController {
         return viewController
     }
     
-//    func add(_ child: UIViewController, frame: CGRect? = nil) {
-//        addChild(child)
-//        
-//        if let frame = frame {
-//            child.view.frame = frame
-//        }
-//        
-//        view.addSubview(child.view)
-//        child.didMove(toParent: self)
-//    }
+    func add(_ child: UIViewController, frame: CGRect? = nil) {
+        self.addChild(child)
+        self.view.addSubview(child.view)
+        view.insertSubview(child.view, at: 9)
+        child.didMove(toParent: self)
+    }
     
     func getBlurSetup(style: UIBlurEffect.Style? = nil) -> UIVisualEffectView{
         
@@ -185,11 +181,22 @@ extension HomeController {
         tapGesture.cancelsTouchesInView = false
     }
     
+    func setupSearchField() {
+        searchField.backgroundColor = .clear
+        searchField.showsScopeBar = false
+        searchField.barStyle = .default
+        searchField.searchBarStyle = .minimal
+    }
+    
     func setupArrow() {
         view.addSubview(arrowView)
         arrowView.center = addRecordView.center
-        arrowView.center.y += 170
+        arrowView.center.y = tableView.frame.offsetBy(dx: 0, dy: 40).minY
         arrowView.down()
+        arrowView.isHidden = true
+        print(tableView.frame.maxY)
+        print(arrowView.center.y - searchField.center.y)
+
     }
     
     func setupFrequentRecords(){

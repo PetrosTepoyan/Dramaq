@@ -21,21 +21,21 @@ class PTTextField: UITextField {
     }
     
     
-    private func setUpField() {
+    private func setUpField(size: Int? = nil) {
         borderStyle           = .none
         layer.cornerRadius    = frame.size.height/2
         
         tintColor             = Colors.darkGrey
         textColor             = Colors.darkGrey
-        font                  = UIFont(name: Fonts.avenirNextMedium, size: 16)
+        font                  = UIFont(name: Fonts.avenirNextMedium, size: (CGFloat(size ?? 20)))
         backgroundColor       = UIColor.white.withAlphaComponent(0.7)
         autocorrectionType    = .no
         clipsToBounds         = true
         
         let placeholder       = self.placeholder != nil ? self.placeholder! : ""
-        let placeholderFont   = UIFont(name: Fonts.avenirNextMedium, size: 16)!
+        let placeholderFont   = UIFont(name: Fonts.avenirNextMedium, size: (CGFloat(size ?? 20)))!
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes:
-            [NSAttributedString.Key.foregroundColor: Colors.darkGrey,
+            [NSAttributedString.Key.foregroundColor: UIColor(named: "Mercury")!,
              NSAttributedString.Key.font: placeholderFont])
         
         let indentView        = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 20))

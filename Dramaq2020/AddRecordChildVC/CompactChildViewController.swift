@@ -13,6 +13,8 @@ class CompactChildViewController: UIViewController {
     @IBOutlet weak var dragLabel: UILabel!
     var viewCenter: CGPoint!
     
+    let recordWillBeDismissedFrame = CGRect(x: -150, y: -40, width: 1000, height: 120)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,39 +42,40 @@ class CompactChildViewController: UIViewController {
         view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
         sender.setTranslation(CGPoint.zero, in: self.view)
         
-        let vCTR = view.center
-        let parentHome = parent as! HomeController
         
         if sender.state == .changed {       // The drag changed
-            makeHapticTouchImpact(vCTR)
+            makeHapticTouchImpact(in: recordWillBeDismissedFrame)
+            
         }
         
         if sender.state == .ended {         // The drag ended
-            viewGetBackAnimation()
-            dismissTheWindow(vCTR, parentHome)
+
+            let willDism = recordWillBeDismissedFrame.contains(dragLabel.globalFrame!)
             
-            parentHome.tableView.reloadData()
+            if willDism {
+                dismissTheWindow(parent as! HomeController)
+                
+            } else {
+                viewGetBackAnimation()
+                
+            }
         }
+        
     }
     
-    fileprivate func makeHapticTouchImpact(_ vCTR: CGPoint) {
-        if (vCTR.x > -160) && (vCTR.x < 480) && (vCTR.y > 398.5) && (vCTR.y < 850){
+    func makeHapticTouchImpact(in rect: CGRect) {
+        if rect.contains(dragLabel.globalFrame!){
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred(intensity: 0.3)
             
         }
     }
-    fileprivate func dismissTheWindow(_ vCTR: CGPoint, _ parentHome: HomeController) {
-        if (vCTR.x > -140) && (vCTR.x < 460) && (vCTR.y > 0) && (vCTR.y <= 270){
-            
-            viewToDissapear()
-            parentHome.cancelLabel.removeFromSuperview()
-            let blurViews = parentHome.view.subviews.filter { $0 is UIVisualEffectView }
-            if !blurViews.isEmpty {
-                blurViews[0].removeFromSuperview()
-            }
-            
-        }
+    
+    func dismissTheWindow(_ parentHome: HomeController) {
+        viewToDissapear()
+        removeBlurFromParentView()
+        parentHome.cancelLabel.removeFromSuperview()
+        
     }
     
     func setupPanGesture(){
@@ -90,8 +93,12 @@ class CompactChildViewController: UIViewController {
             
         ])
         
-        
-        
+    }
+    
+    func removeBlurFromParentView() {
+        let blurView = (parent as! HomeController).view.subviews.filter { $0 is UIVisualEffectView }
+        guard !blurView.isEmpty else { return }
+        blurView[0].removeFromSuperview()
     }
     
     func hideKeyboardWhenTouching(){
@@ -126,12 +133,10 @@ class CompactChildViewController: UIViewController {
             options: .curveEaseInOut,
             animations: {
                 
-                self.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.2)
-                self.view.center.y = 500
+                //self.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.2)
+                //self.view.center.y = 500
                 self.view.alpha = 0.0
-        }, completion: {finish in
-        }
-        )
+        }, completion: nil)
     }
     
     func setupDragLabel(){

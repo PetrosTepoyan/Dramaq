@@ -53,10 +53,8 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
                 let place = nearbyPlaces[indexPath.row]
                 cell.textLabel?.text = place.name
                 cell.detailTextLabel?.text = place.vicinity
-                print(place.types)
+                print(place.name, place.types, extractCategoryFromPlaceResponse(place: place))
                 cell.category = extractCategoryFromPlaceResponse(place: place)
-                // check // create a class for the cell and add category as property extractCategoryFromPlaceResponse(place: Place)
-                
                 
             }
             
@@ -91,10 +89,27 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
         placeTF.endEditing(true)
         category = cell.category
         
-        let arrSubviews = (upperStack.arrangedSubviews + lowerStack.arrangedSubviews) as! [CategoryView]
-        let relatedCategory = arrSubviews.filter { $0.categoryIdentifier == category }
-        guard !relatedCategory.isEmpty else { return }
-        categoryImagePressed(on: relatedCategory[0])
+
+        var categoryViews = [CategoryView]()
+        for i in 0...categoryCollectionView.numberOfItems(inSection: 0)-1 {
+            
+            if let item = categoryCollectionView!.dataSource?.collectionView(self.categoryCollectionView, cellForItemAt: IndexPath(row: i, section: 0)) as? CategoryCollectionViewCell {
+                print(item)
+                item.center.y += categoryCollectionView.center.y
+                
+                let neededCategoryView = item.view.subviews[0] as! CategoryView
+                categoryViews.append(neededCategoryView)
+                
+            }
+        }
+        
+        
+        categoryViews = categoryViews.filter { $0.categoryIdentifier == category }
+        
+        
+        guard !categoryViews.isEmpty else { return }
+        
+        categoryImagePressed(on: categoryViews[0])
     }
     
 }

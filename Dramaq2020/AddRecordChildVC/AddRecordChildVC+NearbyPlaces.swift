@@ -12,7 +12,6 @@ import UIKit
 extension AddRecordChildVC {
     @IBAction func placeTextFieldEditingDidBegin(_ sender: Any) {
         
-        scrollableView.sendSubviewToBack(lowerStack)
         scrollView.isScrollEnabled = false
         
         UIView.animate(withDuration: 0.1, animations: {
@@ -78,7 +77,8 @@ extension AddRecordChildVC {
                  .furniture_store
                 : categoryToRetern = Category.Shop
                 
-            case .travel_agency
+            case .travel_agency,
+                 .tourist_attraction
                 : categoryToRetern = Category.Traveling
                 
             case .transit_station,
@@ -115,7 +115,8 @@ extension AddRecordChildVC {
                  .library
                 : categoryToRetern = Category.Education
                 
-            case .restaurant,
+            case .food,
+                 .restaurant,
                  .meal_delivery,
                  .meal_takeaway,
                  .bakery,
@@ -127,11 +128,11 @@ extension AddRecordChildVC {
             
             case .beauty_salon,
                  .spa
-                : print("Beauty") ; categoryToRetern = .Unknown
+                : categoryToRetern = Category.Beauty
                 
             case .mosque,
                  .synagogue
-                : print("Religion") ; categoryToRetern = .Unknown
+                : categoryToRetern = Category.Religion
                 
             default: categoryToRetern = Category.Unknown
             }

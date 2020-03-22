@@ -11,6 +11,7 @@ import UIKit
 extension HomeController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
+        guard searchText != "" else { return }
         let searchedRecordFlat = records
             .flatMap { $0 }
             .filter {
@@ -26,6 +27,29 @@ extension HomeController: UISearchBarDelegate {
         searching = true
         tableView.reloadData()
         
+        if searchedRecord.isEmpty {
+            setupEmptyRecordsView(message: "No records with the given parameters(")
+        } else {
+            removeEmptyRecordsView()
+        }
+        
+        
+    }
+    
+    func setupEmptyRecordsView(message: String){
+        let emptySearch = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 300))
+        let label = PTLabel(fontSize: 25)
+        label.text = message
+        label.numberOfLines = 6
+        label.frame = emptySearch.frame
+        emptySearch.addSubview(label)
+        tableView.addSubview(emptySearch)
+    }
+    
+    func removeEmptyRecordsView() {
+        for i in tableView.subviews {
+            i.removeFromSuperview()
+        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -58,6 +82,8 @@ extension HomeController: UISearchBarDelegate {
         searching = false
         searchBar.text = ""
         tableView.reloadData()
+        removeEmptyRecordsView()
     }
+    
 }
 

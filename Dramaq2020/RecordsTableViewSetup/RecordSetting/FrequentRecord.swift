@@ -54,7 +54,12 @@ class FrequentRecord: UIView {
     }
     
     func setupFrequentView(price: Double?, place: String?, category: Category?) {
-        let record = Record(price: price!, place: place!, date: Date(), category: Category.Unknown, keywords: nil, currency: currency)
+        let record = Record(price: price!,
+                            place: place!,
+                            date: Date(),
+                            category: Category.Unknown,
+                            keywords: nil,
+                            currency: UserDefaults.standard.string(forKey: "CurrentCurrency"))
         let hStack = UIStackView()
         addSubview(hStack)
         
