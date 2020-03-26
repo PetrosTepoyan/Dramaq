@@ -28,7 +28,7 @@ class HomeController: UIViewController {
     let arrowView = Arrow()
     let cancelLabel = PTLabel()
     
-    var searchedRecord = [[Record]]()
+    var searchedRecords = [[Record]]()
     var searching = false
     
     var locationManager:CLLocationManager!
@@ -56,6 +56,12 @@ class HomeController: UIViewController {
         makeAnalysisButtonBeautiful()
         hideKeyboardWhenTouching()
         setupSearchField()
+        
+        if records.isEmpty {
+            searchField.isUserInteractionEnabled = false
+        } else {
+            searchField.isUserInteractionEnabled = true
+        }
         
     }
 

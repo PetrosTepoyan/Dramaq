@@ -14,7 +14,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {   // Number of Secions
         if searching {
-            return searchedRecord.count
+            return searchedRecords.count
         } else {
             guard !records.isEmpty else {
                 setupEmptyRecordsView(message: "Press 'Add a record' button above to add your first record!")
@@ -34,7 +34,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         
         var datesForSections: [Date] = []
         if searching {
-            datesForSections = searchedRecord.map { $0[0].date }
+            datesForSections = searchedRecords.map { $0[0].date }
         } else {
             datesForSections = records.map { $0[0].date }
         }
@@ -52,8 +52,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         
         guard records.count > 0 else { return 0 }
         
+        
         if searching {
-            return searchedRecord[section].count
+            return searchedRecords[section].count
         } else {
             return records[section].count
         }
@@ -70,9 +71,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var record: Record 
-        
+        print(searching)
         if searching {
-            record = searchedRecord[indexPath.section][indexPath.row]
+            record = searchedRecords[indexPath.section][indexPath.row]
         } else {
             record = records[indexPath.section][indexPath.row]
         }

@@ -24,6 +24,7 @@ class AnalysisViewController: UIViewController{
     @IBOutlet weak var pieChart: PieChartView!
     @IBOutlet weak var magicView: UIView!
     @IBOutlet weak var topCategoryLabel: PTLabel!
+    @IBOutlet weak var lowerCategoryLabel: PTLabel!
     
     
     lazy var realm: Realm = {
@@ -38,18 +39,33 @@ class AnalysisViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let category_color_sum: [ChartCategory] = get_category_color_sum()
+        guard !category_color_sum.isEmpty else { return }
+        
         let maxSum = category_color_sum.max { (f, s) -> Bool in
             f.sum < s.sum
         }
-        topCategoryLabel.text = "\(maxSum!.category) -- \(maxSum!.sum)"
+        let minSum = category_color_sum.min { (f, s)
+            -> Bool in
+            f.sum > s.sum
+        }
         
+        topCategoryLabel.text = "On \(maxSum!.category.rawValue.lowercased()) you have spent \(maxSum!.sum)"
+        topCategoryLabel.adjustsFontSizeToFitWidth = true
+        lowerCategoryLabel.text = "On \(minSum!.category.rawValue.lowercased()) you have spent \(minSum!.sum)"
+        lowerCategoryLabel.adjustsFontSizeToFitWidth = true
+        
+        if maxSum?.category == minSum?.category {
+            lowerCategoryLabel.text = ""
+        }
         
         numberOfDownloadsDataEntries = category_color_sum.map { PieChartDataEntry(value: $0.sum, label: $0.category.rawValue) }
         
         let chartDataSet = PieChartDataSet(entries: numberOfDownloadsDataEntries)
         let chartData = PieChartData(dataSet: chartDataSet)
         chartDataSet.colors = category_color_sum.map { $0.categoryColor }
+        
         let sum = CountingUtilities().summation()
         pieChart.data = chartData
         
@@ -98,7 +114,7 @@ class AnalysisViewController: UIViewController{
             ChartCategory(category: Category(rawValue: $0.key)!, sum: $0.value)
         }
         
-        return category_color_sum.sorted(by: { $0.category.rawValue < $1.category.rawValue })
+        return category_color_sum.sorted(by: { $0.category.rawValue < $1.category.rawValue }).filter { $0.sum > 0 }
     }
 
     

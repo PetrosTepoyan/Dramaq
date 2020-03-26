@@ -27,10 +27,10 @@ extension AddRecordChildVC: CLLocationManagerDelegate{
         latitude = userLocation.coordinate.latitude
         longitude = userLocation.coordinate.longitude
 
-        locationManager.stopUpdatingLocation()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("Location Managing \(error)")
+        print("Location Managing Error \(error)")
     }
 }

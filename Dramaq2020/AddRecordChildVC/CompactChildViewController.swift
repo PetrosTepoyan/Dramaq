@@ -13,7 +13,7 @@ class CompactChildViewController: UIViewController {
     @IBOutlet weak var dragLabel: UILabel!
     var viewCenter: CGPoint!
     
-    let recordWillBeDismissedFrame = CGRect(x: -150, y: -40, width: 1000, height: 120)
+    let recordWillBeDismissedFrame = CGRect(x: -150, y: -40, width: 1000, height: 160)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,9 +132,6 @@ class CompactChildViewController: UIViewController {
             initialSpringVelocity: 0.3,
             options: .curveEaseInOut,
             animations: {
-                
-                //self.view.transform = CGAffineTransform(scaleX: 0.9, y: 0.2)
-                //self.view.center.y = 500
                 self.view.alpha = 0.0
         }, completion: nil)
     }

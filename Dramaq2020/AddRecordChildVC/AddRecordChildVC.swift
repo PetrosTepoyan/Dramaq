@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Alamofire
 import CoreLocation
+import AVFoundation
 
 class AddRecordChildVC: CompactChildViewController {
     
@@ -18,11 +19,13 @@ class AddRecordChildVC: CompactChildViewController {
     @IBOutlet weak var placeTF: PTTextField!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var keywordsTF: PTTextField!
-    @IBOutlet weak var keywordTableView: UITableView!
+    @IBOutlet weak var keywordsCollectionView: UICollectionView!
     @IBOutlet weak var nearbyPlacesTableView: UITableView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollableView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
+    @IBOutlet weak var currencyLabel: UILabel!
+    
     
     let currency = UserDefaults.standard.string(forKey: "CurrentCurrency")
     var category: Category! = Category.Unknown
@@ -43,30 +46,31 @@ class AddRecordChildVC: CompactChildViewController {
     }()
     
     var locationManager:CLLocationManager!
-    var latitude: Double! = 40.193391
-    var longitude: Double! = 44.503770
+    var latitude: Double!
+    var longitude: Double!
     
     var idOfEditingRecord: Int!
     
     let recordWillBeAddedFrame = CGRect(x: -150, y: 240, width: 1000, height: 1000)
-    
+    var soundPlayer: AVAudioPlayer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         priceTF.delegate = self
         priceTF.becomeFirstResponder()
-        
+        view.center.x = (parent as! HomeController).view.center.x
         scrollView.contentSize = scrollableView.frame.size
         view.clipsToBounds = true
         
+        
+        setupCurrecnyLabel()
         setupNearbyPlacesTableView()
         setupLoc()
         setupCategoryCollectionView()
         
-        
-        
-        
     }
+
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
@@ -78,8 +82,7 @@ class AddRecordChildVC: CompactChildViewController {
         if keywordsTF.text != "" {
             keywords.append(keywordsTF.text ?? "Null")
             keywordsTF.text = ""
-            
-            keywordTableView.reloadData()
+            keywordsCollectionView.reloadData()
         }
         
         
@@ -193,13 +196,11 @@ extension AddRecordChildVC {
                                     keywords: keywords,
                                     currency: currency)
         
-        guard parentHome.records.count != 0 else {
-            parentHome.records.insert( [theRecordToAdd] , at: 0 )
-            
-            return
-        }
         
-        if parentHome.records[0][0].date.getDay() != Date().getDay(){
+        if parentHome.records.isEmpty {
+            parentHome.records.insert( [theRecordToAdd] , at: 0 )
+        }
+        else if parentHome.records[0][0].date.getDay() != Date().getDay(){
             parentHome.records.insert( [theRecordToAdd] , at: 0 )
         }
         else {
@@ -208,6 +209,8 @@ extension AddRecordChildVC {
         
         parentHome.tableView.reloadData()
         dismissTheWindow(parentHome)
+        
+        playSound(sound: .recordWasAdded)
         
     }
     
@@ -258,7 +261,7 @@ extension AddRecordChildVC {
             for i in view.subviews {
                 if i is UIVisualEffectView || i.accessibilityIdentifier == "MessageOverBlur"{
                     i.removeFromSuperview()
-                    UIView.animate( withDuration: 0.3, animations: { i.alpha = 0.0 } )
+                    UIView.animate(withDuration: 0.3, animations: { i.alpha = 0.0 })
                     
                 }
             }
@@ -328,7 +331,7 @@ extension AddRecordChildVC: UITextFieldDelegate {
 extension AddRecordChildVC {
     func setupNearbyPlacesTableView() {
         nearbyPlacesTableView.clipsToBounds = true
-        nearbyPlacesTableView.layer.cornerRadius = 30
+        nearbyPlacesTableView.layer.cornerRadius = 20
         nearbyPlacesTableView.alpha = 0.0
         nearbyPlacesTableView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
         nearbyPlacesTableView.canCancelContentTouches = false
@@ -338,5 +341,32 @@ extension AddRecordChildVC {
         categoriesInCollection = Category.allCases
         categoryCollectionView.backgroundColor = .clear
         
+    }
+    
+    func setupCurrecnyLabel() {
+        currencyLabel.text = String(Array(currency ?? "$")[0])
+        currencyLabel.clipsToBounds = true
+        currencyLabel.layer.cornerRadius = currencyLabel.frame.height / 2
+        currencyLabel.layer.borderColor = UIColor.black.cgColor
+        currencyLabel.layer.borderWidth = 1
+    }
+    
+}
+
+extension AddRecordChildVC {
+    func playSound(sound: Sounds) {
+        guard let soundsAreTurnedOn = UserDefaults.standard.value(forKey: "SoundsAreTurnedOn") else { return }
+        guard soundsAreTurnedOn as! Bool else { return }
+        guard let path = Bundle.main.path(forResource: sound.rawValue, ofType: nil) else { return }
+        
+        let url = URL(fileURLWithPath: path)
+        
+        do {
+            
+            soundPlayer = try AVAudioPlayer(contentsOf: url)
+            soundPlayer?.play()
+        } catch {
+            print("Sound not found")
+        }
     }
 }

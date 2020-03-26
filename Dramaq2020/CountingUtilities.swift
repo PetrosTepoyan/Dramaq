@@ -11,10 +11,14 @@ import UIKit
 
 class CountingUtilities {
     
-    func summation(from date1: Date? = nil, upto date2: Date? = nil) -> Double{
+    func summation(from date1: Date? = nil, upto date2: Date? = nil, exchanged currency: CurrencyExchange? = nil) -> Double{
+
+        
+        
+        
         if let date1 = date1, let date2 = date2 {
-            let prices2 = ManagingRealm().retrieveRecords().flatMap { $0 }.filter {$0.date > date1 && $0.date < date2 }.map { $0.price }
-            return Array(Set(prices2)).reduce(0, +)
+            let prices = ManagingRealm().retrieveRecords().flatMap { $0 }.filter {$0.date > date1 && $0.date < date2 }.map { $0.price }
+            return Array(Set(prices)).reduce(0, +)
             
         } else {
             let prices = ManagingRealm().retrievePrices()
@@ -23,6 +27,10 @@ class CountingUtilities {
         }
         
         
+    }
+    
+    func beingPricesToBase(currency: Currency) {
+        currency.rates
     }
 
     

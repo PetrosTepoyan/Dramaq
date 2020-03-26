@@ -18,9 +18,26 @@ class RealmRecord: Object {
     @objc dynamic var category: String = "Unknown"
     @objc dynamic var keywords: String?
     @objc dynamic var currency: String?
-    @objc dynamic var username: String?
+//    @objc dynamic var user: RealmUser?
+    @objc dynamic var username: String = "Petros Tepoyan"
     
+    override class func primaryKey() -> String? {
+        return "id"
+    }
     
     
 }
+
+//class Keywords: Object {
+//    @objc dynamic var keyword: String = ""
+//    let keywords = List<keyword>()
+//}
+
+//class RealmUser: Object {
+//    @objc dynamic var name: String = ""
+//    @objc dynamic var surname: String = ""
+//
+//}
+
+
 

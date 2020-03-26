@@ -9,6 +9,8 @@
 import Foundation
 import Alamofire
 
+#warning("Change the code below: add SwiftyJSON, so that each call of the main function with a type would return an array of objects of that type")
+
 class NetworkService {
     let apiKey    = "AIzaSyBcnrDUZCOMinmvHcDunigw_J9aifHzK0Y"
     fileprivate var url = ""
@@ -63,6 +65,40 @@ struct Place: Decodable {
         case vicinity = "vicinity"
         case types = "types"
     }
+}
+
+class CurrencyExchange {
+    var base: String? = "USD"
+    let url: String!
+    
+    
+    init(base: String) {
+        self.base = base
+        url = "https://api.exchangeratesapi.io/latest?base=\(base)"
+    }
+    
+    
+    func getCurrencies(completionHandler: @escaping (_ currencies: Currency) -> Void){
+        AF.request(self.url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil, interceptor: nil).response {
+            (responseData) in
+            guard let data = responseData.data else { return }
+            do {
+                let response = try JSONDecoder().decode(Currency.self, from: data)
+                print(response)
+                completionHandler(response)
+            }
+            catch {
+                print("No")
+            }
+        }
+    }
+    
+    
+}
+
+struct Currency: Codable {
+    let rates: [String: Double]
+    let base, date: String
 }
 
 

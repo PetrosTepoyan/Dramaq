@@ -14,8 +14,8 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
         
         switch tableView {
             
-        case keywordTableView:
-            return keywords.count
+//        case keywordTableView:
+//            return keywords.count
             
         default:
             if nearbyPlaces.isEmpty {
@@ -29,21 +29,21 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if tableView == keywordTableView {
-            let cell = keywordTableView.dequeueReusableCell(withIdentifier: "KeywordViewCell", for: indexPath) as! KeywordViewCell
-            
-            let label = PTKeywordsLabel()
-            
-            label.text = keywords[indexPath.row]
-            cell.setKeywordView(keyword: label)
-        
-            cell.clipsToBounds = true
-            cell.contentView.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            cell.backgroundColor = .clear
-            
-            return cell
-        } else {
+//        if tableView == keywordTableView {
+//            let cell = keywordTableView.dequeueReusableCell(withIdentifier: "KeywordViewCell", for: indexPath) as! KeywordViewCell
+//
+//            let label = PTKeywordsLabel()
+//
+//            label.text = keywords[indexPath.row]
+//            cell.setKeywordView(keyword: label)
+//
+//            cell.clipsToBounds = true
+//            cell.contentView.backgroundColor = UIColor.clear
+//            cell.layer.backgroundColor = UIColor.clear.cgColor
+//            cell.backgroundColor = .clear
+//
+//            return cell
+//        } else {
             
             
             
@@ -66,7 +66,7 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
             cell.backgroundColor = .clear
             
             return cell
-        }
+//        }
         
         
     }

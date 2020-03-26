@@ -63,6 +63,8 @@ class ManagingRealm {
         return records
     }
     
+    
+    
     func unflattenRecords(flatRecords: [Record]) -> [[Record]]{
         var recordsFlattened = flatRecords
         var multiRecords: [[Record]] = []
@@ -80,6 +82,13 @@ class ManagingRealm {
     func retrievePrices() -> [Double] {
         let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
         return realmRecords.map { $0.price }
+    }
+    
+    func retrievePricesWithCurrency() -> [(Double, String)] {
+        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
+        let tuples = realmRecords.map { ($0.price, $0.currency) }
+//        return tuples.map { ($0.0, String(Array($0.1!)[4...6])) }
+        return [(1, "No")]
     }
     
     func retrieveTimes() -> [String] {

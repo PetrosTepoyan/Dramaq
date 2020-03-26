@@ -73,7 +73,7 @@ open class RecordView: UIView {
         let placeLabel = PTLabel()
         let timeLabel =  PTLabel()
         
-        priceLabel.text = "\((price ?? 0.0).clean)" + (currency ?? "$")
+        priceLabel.text = "\((price ?? 0.0).clean)" + (String(Array(currency ?? "$")[0]))
 
         placeLabel.text = "\(place ?? "")  "
         timeLabel.text  = time

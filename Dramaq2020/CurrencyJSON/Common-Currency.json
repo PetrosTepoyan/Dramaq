@@ -56,7 +56,7 @@
 	"AMD": {
 		"symbol": "AMD",
 		"name": "Armenian Dram",
-		"symbol_native": "դր.",
+		"symbol_native": "֏",
 		"decimal_digits": 0,
 		"rounding": 0,
 		"code": "AMD",
@@ -173,7 +173,7 @@
 	"BYN": {
 		"symbol": "Br",
 		"name": "Belarusian Ruble",
-		"symbol_native": "руб.",
+		"symbol_native": "₽",
 		"decimal_digits": 2,
 		"rounding": 0,
 		"code": "BYN",
@@ -830,7 +830,7 @@
 	"RUB": {
 		"symbol": "RUB",
 		"name": "Russian Ruble",
-		"symbol_native": "₽.",
+		"symbol_native": "₽",
 		"decimal_digits": 2,
 		"rounding": 0,
 		"code": "RUB",

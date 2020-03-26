@@ -10,46 +10,40 @@ import UIKit
 
 extension HomeController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        let searchTextModif = searchText.trimmingCharacters(in: .whitespaces)
         
-        guard searchText != "" else { return }
-        let searchedRecordFlat = records
+        let searchedRecordsFlat = records
             .flatMap { $0 }
             .filter {
-                $0.place.lowercased()                              .contains(searchText.lowercased()) ||
-                $0.date.getDayExpExp().lowercased()                .contains(searchText.lowercased()) ||
-                String($0.price)                                   .contains(searchText.lowercased()) ||
-                String(Substring($0.category.rawValue)).lowercased().contains(searchText.lowercased())
+                $0.place.lowercased()                              .contains(searchTextModif.lowercased()) ||
+                $0.date.getDayExpExp().lowercased()                .contains(searchTextModif.lowercased()) ||
+                String($0.price)                                   .contains(searchTextModif.lowercased()) ||
+                String(Substring($0.category.rawValue)).lowercased().contains(searchTextModif.lowercased())
         }
         
         
         
-        searchedRecord = ManagingRealm().unflattenRecords(flatRecords: searchedRecordFlat)
-        searching = true
+        searchedRecords = ManagingRealm().unflattenRecords(flatRecords: searchedRecordsFlat)
+        print(searchedRecords)
+//        searching = true
+//        
+//        if searchTextModif.count == 0 {
+//            searching = false
+//        }
+        searching = searchTextModif.count != 0
         tableView.reloadData()
         
-        if searchedRecord.isEmpty {
+        
+        
+        if searchedRecords.isEmpty && searchTextModif.count > 0 {
             setupEmptyRecordsView(message: "No records with the given parameters(")
         } else {
             removeEmptyRecordsView()
         }
         
         
-    }
-    
-    func setupEmptyRecordsView(message: String){
-        let emptySearch = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 300))
-        let label = PTLabel(fontSize: 25)
-        label.text = message
-        label.numberOfLines = 6
-        label.frame = emptySearch.frame
-        emptySearch.addSubview(label)
-        tableView.addSubview(emptySearch)
-    }
-    
-    func removeEmptyRecordsView() {
-        for i in tableView.subviews {
-            i.removeFromSuperview()
-        }
+        
+        
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -66,6 +60,10 @@ extension HomeController: UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        
+        guard !records.isEmpty else { searchBar.isUserInteractionEnabled = false ; return }
+        searchBar.isUserInteractionEnabled = true
+        
         if !scrollViewIsShown {
             showingRecordsAnimation()
             scrollViewIsShown.toggle()
@@ -85,5 +83,29 @@ extension HomeController: UISearchBarDelegate {
         removeEmptyRecordsView()
     }
     
+    func setupEmptyRecordsView(message: String){
+        let emptySearch = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 300))
+        let label = PTLabel(fontSize: 25)
+        label.text = message
+        label.numberOfLines = 6
+        label.frame = emptySearch.frame
+        emptySearch.addSubview(label)
+        tableView.addSubview(emptySearch)
+    }
+    
+    func removeEmptyRecordsView() {
+        for i in tableView.subviews {
+            i.removeFromSuperview()
+        }
+    }
+    
 }
 
+
+//extension UITableView {
+//    func reloadDataWithUpdateToSearchBar(isSearchBarEnabled: Bool) {
+//        self.reloadData()
+//        searchBar.isUserInteractionEnabled = isSearchBarEnabled
+//    }
+//    
+//}

@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.0.2)
+  - AUPickerCell (1.0.2.0)
   - Charts (3.4.0):
     - Charts/Core (= 3.4.0)
   - Charts/Core (3.4.0)
@@ -11,22 +12,26 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AUPickerCell
   - Charts
+  - Realm
   - RealmSwift
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AUPickerCell
     - Charts
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
   Alamofire: 3ba7a4db18b4f62c4a1c0e1cb39d7f3d52e10ada
+  AUPickerCell: b6f788d62f449014204776ff6fdc841aebbc352f
   Charts: 74c9f256eaf0460c0c416522d1cf8c634ea6b286
   Realm: 5e92902e2875dff4bb0fd02f67bb737c3d5db2bc
   RealmSwift: 9a360fc7bae04fc2e308a34fbd899d5faa2d6b22
 
-PODFILE CHECKSUM: 1c1aa85073fd0654b5143a361b98e11f7ac79211
+PODFILE CHECKSUM: 41efb08b7f78ad5759e8d1cd8723fce20ea2ef55
 
-COCOAPODS: 1.9.0.beta.2
+COCOAPODS: 1.9.1

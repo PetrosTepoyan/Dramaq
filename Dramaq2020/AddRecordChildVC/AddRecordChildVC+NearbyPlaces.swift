@@ -35,7 +35,7 @@ extension AddRecordChildVC {
     
     func retrieveNearbyPlaces() {
         let apiKey    = "AIzaSyBcnrDUZCOMinmvHcDunigw_J9aifHzK0Y"
-        
+        print(latitude!, longitude!)
         let service = NetworkService(url: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude!),\(longitude!)&type=establishment&rankby=distance&key=\(apiKey)")
         
         service.getPlaces()
