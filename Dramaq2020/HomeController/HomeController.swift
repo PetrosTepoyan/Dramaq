@@ -13,22 +13,28 @@ import CoreLocation
 
 class HomeController: UIViewController {
     
+    @IBOutlet weak var incomeButton: PTButton!
     @IBOutlet weak var addARecord: PTButton!
     @IBOutlet weak var menuButton: MenuButton!
     @IBOutlet weak var analysisButton: PTButton!
     @IBOutlet weak var accountButton: MenuButton!
     @IBOutlet weak var addRecordView: UIView!
     @IBOutlet weak var frequentStack: UIStackView!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: EntriesTableVIew!
     @IBOutlet weak var searchField: UISearchBar!
-
+    @IBOutlet weak var balanceLabel: PTLabel!
     
-    var records = [[Record]]()
+    
+    
+    var incomes: [[Income]] = []
+    var records: [[Record]] = []
+    
+    var entries: [[Entry]] = []
     var scrollViewIsShown: Bool = false
     let arrowView = Arrow()
     let cancelLabel = PTLabel()
     
-    var searchedRecords = [[Record]]()
+    var searchedEntries = [[Entry]]()
     var searching = false
     
     var locationManager:CLLocationManager!
@@ -45,9 +51,18 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //
+        incomes = ManagingRealm().retrieveIncomes()
         records = ManagingRealm().retrieveRecords()
+        constructEntries(records: records, incomes: incomes)
+        //
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
     
+        
+        
+        
+        
         tableView.showsVerticalScrollIndicator = false
         searchField.delegate = self
         setupAddRecordView()
@@ -56,6 +71,7 @@ class HomeController: UIViewController {
         makeAnalysisButtonBeautiful()
         hideKeyboardWhenTouching()
         setupSearchField()
+        reloadBalance()
         
         if records.isEmpty {
             searchField.isUserInteractionEnabled = false
@@ -71,12 +87,13 @@ class HomeController: UIViewController {
             i.translatesAutoresizingMaskIntoConstraints = true
         }
     }
+    
     @IBAction func addARecordTouchUpInside(_ sender: Any) {
         
         var price: String?      = nil
         var place: String?      = nil
         var category: String?   = nil
-        var keywords: [String]? = nil
+        let keywords: [String]? = nil
         
         if let frequentRecordTemp = (sender as? UITapGestureRecognizer)?.view{
             let frequentRecord = frequentRecordTemp as! FrequentRecord
@@ -91,15 +108,70 @@ class HomeController: UIViewController {
         
     }
     
+    @IBAction func incomeButtonTouchUpInside(_ sender: Any) {
+        let price: String?      = nil
+        let source: String?      = nil
+        
+        _ = displayAddIncomeChildVC(price: price, source: source)
+    }
     
     
 }
 
+
 extension HomeController {
     
-    @objc func displayAddRecordChildVC(price: String? = nil, place: String? = nil, category: String? = nil, keywords: [String]? = nil) -> AddRecordChildVC{
+    func reloadBalance() {
+        let bc = Balance().moneyLeftToSpendTillTheEndOfTheMonth()
+        balanceLabel.text = "\(bc) left for today"
+    }
+    
+    
+    func constructEntries(records: [[Record]], incomes: [[Income]]){
+        let entries_: [[Entry]] = records + incomes
+        let entriesFlat = entries_.flatMap { $0.compactMap { $0 } }.sorted(by: { $0.date > $1.date })
+        
+        entries = ManageEntries.unflatten(entries: entriesFlat)
+        // unflats flats twice!!!
+    }
+    
+    func displayAddRecordChildVC(price: String? = nil, place: String? = nil, category: String? = nil, keywords: [String]? = nil) -> AddRecordChildVC{
+        
+        let viewController = prepareAddEntryChildVC(for: AddRecordChildVC())
+    
+        viewController.priceTF.text = price
+        viewController.placeTF.text = place
+        viewController.category = Category(rawValue: category ?? "Unknown")
+        
+        if let keywords = keywords {
+            viewController.keywords = keywords
+        }
+        
+        
+        return viewController
+    }
+    
+    func displayAddIncomeChildVC(price: String? = nil, source: String? = nil) -> AddIncomeChildVC{
+        
+        let viewController = prepareAddEntryChildVC(for: AddIncomeChildVC())
+    
+        viewController.priceTF.text = price
+        viewController.placeTF.text = source
+        
+        return viewController
+    }
+    
+    func prepareAddEntryChildVC<T : UIViewController>(for vc: T) -> T {
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "showAddRecordView") as! AddRecordChildVC
+        var viewController: UIViewController
+        
+        if vc is AddRecordChildVC{
+            viewController = storyboard.instantiateViewController(withIdentifier: "AddRecordChildVC") as! AddRecordChildVC
+        } else {
+            viewController = storyboard.instantiateViewController(withIdentifier: "AddIncomeChildVC") as! AddIncomeChildVC
+        }
+        
         
         add(viewController)
         
@@ -126,17 +198,8 @@ extension HomeController {
         }, completion: nil)
         
         
+        return viewController as! T
         
-        viewController.priceTF.text = price
-        viewController.placeTF.text = place
-        viewController.category = Category(rawValue: category ?? "Unknown")
-        
-        if let keywords = keywords {
-            viewController.keywords = keywords
-        }
-        
-        
-        return viewController
     }
     
     func add(_ child: UIViewController, frame: CGRect? = nil) {
@@ -200,8 +263,6 @@ extension HomeController {
         arrowView.center.y = tableView.frame.offsetBy(dx: 0, dy: 40).minY
         arrowView.down()
         arrowView.isHidden = true
-        print(tableView.frame.maxY)
-        print(arrowView.center.y - searchField.center.y)
 
     }
     

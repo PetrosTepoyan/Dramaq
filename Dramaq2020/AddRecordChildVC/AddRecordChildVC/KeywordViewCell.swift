@@ -20,8 +20,6 @@ class KeywordViewCell: UITableViewCell {
         }
         
         view.addSubview(keyword)
-        keyword.frame = CGRect(x: 5, y: 5, width: 100, height: 30)
-        keyword.center.x = view.center.x
         
         
     }
@@ -30,5 +28,18 @@ class KeywordViewCell: UITableViewCell {
         super.prepareForReuse()
         self.isHidden = true
     }
+    
+//    override func awakeFromNib() {
+//        super.awakeFromNib()
+//
+//        contentView.translatesAutoresizingMaskIntoConstraints = false
+//
+//        NSLayoutConstraint.activate([
+//            contentView.leftAnchor.constraint(equalTo: leftAnchor),
+//            contentView.rightAnchor.constraint(equalTo: rightAnchor),
+//            contentView.topAnchor.constraint(equalTo: topAnchor),
+//            contentView.bottomAnchor.constraint(equalTo: bottomAnchor)
+//        ])
+//    }
     
 }

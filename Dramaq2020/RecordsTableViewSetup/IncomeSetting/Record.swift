@@ -9,44 +9,24 @@
 import UIKit
 
 
-struct Record: Entry {
-    
+struct Record {
     var id: Int!
-    var price: Double?
-    var place: String!
-    var date: Date!
-    var category: Category!
+    var price: Double
+    var place: String
+    var date: Date
+    var category: Category
     var keywords: [String]?
     var currency: String?
-    
-//    init(id: Int,
-//         price: Double,
-//         place: String,
-//         date: Date,
-//         category: Category,
-//         keywords: [String]?,
-//         currency: String?) {
-//        
-//        self.id = id
-//        self.price = price
-//        self.place = place
-//        self.date = date
-//        self.category = category
-//        self.keywords = keywords
-//        self.currency = currency
-//    }
-    
-    
 }
 
 
-open class RecordView: UIView, EntryView {
+open class RecordView: UIView {
     
     var id: Int!
     var price: Double?
     var currency: String?
     var place: String?
-    var time:  String!
+    var time:  String?
     var category: Category!
     
     convenience init(record: Record){

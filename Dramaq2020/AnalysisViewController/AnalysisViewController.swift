@@ -99,14 +99,14 @@ class AnalysisViewController: UIViewController{
     
     
     func get_category_color_sum() ->  [ChartCategory]{
-        let recordsFlat = records.flatMap { $0 }
+        let recordsFlat = records.flatMap { $0 } 
         let recordsTuple = recordsFlat.lazy.map { ($0.category, $0.price) }
         var category_prices_: [String : [Double]] = [:]
         
-        for tuple in recordsTuple{
-            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price }
-            category_prices_["\(tuple.0)"] = nestedPrices
-        }
+//        for tuple in recordsTuple{
+//            let nestedPrices = recordsFlat.filter { $0.category == tuple.0}.map { $0.price }
+//            category_prices_["\(tuple.0)"] = nestedPrices
+//        }
         
         category_sum = Dictionary(uniqueKeysWithValues: category_prices_.map { key, value in (key,value.reduce(0, +))})
         

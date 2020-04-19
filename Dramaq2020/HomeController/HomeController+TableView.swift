@@ -9,19 +9,26 @@
 import UIKit
 import CoreData
 
-#warning("Turn seaching to terniary operator")
+
+//extension UITableView {
+//    override func reloadData(){
+//        
+//    }
+//}
+
+
 extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {   // Number of Secions
         if searching {
-            return searchedRecords.count
+            return searchedEntries.count
         } else {
-            guard !records.isEmpty else {
+            guard !entries.isEmpty else {
                 setupEmptyRecordsView(message: "Press 'Add a record' button above to add your first record!")
-                return records.count
+                return entries.count
             }
             removeEmptyRecordsView()
-            return records.count
+            return entries.count
         }
     }
     
@@ -34,9 +41,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         
         var datesForSections: [Date] = []
         if searching {
-            datesForSections = searchedRecords.map { $0[0].date }
+            datesForSections = searchedEntries.map { $0[0].date }
         } else {
-            datesForSections = records.map { $0[0].date }
+            datesForSections = entries.map { $0[0].date }
         }
         
         let dateView = DateSectionView(date: datesForSections[section])
@@ -50,13 +57,13 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // Number of Rows in Section
         
-        guard records.count > 0 else { return 0 }
+        guard entries.count > 0 else { return 0 }
         
         
         if searching {
-            return searchedRecords[section].count
+            return searchedEntries[section].count
         } else {
-            return records[section].count
+            return entries[section].count
         }
         
         
@@ -70,19 +77,31 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var record: Record 
-        print(searching)
-        if searching {
-            record = searchedRecords[indexPath.section][indexPath.row]
+        
+        
+        let entry = searching ? searchedEntries[indexPath.section][indexPath.row] : entries[indexPath.section][indexPath.row]
+    
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordViewCell", for: indexPath) as! RecordViewCell
+        var view: EntryView
+        
+        if entry is Record {
+            view = RecordView(record: entry as! Record)
         } else {
-            record = records[indexPath.section][indexPath.row]
+            view = IncomeView(income: entry as! Income)
         }
         
-        let view = RecordView(record: record)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RecordViewCell", for: indexPath) as! RecordViewCell
-        cell.setRecordView(record: view)
+        cell.setEntryView(entry: view)
         
-        
+//        if let entry = entry as? Record {
+//            view = RecordView(record: entry)
+//            cell.setRecordView(record: view as! RecordView)
+//
+//        } else {
+//            view = IncomeView(income: entry as! Income)
+//            cell.setIncomeView(income: view as! IncomeView)
+//
+//        }
         
         cell.clipsToBounds = true
         cell.contentView.backgroundColor = UIColor.clear
@@ -111,7 +130,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! RecordViewCell
+        guard let cell = tableView.cellForRow(at: indexPath) as? RecordViewCell else { return }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "showReviewViewController") as! ReviewViewController
@@ -159,8 +178,8 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
 //        })
         
         
-        let recordView = cell.view.subviews[0] as! RecordView
-        let id = recordView.id!
+        let recordView = cell.view.subviews[0] as? RecordView
+        guard let id = recordView?.id! else { return }
         let recordsFlattened = ManagingRealm().retrieveRecords_isDeletedIncluded().flatMap { $0 }.sorted(by: { $1.id > $0.id })
         let record = recordsFlattened[id]
         
@@ -168,16 +187,15 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         viewController.placeL   .text = "\(record.place)"
         viewController.dateL    .text = "\(record.date.getDay()) | \(record.date.getTime())"
         viewController.keywordsL.text = "\(record.keywords?.joined(separator: ";") ?? "")"
-        viewController.view.backgroundColor = UIColor(named: Category(rawValue: "\(record.category)")!.rawValue)
+        viewController.viewCenter = cell.center
+        viewController.view.backgroundColor = UIColor(named: Category(rawValue: "\(record.category!)")!.rawValue)
     }
     
     
     
     
     
-    func tableView(_ tableView: UITableView,
-      trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
-      ->   UISwipeActionsConfiguration? {
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = deleteAction(at: indexPath)
         delete.backgroundColor = .white
         
@@ -192,19 +210,22 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-        let record = records[indexPath.section][indexPath.row]
         
-        let action = UIContextualAction(style: .destructive, title: "") { (action, view, completion) in
-            let id = record.id!
+        let entry = entries[indexPath.section][indexPath.row]
+        
+        let action = UIContextualAction(style: .destructive, title: "") { (action, actionView, completion) in
+            let id = entry.id!
             
-            try! self.realm.write {
-                self.realm.objects(RealmRecord.self)[id].isDeleted = true
+            if entry is Record {
+                try! self.realm.write { self.realm.objects(RealmRecord.self)[id].isDeleted = true }
+//                self.records = records.filter { $0.filter { $0.id != id } }
+            } else if entry is Income {
+                try! self.realm.write { self.realm.objects(RealmIncome.self)[id].isDeleted = true }
             }
             
-            self.records[indexPath.section].remove(at: indexPath.row)
-            
-            if self.records[indexPath.section].isEmpty {
-                self.records.remove(at: indexPath.section)
+            self.entries[indexPath.section].remove(at: indexPath.row)
+            if self.entries[indexPath.section].isEmpty {
+                self.entries.remove(at: indexPath.section)
             }
             
             UIView.transition(with: self.tableView,
@@ -212,6 +233,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             options: [.curveEaseInOut, .transitionCrossDissolve],
             animations: { self.tableView.reloadData() })
             completion(true)
+            
+            actionView.backgroundColor = .red
+            print(actionView)
         }
         let image = UIImage(named: "Trash 2-2")
         action.image = image
@@ -222,14 +246,17 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func editAction(at indexPath: IndexPath) -> UIContextualAction {
-        let record = records[indexPath.section][indexPath.row]
+        let entry = entries[indexPath.section][indexPath.row]
         
         let action = UIContextualAction(style: .normal, title: "") { (action, view, completion) in
-            let id = record.id!
-            
-            let childView = self.displayAddRecordChildVC(price: String(record.price), place: String(record.place), category: "\(record.category)", keywords: record.keywords)
-            childView.idOfEditingRecord = id
-            
+            let id = entry.id!
+            if let entry = entry as? Record {
+                let childView = self.displayAddRecordChildVC(price: String(entry.price ?? 0.0), place: String(entry.place), category: "\(entry.category)", keywords: entry.keywords)
+                childView.idOfEditingRecord = id
+            } else if let entry = entry as? Income{
+                let childView = self.displayAddIncomeChildVC(price: String(entry.price ?? 0.0), source: String(entry.source ?? ""))
+                childView.idOfEditingRecord = id
+            }
         }
         let image = UIImage(named: "Edit-2")
         action.image = image
@@ -239,7 +266,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         return action
     }
     
-    
+    // MARK: - Non-related functions
     
     func showingRecordsAnimation(){
         let chng1: CGFloat = 100.0
@@ -255,6 +282,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
                 self.arrowView.up()
                 self.addARecord.center.x += 110
                 self.addARecord.center.y -= 55
+                self.incomeButton.center.y -= chng1
                 self.analysisButton.center.y -= chng1
                 self.accountButton.center.y -= chng1
                 self.menuButton.center.y -= chng1
@@ -281,6 +309,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
                 self.arrowView.down()
                 self.addARecord.center.x -= 110
                 self.addARecord.center.y += 55
+                self.incomeButton.center.y += chng1
                 self.analysisButton.center.y += chng1
                 self.accountButton.center.y += chng1
                 self.menuButton.center.y += chng1

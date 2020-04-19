@@ -44,24 +44,7 @@ class ManagingRealm {
         return records
     }
     
-    func retrieveRecords() -> [[Record]] {
-        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
-
-        
-        let recordsFlattened = realmRecords.map { Record(id: $0.id,
-                                                         price: $0.price,
-                                                         place: $0.place,
-                                                         date: $0.date,
-                                                         category: Category(rawValue: $0.category)!,
-                                                         keywords: $0.keywords?.components(separatedBy: ";"),
-                                                         currency: $0.currency)
-            
-        }
-
-        records = unflattenRecords(flatRecords: recordsFlattened)
-        
-        return records
-    }
+    
     
     
     
@@ -96,4 +79,49 @@ class ManagingRealm {
         return realmRecords.map { ($0.date.getTime()) }
     }
     
+    
+    var entries: [[Entry]] = []
+    
+    func retrieveRecords_flat() -> [Record] {
+        let realmRecords = realm.objects(RealmRecord.self).filter{$0.isDeleted == false }.sorted(by: { $0.date > $1.date})
+        
+        
+        return realmRecords.map { Record(id: $0.id,
+                                                         price: $0.price,
+                                                         place: $0.place,
+                                                         date: $0.date,
+                                                         category: Category(rawValue: $0.category)!,
+                                                         keywords: $0.keywords?.components(separatedBy: ";"),
+                                                         currency: $0.currency)
+            
+        }
+        
+    }
+    
+    func retrieveRecords() -> [[Record]] {
+
+        return unflattenRecords(flatRecords: retrieveRecords_flat())
+    }
+    
+    
+    
+    func retrieveIncomes_flat() -> [Income] {
+        let realmIncomes = realm.objects(RealmIncome.self).sorted(by: { $0.date > $1.date}).filter{ $0.isDeleted == false }
+        
+        return realmIncomes.map { Income(id: $0.id,
+                                         price: $0.price,
+                                         date: $0.date, source: $0.source,
+                                         currency: $0.currency)
+            
+        }
+    }
+    
+    func retrieveIncomes() -> [[Income]] {
+        
+        return ManageEntries.unflatten(entries: retrieveIncomes_flat()) as! [[Income]]
+    }
+    
+    
+    
+    // add retrieveEntries (as AnyObject)
 }

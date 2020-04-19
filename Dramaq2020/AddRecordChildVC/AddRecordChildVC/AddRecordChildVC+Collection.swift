@@ -33,26 +33,34 @@ extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource
             cell.view.addSubview(categoryView)
             return cell
         } else {
-            let cell = keywordsCollectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath)
+            let cell = keywordsCollectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCollectionViewCell
             let keyword = keywords[indexPath.row]
-            let keywordLabel = PTKeywordsLabel(text: keyword)
-            cell.contentView.addSubview(keywordLabel)
-            cell.isHidden = false
-            cell.backgroundColor = .black
-            print(cell)
-            print(cell.subviews)
+            cell.keyword.text = keyword
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
-        let categoryView = item.view.subviews[0]  as! CategoryView
-        categoryImagePressed(on: categoryView)
+        if collectionView == categoryCollectionView {
+            let item = collectionView.cellForItem(at: indexPath) as! CategoryCollectionViewCell
+            let categoryView = item.view.subviews[0]  as! CategoryView
+            categoryImagePressed(on: categoryView)
+        }
+       
         
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 30
     }
     
     
     
+    
+    
+    
+}
+
+extension AddRecordChildVC: UICollectionViewDelegateFlowLayout {
     
 }

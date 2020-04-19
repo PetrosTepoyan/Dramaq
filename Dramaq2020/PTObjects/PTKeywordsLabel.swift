@@ -26,6 +26,7 @@ class PTKeywordsLabel: UILabel {
         font = UIFont(name: Fonts.avenirNextMedium, size: 20)
         self.sizeToFit()
         
+        
     }
     
 //    override init(frame: CGRect) {

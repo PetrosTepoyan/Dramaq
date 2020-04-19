@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -38,7 +38,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <segue destination="QDt-f4-rnJ" kind="showDetail" id="XZe-OD-D8M"/>
+                                    <segue destination="dMw-NM-vov" kind="showDetail" id="JVo-8d-gMp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Top category is unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-Q4-g2I" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
@@ -287,12 +287,12 @@
                                             <constraint firstAttribute="height" constant="142" id="3oa-3R-miB"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Suggestions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-7C-oxQ">
-                                        <rect key="frame" x="102" y="59" width="97" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-7C-oxQ" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
+                                        <rect key="frame" x="20" y="59" width="262" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Z47-0g-8Eh"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -302,10 +302,10 @@
                                     <constraint firstAttribute="bottom" secondItem="aAi-Zx-Klk" secondAttribute="bottom" constant="8" id="4Co-VW-kor"/>
                                     <constraint firstAttribute="height" constant="241" id="UZ0-fn-cS9"/>
                                     <constraint firstItem="aAi-Zx-Klk" firstAttribute="leading" secondItem="Zgc-4F-jMo" secondAttribute="leading" constant="10" id="cvK-gc-KCo"/>
+                                    <constraint firstItem="dM9-7C-oxQ" firstAttribute="leading" secondItem="Zgc-4F-jMo" secondAttribute="leading" constant="20" id="dsD-Ew-yR9"/>
                                     <constraint firstAttribute="trailing" secondItem="aAi-Zx-Klk" secondAttribute="trailing" constant="11" id="ec9-En-tVv"/>
                                     <constraint firstItem="aAi-Zx-Klk" firstAttribute="top" secondItem="dM9-7C-oxQ" secondAttribute="bottom" constant="8" id="mx0-6W-o7f"/>
-                                    <constraint firstAttribute="trailing" secondItem="dM9-7C-oxQ" secondAttribute="trailing" constant="102" id="vpL-y9-mvV"/>
-                                    <constraint firstItem="dM9-7C-oxQ" firstAttribute="leading" secondItem="Zgc-4F-jMo" secondAttribute="leading" constant="102" id="w0D-9t-ogu"/>
+                                    <constraint firstAttribute="trailing" secondItem="dM9-7C-oxQ" secondAttribute="trailing" constant="19" id="nrU-Jq-MNg"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3X-Q9-mV5" customClass="MenuButton" customModule="Dramaq2020">
@@ -353,7 +353,7 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQu-gi-x6q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQu-gi-x6q" customClass="EntriesTableVIew" customModule="Dramaq2020" customModuleProvider="target">
                                 <rect key="frame" x="9" y="391" width="358" height="549"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -376,6 +376,21 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ujl-Gl-YWc"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4l-ou-hfx" customClass="PTButton" customModule="Dramaq2020">
+                                <rect key="frame" x="74" y="20" width="107" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="1ma-7c-dUy"/>
+                                    <constraint firstAttribute="height" constant="49" id="Uw4-KV-i5b"/>
+                                    <constraint firstAttribute="width" constant="107" id="mBi-y3-Nhp"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="107" id="whY-Hp-nwN"/>
+                                </constraints>
+                                <state key="normal" title="Income">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="incomeButtonTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qSX-DN-1tg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -386,6 +401,7 @@
                             <constraint firstItem="Y3X-Q9-mV5" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="7mi-rS-y6G"/>
                             <constraint firstItem="G4K-1z-G2T" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="83" id="WF1-qN-Wnj"/>
                             <constraint firstItem="Ox0-MF-kIa" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="X6k-rw-Pad"/>
+                            <constraint firstItem="V4l-ou-hfx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="YJU-BK-0Wn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="utM-Pk-2et" secondAttribute="trailing" constant="74" id="awq-7p-aTU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="akq-hB-xoE" secondAttribute="trailing" constant="81" id="cZw-xd-lWb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G4K-1z-G2T" secondAttribute="trailing" constant="119" id="epm-4y-8s7"/>
@@ -393,6 +409,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zgc-4F-jMo" secondAttribute="trailing" constant="37" id="kIQ-v5-y2r"/>
                             <constraint firstItem="G4K-1z-G2T" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="mbb-wX-Ovn"/>
                             <constraint firstItem="Zgc-4F-jMo" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="nFj-AX-htR"/>
+                            <constraint firstItem="V4l-ou-hfx" firstAttribute="leading" secondItem="Ox0-MF-kIa" secondAttribute="trailing" constant="8" id="nJo-yU-9Ig"/>
                             <constraint firstItem="akq-hB-xoE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="nYL-MY-wqu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -402,7 +419,9 @@
                         <outlet property="addARecord" destination="G4K-1z-G2T" id="oG2-a1-8Vh"/>
                         <outlet property="addRecordView" destination="Zgc-4F-jMo" id="Swi-H0-WAX"/>
                         <outlet property="analysisButton" destination="utM-Pk-2et" id="DEg-vD-Rf8"/>
+                        <outlet property="balanceLabel" destination="dM9-7C-oxQ" id="Ukz-DK-H74"/>
                         <outlet property="frequentStack" destination="aAi-Zx-Klk" id="Jhx-pX-4Uh"/>
+                        <outlet property="incomeButton" destination="V4l-ou-hfx" id="8mP-ws-BDR"/>
                         <outlet property="menuButton" destination="Ox0-MF-kIa" id="g38-1e-K1V"/>
                         <outlet property="searchField" destination="akq-hB-xoE" id="jJH-8N-iKZ"/>
                         <outlet property="tableView" destination="IQu-gi-x6q" id="dtW-Mc-gGY"/>
@@ -410,17 +429,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015" y="526"/>
+            <point key="canvasLocation" x="1013.6" y="525.78710644677665"/>
         </scene>
         <!--Add Record ChildVC-->
         <scene sceneID="CIw-io-h1O">
             <objects>
-                <viewController storyboardIdentifier="showAddRecordView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y6Q-qo-crG" customClass="AddRecordChildVC" customModule="Dramaq2020" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecordChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y6Q-qo-crG" customClass="AddRecordChildVC" customModule="Dramaq2020" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bk2-B4-OST">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LoH-Xp-FXA">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="LoH-Xp-FXA">
                                 <rect key="frame" x="0.0" y="56" width="318" height="432"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -481,19 +500,19 @@
                                                 </connections>
                                             </collectionView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5bc-aM-vXO">
-                                                <rect key="frame" x="68" y="126" width="180" height="160"/>
+                                                <rect key="frame" x="42" y="126" width="235" height="160"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
                                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearbyPlaceCell" textLabel="ZPT-QW-sCH" detailTextLabel="6fb-ZX-iGS" style="IBUITableViewCellStyleSubtitle" id="shM-Rm-wK7" customClass="NearbyViewCell" customModule="Dramaq2020" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="28" width="180" height="56"/>
+                                                        <rect key="frame" x="0.0" y="28" width="235" height="55.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="shM-Rm-wK7" id="KHm-Ip-TEO">
-                                                            <rect key="frame" x="0.0" y="0.0" width="180" height="56"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="235" height="55.5"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZPT-QW-sCH">
-                                                                    <rect key="frame" x="15" y="9" width="61" height="20.5"/>
+                                                                    <rect key="frame" x="15" y="10" width="61" height="20.5"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -542,20 +561,38 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z8B-EF-dVy">
-                                                    <size key="itemSize" width="84" height="22"/>
+                                                    <size key="itemSize" width="84" height="30"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCell" id="weS-jT-Eif">
-                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="22"/>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCell" id="weS-jT-Eif" customClass="KeywordCollectionViewCell" customModule="Dramaq2020" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xz0-DL-BI7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG8-52-hnb" customClass="PTKeywordsLabel" customModule="Dramaq2020" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="jG8-52-hnb" firstAttribute="top" secondItem="Xz0-DL-BI7" secondAttribute="top" id="3va-9z-XVK"/>
+                                                                <constraint firstAttribute="trailing" secondItem="jG8-52-hnb" secondAttribute="trailing" id="OqX-tq-nnM"/>
+                                                                <constraint firstAttribute="bottom" secondItem="jG8-52-hnb" secondAttribute="bottom" id="Tao-6G-6j5"/>
+                                                                <constraint firstItem="jG8-52-hnb" firstAttribute="leading" secondItem="Xz0-DL-BI7" secondAttribute="leading" id="U7u-JS-CPS"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
-                                                        <size key="customSize" width="84" height="22"/>
+                                                        <size key="customSize" width="84" height="30"/>
+                                                        <connections>
+                                                            <outlet property="keyword" destination="jG8-52-hnb" id="xH5-np-sJa"/>
+                                                            <outlet property="view" destination="Xz0-DL-BI7" id="GKq-PQ-k9e"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                                 <connections>
@@ -589,20 +626,21 @@
                     <connections>
                         <outlet property="categoryCollectionView" destination="iaT-1f-kP1" id="XMc-VQ-Wuz"/>
                         <outlet property="categoryLabel" destination="5II-K0-UTz" id="xez-W8-gPS"/>
+                        <outlet property="collectionLayout" destination="z8B-EF-dVy" id="d96-na-YMS"/>
                         <outlet property="currencyLabel" destination="wI6-km-mnh" id="91g-n2-zRh"/>
                         <outlet property="dragLabel" destination="zfd-KS-NdU" id="AGq-Ew-4pf"/>
                         <outlet property="keywordsCollectionView" destination="2d9-oV-cgm" id="RZL-ib-UyS"/>
                         <outlet property="keywordsTF" destination="Pfm-qs-c1n" id="ahg-lH-Jqa"/>
                         <outlet property="nearbyPlacesTableView" destination="5bc-aM-vXO" id="h6f-Zc-eRK"/>
-                        <outlet property="placeTF" destination="mQ4-SB-CU5" id="b27-25-T5z"/>
-                        <outlet property="priceTF" destination="Eq1-f0-jLA" id="TSS-g5-qHp"/>
+                        <outlet property="placeTF" destination="mQ4-SB-CU5" id="XE4-06-fBv"/>
+                        <outlet property="priceTF" destination="Eq1-f0-jLA" id="tAe-ei-TNa"/>
                         <outlet property="scrollView" destination="LoH-Xp-FXA" id="iCu-Is-cB1"/>
                         <outlet property="scrollableView" destination="9iT-hD-wk0" id="gx2-oy-vC7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DiJ-X6-Pbl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-766.39999999999998" y="568.51574212893559"/>
+            <point key="canvasLocation" x="-2008" y="1265.6671664167918"/>
         </scene>
         <!--Compact Child View Controller-->
         <scene sceneID="kb6-fz-12A">
@@ -630,7 +668,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dvw-zs-R72" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-451" y="72"/>
+            <point key="canvasLocation" x="-2325" y="158"/>
         </scene>
         <!--Review View Controller-->
         <scene sceneID="R8L-1y-NfB">
@@ -735,7 +773,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jfE-OU-8SZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-150.40000000000001" y="568.51574212893559"/>
+            <point key="canvasLocation" x="-1362" y="728"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nGA-Ok-p6b">
@@ -755,6 +793,138 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wea-xQ-61G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-721" y="-896"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uAt-Cl-mu3">
+            <objects>
+                <viewController id="dMw-NM-vov" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5kz-Fv-SWN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MGJ-6L-JJq">
+                                <rect key="frame" x="24" y="20" width="326" height="478"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="haF-oG-6rB">
+                                        <rect key="frame" x="0.0" y="0.0" width="326" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-BZ-lMo" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="97" id="762-P0-M8R"/>
+                                                    <constraint firstAttribute="width" constant="148" id="rzV-zC-Pvb"/>
+                                                </constraints>
+                                                <state key="normal" title="Today">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HhQ-j7-nWE" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="178" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="Rdu-38-MMZ"/>
+                                                    <constraint firstAttribute="height" constant="97" id="l49-Dv-fus"/>
+                                                </constraints>
+                                                <state key="normal" title="Yesterday">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5lF-HS-V3P">
+                                        <rect key="frame" x="0.0" y="127" width="326" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-mM-ENF" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="Ckf-Ve-x3r"/>
+                                                    <constraint firstAttribute="height" constant="97" id="eiH-Te-6x9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                <state key="normal" title="This week">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sTu-Sl-wPM" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="178" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="97" id="Kiy-dX-d3E"/>
+                                                    <constraint firstAttribute="width" constant="148" id="mUy-nR-5H2"/>
+                                                </constraints>
+                                                <state key="normal" title="Past week">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="h7b-SE-xKl">
+                                        <rect key="frame" x="0.0" y="254" width="326" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-nJ-RT1" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="97" id="QmN-NP-FeG"/>
+                                                    <constraint firstAttribute="width" constant="148" id="Z6w-5g-SrU"/>
+                                                </constraints>
+                                                <state key="normal" title="This month">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-OA-fHW" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="178" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="RuB-Jv-3PO"/>
+                                                    <constraint firstAttribute="height" constant="97" id="d1J-sZ-DsK"/>
+                                                </constraints>
+                                                <state key="normal" title="Past month">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Xvw-ON-lQC">
+                                        <rect key="frame" x="0.0" y="381" width="326" height="97"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L6g-fW-26x" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="6Zc-d3-Cyf"/>
+                                                    <constraint firstAttribute="height" constant="97" id="ewH-yi-4Xa"/>
+                                                </constraints>
+                                                <state key="normal" title="The whole time">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-EA-T9w" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                                <rect key="frame" x="178" y="0.0" width="148" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="148" id="2pO-bq-JM9"/>
+                                                    <constraint firstAttribute="height" constant="97" id="zcd-UV-Afu"/>
+                                                </constraints>
+                                                <state key="normal" title="Free">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="QDt-f4-rnJ" kind="showDetail" id="xCE-5p-Riu"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="SQz-lI-A2K" firstAttribute="trailing" secondItem="MGJ-6L-JJq" secondAttribute="trailing" constant="5" id="0UN-gI-cU2"/>
+                            <constraint firstItem="SQz-lI-A2K" firstAttribute="bottom" secondItem="MGJ-6L-JJq" secondAttribute="bottom" id="Idi-sB-aHj"/>
+                            <constraint firstItem="MGJ-6L-JJq" firstAttribute="leading" secondItem="SQz-lI-A2K" secondAttribute="leading" constant="5" id="JbE-uu-ubm"/>
+                            <constraint firstItem="MGJ-6L-JJq" firstAttribute="top" secondItem="SQz-lI-A2K" secondAttribute="top" constant="20" id="MOz-xf-0E3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="SQz-lI-A2K"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nAA-sK-4Hn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2925.5999999999999" y="525.78710644677665"/>
         </scene>
         <!--Summation In Range-->
         <scene sceneID="z5O-IV-QVs">
@@ -824,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rzi-yh-g6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2492" y="526"/>
+            <point key="canvasLocation" x="3921" y="472"/>
         </scene>
         <!--Detailed Analysis View Controller-->
         <scene sceneID="Qkj-83-OeY">
@@ -851,11 +1021,109 @@
             </objects>
             <point key="canvasLocation" x="2492" y="1186"/>
         </scene>
+        <!--Add Income ChildVC-->
+        <scene sceneID="OBh-fy-Hdm">
+            <objects>
+                <viewController storyboardIdentifier="AddIncomeChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQg-7c-RLt" customClass="AddIncomeChildVC" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fu0-sF-hpi">
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drag down to add the record" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXP-fj-blN" userLabel="Drag Label">
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-eV-mFd" customClass="PTTextField" customModule="Dramaq2020">
+                                <rect key="frame" x="69" y="55" width="180" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-0W-4un" customClass="PTTextField" customModule="Dramaq2020">
+                                <rect key="frame" x="69" y="130" width="180" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kQ-ok-5LW">
+                                <rect key="frame" x="257" y="70" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="ahy-kr-g4a"/>
+                    </view>
+                    <size key="freeformSize" width="318" height="488"/>
+                    <connections>
+                        <outlet property="dragLabel" destination="WXP-fj-blN" id="phq-5n-8wM"/>
+                        <outlet property="placeTF" destination="OL2-0W-4un" id="ngi-1D-OAN"/>
+                        <outlet property="priceTF" destination="RJu-eV-mFd" id="mq5-ih-8b6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DbM-sd-CiO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2662.4000000000001" y="1265.6671664167918"/>
+        </scene>
+        <!--Add Entry ChildVC-->
+        <scene sceneID="GNo-sK-GAu">
+            <objects>
+                <viewController id="plm-Pa-soc" customClass="AddEntryChildVC" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="A1J-Cd-Hej">
+                        <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drag down to add the record" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLW-cL-rKa" userLabel="Drag Label">
+                                <rect key="frame" x="0.0" y="0.0" width="318" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nWe-cn-JdW" customClass="PTTextField" customModule="Dramaq2020">
+                                <rect key="frame" x="69" y="55" width="180" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZRY-kx-LsO" customClass="PTTextField" customModule="Dramaq2020">
+                                <rect key="frame" x="69" y="130" width="180" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wOE-UZ-35b">
+                                <rect key="frame" x="257" y="70" width="21" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="mc4-Ai-9kk"/>
+                    </view>
+                    <size key="freeformSize" width="318" height="488"/>
+                    <connections>
+                        <outlet property="dragLabel" destination="HLW-cL-rKa" id="6Qm-xi-LLh"/>
+                        <outlet property="placeTF" destination="ZRY-kx-LsO" id="pKA-bw-MS6"/>
+                        <outlet property="priceTF" destination="nWe-cn-JdW" id="UK9-8S-VSo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKg-Nu-HXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2326" y="728"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="ellipsis" catalog="system" width="64" height="18"/>
-        <image name="list.dash" catalog="system" width="64" height="42"/>
-        <image name="person.crop.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>

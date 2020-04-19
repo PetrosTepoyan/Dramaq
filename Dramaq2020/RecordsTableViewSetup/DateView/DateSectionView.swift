@@ -10,7 +10,7 @@ import UIKit
 
 
 class DateSectionView: UIView {
-
+    
     required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
         
@@ -110,21 +110,21 @@ extension Array {
     
 }
 
-extension Dictionary {
-    mutating func sortForDates() -> [String]{
-        var keys = Array(self.keys)
-        var keysDate = keys.turnToDates()
-        keysDate.sort()
-        var keysDateString: [String] = []
-        
-        for i in keysDate {
-            keysDateString.append(i.getDay())
-        }
-        
-        keysDateString.reverse()
-        
-        return keysDateString
-    }
-}
+//extension Dictionary {
+//    mutating func sortForDates() -> [String]{
+//        var keys = Array(self.keys)
+//        var keysDate = keys.turnToDates()
+//        keysDate.sort()
+//        var keysDateString: [String] = []
+//        
+//        for i in keysDate {
+//            keysDateString.append(i.getDay())
+//        }
+//        
+//        keysDateString.reverse()
+//        
+//        return keysDateString
+//    }
+//}
 
 

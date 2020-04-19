@@ -10,21 +10,35 @@ import UIKit
 
 extension HomeController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        let searchTextModif = searchText.trimmingCharacters(in: .whitespaces)
+        let searchTextModif = searchText.trimmingCharacters(in: .whitespaces).lowercased()
         
-        let searchedRecordsFlat = records
+        let searchedRecordsFlat: [Entry] = entries
             .flatMap { $0 }
             .filter {
-                $0.place.lowercased()                              .contains(searchTextModif.lowercased()) ||
-                $0.date.getDayExpExp().lowercased()                .contains(searchTextModif.lowercased()) ||
-                String($0.price)                                   .contains(searchTextModif.lowercased()) ||
-                String(Substring($0.category.rawValue)).lowercased().contains(searchTextModif.lowercased())
+                let dateCheck = $0.date.getDayExpExp().lowercased().contains(searchTextModif)
+                let priceCheck = String($0.price ?? 0.0).contains(searchTextModif)
+                
+                var placeCheck: Bool = false
+                var categoryCheck: Bool = false
+                if let record = $0 as? Record {
+                    placeCheck = record.place.lowercased().contains(searchTextModif)
+                    categoryCheck = String(Substring(record.category.rawValue)).lowercased().contains(searchTextModif)
+                }
+                
+                var sourceCheck: Bool = false
+                if let income = $0 as? Income {
+                    sourceCheck = (income.source ?? "").lowercased().contains(searchTextModif)
+                }
+                
+            
+                return placeCheck || categoryCheck || dateCheck || priceCheck || sourceCheck
+                
         }
         
         
         
-        searchedRecords = ManagingRealm().unflattenRecords(flatRecords: searchedRecordsFlat)
-        print(searchedRecords)
+        searchedEntries = ManageEntries.unflatten(entries: searchedRecordsFlat)
+        
 //        searching = true
 //        
 //        if searchTextModif.count == 0 {
@@ -35,7 +49,7 @@ extension HomeController: UISearchBarDelegate {
         
         
         
-        if searchedRecords.isEmpty && searchTextModif.count > 0 {
+        if searchedEntries.isEmpty && searchTextModif.count > 0 {
             setupEmptyRecordsView(message: "No records with the given parameters(")
         } else {
             removeEmptyRecordsView()

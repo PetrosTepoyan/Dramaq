@@ -29,44 +29,44 @@ extension AddRecordChildVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-//        if tableView == keywordTableView {
-//            let cell = keywordTableView.dequeueReusableCell(withIdentifier: "KeywordViewCell", for: indexPath) as! KeywordViewCell
-//
-//            let label = PTKeywordsLabel()
-//
-//            label.text = keywords[indexPath.row]
-//            cell.setKeywordView(keyword: label)
-//
-//            cell.clipsToBounds = true
-//            cell.contentView.backgroundColor = UIColor.clear
-//            cell.layer.backgroundColor = UIColor.clear.cgColor
-//            cell.backgroundColor = .clear
-//
-//            return cell
-//        } else {
+        //        if tableView == keywordTableView {
+        //            let cell = keywordTableView.dequeueReusableCell(withIdentifier: "KeywordViewCell", for: indexPath) as! KeywordViewCell
+        //
+        //            let label = PTKeywordsLabel()
+        //
+        //            label.text = keywords[indexPath.row]
+        //            cell.setKeywordView(keyword: label)
+        //
+        //            cell.clipsToBounds = true
+        //            cell.contentView.backgroundColor = UIColor.clear
+        //            cell.layer.backgroundColor = UIColor.clear.cgColor
+        //            cell.backgroundColor = .clear
+        //
+        //            return cell
+        //        } else {
+        
+        
+        
+        let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: "NearbyPlaceCell", for: indexPath) as! NearbyViewCell
+        
+        if !nearbyPlaces.isEmpty {
+            let place = nearbyPlaces[indexPath.row]
+            cell.textLabel?.text = place.name
+            cell.detailTextLabel?.text = place.vicinity
+            print(place.name, place.types, extractCategoryFromPlaceResponse(place: place))
+            cell.category = extractCategoryFromPlaceResponse(place: place)
             
-            
-            
-            let cell = nearbyPlacesTableView.dequeueReusableCell(withIdentifier: "NearbyPlaceCell", for: indexPath) as! NearbyViewCell
-            
-            if !nearbyPlaces.isEmpty {
-                let place = nearbyPlaces[indexPath.row]
-                cell.textLabel?.text = place.name
-                cell.detailTextLabel?.text = place.vicinity
-                print(place.name, place.types, extractCategoryFromPlaceResponse(place: place))
-                cell.category = extractCategoryFromPlaceResponse(place: place)
-                
-            }
-            
-            cell.selectionStyle = UITableViewCell.SelectionStyle.default
-            
-            cell.clipsToBounds = true
-            cell.contentView.backgroundColor = UIColor.clear
-            cell.layer.backgroundColor = UIColor.clear.cgColor
-            cell.backgroundColor = .clear
-            
-            return cell
-//        }
+        }
+        
+        cell.selectionStyle = UITableViewCell.SelectionStyle.default
+        
+        cell.clipsToBounds = true
+        cell.contentView.backgroundColor = UIColor.clear
+        cell.layer.backgroundColor = UIColor.clear.cgColor
+        cell.backgroundColor = .clear
+        
+        return cell
+        //        }
         
         
     }

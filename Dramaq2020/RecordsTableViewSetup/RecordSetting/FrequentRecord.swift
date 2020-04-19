@@ -54,7 +54,8 @@ class FrequentRecord: UIView {
     }
     
     func setupFrequentView(price: Double?, place: String?, category: Category?) {
-        let record = Record(price: price!,
+        let record = Record(id: 0,
+                            price: price!,
                             place: place!,
                             date: Date(),
                             category: Category.Unknown,

@@ -25,7 +25,8 @@ class ReviewViewController: CompactChildViewController {
         
         scrollView.contentSize = contentView.frame.size
         dragLabel.text = "Drag up to dismiss the record"
-        // Do any additional setup after loading the view.
+        
+        view.center = viewCenter 
     }
     
     

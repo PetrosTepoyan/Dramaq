@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0EB8AA81CFBD34F80D84D605 /* libPods-Dramaq2020Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED783B72456FBBA753D0AD25 /* libPods-Dramaq2020Tests.a */; };
 		1501495824196A540064D04C /* AddRecordChildVC+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1501495724196A540064D04C /* AddRecordChildVC+Location.swift */; };
 		15014982241BC7930064D04C /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15014981241BC7930064D04C /* AccountViewController.swift */; };
-		1505BCDA242CCBAA005C1013 /* RecordAddedDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505BCD9242CCBAA005C1013 /* RecordAddedDelegate.swift */; };
+		1505BCDC242E0E0A005C1013 /* KeywordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505BCDB242E0E0A005C1013 /* KeywordCollectionViewCell.swift */; };
+		1505BCDE242E82F4005C1013 /* CountForPeriodButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1505BCDD242E82F4005C1013 /* CountForPeriodButton.swift */; };
 		15092A20241947740044D973 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15092A1F241947740044D973 /* NetworkService.swift */; };
 		15092A222419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15092A212419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift */; };
 		15180831241F9AE50049920D /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15180830241F9AE50049920D /* UIApplication+Extension.swift */; };
@@ -26,7 +26,7 @@
 		1519CE8C2429378300E225B5 /* DetailedAnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1519CE8B2429378300E225B5 /* DetailedAnalysisViewController.swift */; };
 		1543F6A9242A0512006539EB /* HomeController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1543F6A8242A0512006539EB /* HomeController+SearchBar.swift */; };
 		1543F6AB242A052A006539EB /* HomeController+ScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1543F6AA242A052A006539EB /* HomeController+ScrollView.swift */; };
-		1543F6CD242A1C4F006539EB /* libPods-Dramaq2020.a in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF336ED367F0D714D2AD2F88 /* libPods-Dramaq2020.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		1543F6CD242A1C4F006539EB /* (null) in Embed Frameworks */ = {isa = PBXBuildFile; };
 		1558BC5324115AB50072DB26 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC5224115AB50072DB26 /* AppDelegate.swift */; };
 		1558BC5524115AB50072DB26 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC5424115AB50072DB26 /* SceneDelegate.swift */; };
 		1558BC5A24115AB50072DB26 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1558BC5824115AB50072DB26 /* Main.storyboard */; };
@@ -40,7 +40,7 @@
 		1558BC9224115AE90072DB26 /* MenuViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8524115AE60072DB26 /* MenuViewCell.swift */; };
 		1558BC9324115AE90072DB26 /* AddRecordChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8624115AE70072DB26 /* AddRecordChildVC.swift */; };
 		1558BC9424115AE90072DB26 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8724115AE70072DB26 /* HomeController.swift */; };
-		1558BC9524115AE90072DB26 /* RealmRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8824115AE70072DB26 /* RealmRecord.swift */; };
+		1558BC9524115AE90072DB26 /* RealmSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8824115AE70072DB26 /* RealmSetting.swift */; };
 		1558BC9624115AE90072DB26 /* DateSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8924115AE80072DB26 /* DateSectionView.swift */; };
 		1558BC9724115AE90072DB26 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8A24115AE80072DB26 /* Record.swift */; };
 		1558BC9824115AE90072DB26 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1558BC8B24115AE80072DB26 /* MenuButton.swift */; };
@@ -68,13 +68,21 @@
 		1576D27E2423FC180065FBFA /* SummationInRange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1576D27D2423FC180065FBFA /* SummationInRange.swift */; };
 		157C73642413E95400B558CD /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157C73632413E95400B558CD /* AnalysisViewController.swift */; };
 		159EA94B2411B4CC00F106B2 /* KeywordViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159EA94A2411B4CC00F106B2 /* KeywordViewCell.swift */; };
-		159EA94D2411B60100F106B2 /* AddRecordChildVC+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159EA94C2411B60100F106B2 /* AddRecordChildVC+Extension.swift */; };
+		15A07BDD2445E30A00A8F55B /* libPods-Dramaq2020.a in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 374F4B09F6829601A981DA39 /* libPods-Dramaq2020.a */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		15D93D4A2448FCD4006327A5 /* EntriesTableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D93D492448FCD4006327A5 /* EntriesTableVIew.swift */; };
+		15DF5B9C2445E50F00D20FEE /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5B9B2445E50F00D20FEE /* Income.swift */; };
+		15DF5B9F244639FA00D20FEE /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5B9E244639FA00D20FEE /* Entry.swift */; };
+		15DF5BA12446EAB600D20FEE /* AddIncomeChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA02446EAB600D20FEE /* AddIncomeChildVC.swift */; };
+		15DF5BA42446F40800D20FEE /* AddEntryChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA32446F40800D20FEE /* AddEntryChildVC.swift */; };
+		15DF5BA62447B61800D20FEE /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA52447B61800D20FEE /* Balance.swift */; };
+		15DF5BA82447BD3D00D20FEE /* PiggyBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */; };
 		15ED268C2414FD610029DDDB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED268B2414FD610029DDDB /* OnboardingViewController.swift */; };
 		15ED269324153B970029DDDB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED269224153B970029DDDB /* MenuCell.swift */; };
 		15ED26AC2416B8480029DDDB /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED26A92416B8480029DDDB /* NearByEnum.swift */; };
 		15F9DECB242CA60100081D5D /* CategoryKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F9DECA242CA60100081D5D /* CategoryKeywords.swift */; };
-		65092120F4ADF2AE4076232B /* libPods-Dramaq2020-Dramaq2020UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE42818DBCD967FE0051A6D0 /* libPods-Dramaq2020-Dramaq2020UITests.a */; };
-		D65FBB7C947B5002B7F9B6E6 /* libPods-Dramaq2020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF336ED367F0D714D2AD2F88 /* libPods-Dramaq2020.a */; settings = {ATTRIBUTES = (Weak, ); }; };
+		19AABE0FEE8C7DA0DF294BBA /* libPods-Dramaq2020Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 891CECFC5442D9D8747777B5 /* libPods-Dramaq2020Tests.a */; };
+		EE194B616170481F9DC557D2 /* libPods-Dramaq2020-Dramaq2020UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C5EBA27EA0DF4D23D0C82E3 /* libPods-Dramaq2020-Dramaq2020UITests.a */; };
+		F5BCFBC08CE4F0E6A1DEB5C7 /* libPods-Dramaq2020.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 374F4B09F6829601A981DA39 /* libPods-Dramaq2020.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,7 +109,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				1543F6CD242A1C4F006539EB /* libPods-Dramaq2020.a in Embed Frameworks */,
+				15A07BDD2445E30A00A8F55B /* libPods-Dramaq2020.a in Embed Frameworks */,
+				1543F6CD242A1C4F006539EB /* (null) in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -109,9 +118,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0DF3795F2BFD5A77F8B69E56 /* Pods-Dramaq2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020Tests/Pods-Dramaq2020Tests.release.xcconfig"; sourceTree = "<group>"; };
 		1501495724196A540064D04C /* AddRecordChildVC+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordChildVC+Location.swift"; sourceTree = "<group>"; };
 		15014981241BC7930064D04C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
-		1505BCD9242CCBAA005C1013 /* RecordAddedDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordAddedDelegate.swift; sourceTree = "<group>"; };
+		1505BCDB242E0E0A005C1013 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
+		1505BCDD242E82F4005C1013 /* CountForPeriodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountForPeriodButton.swift; sourceTree = "<group>"; };
 		15092A1F241947740044D973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		15092A212419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordChildVC+NearbyPlaces.swift"; sourceTree = "<group>"; };
 		15180830241F9AE50049920D /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
@@ -147,7 +158,7 @@
 		1558BC8524115AE60072DB26 /* MenuViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewCell.swift; sourceTree = "<group>"; };
 		1558BC8624115AE70072DB26 /* AddRecordChildVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRecordChildVC.swift; sourceTree = "<group>"; };
 		1558BC8724115AE70072DB26 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
-		1558BC8824115AE70072DB26 /* RealmRecord.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmRecord.swift; sourceTree = "<group>"; };
+		1558BC8824115AE70072DB26 /* RealmSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmSetting.swift; sourceTree = "<group>"; };
 		1558BC8924115AE80072DB26 /* DateSectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateSectionView.swift; sourceTree = "<group>"; };
 		1558BC8A24115AE80072DB26 /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		1558BC8B24115AE80072DB26 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
@@ -182,20 +193,25 @@
 		1591686424130B100026B06D /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1591686824130B130026B06D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		159EA94A2411B4CC00F106B2 /* KeywordViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordViewCell.swift; sourceTree = "<group>"; };
-		159EA94C2411B60100F106B2 /* AddRecordChildVC+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordChildVC+Extension.swift"; sourceTree = "<group>"; };
+		15D93D492448FCD4006327A5 /* EntriesTableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableVIew.swift; sourceTree = "<group>"; };
+		15DF5B9B2445E50F00D20FEE /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
+		15DF5B9E244639FA00D20FEE /* Entry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		15DF5BA02446EAB600D20FEE /* AddIncomeChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIncomeChildVC.swift; sourceTree = "<group>"; };
+		15DF5BA32446F40800D20FEE /* AddEntryChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryChildVC.swift; sourceTree = "<group>"; };
+		15DF5BA52447B61800D20FEE /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBank.swift; sourceTree = "<group>"; };
 		15ED268B2414FD610029DDDB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		15ED269224153B970029DDDB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		15ED26A92416B8480029DDDB /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
 		15F9DECA242CA60100081D5D /* CategoryKeywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryKeywords.swift; sourceTree = "<group>"; };
-		173E3DC23FE79B7CFF14C936 /* Pods-Dramaq2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020/Pods-Dramaq2020.release.xcconfig"; sourceTree = "<group>"; };
-		252AEE3DE60415009E739961 /* Pods-Dramaq2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020Tests/Pods-Dramaq2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		2B2237C210794596FCCDF5CF /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020-Dramaq2020UITests/Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; sourceTree = "<group>"; };
-		4B598CE23A791FC41752C7B6 /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020-Dramaq2020UITests/Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig"; sourceTree = "<group>"; };
-		887F3A4E42898B407E7944A4 /* Pods-Dramaq2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020/Pods-Dramaq2020.debug.xcconfig"; sourceTree = "<group>"; };
-		A412A58DD0BDE6436EC8CC10 /* Pods-Dramaq2020Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020Tests.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020Tests/Pods-Dramaq2020Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BE42818DBCD967FE0051A6D0 /* libPods-Dramaq2020-Dramaq2020UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020-Dramaq2020UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CF336ED367F0D714D2AD2F88 /* libPods-Dramaq2020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED783B72456FBBA753D0AD25 /* libPods-Dramaq2020Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1C5EBA27EA0DF4D23D0C82E3 /* libPods-Dramaq2020-Dramaq2020UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020-Dramaq2020UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		374F4B09F6829601A981DA39 /* libPods-Dramaq2020.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		641D4636FEB0E76E48EDFB99 /* Pods-Dramaq2020Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020Tests.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020Tests/Pods-Dramaq2020Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		7CE84AC5A430B27350826DAB /* Pods-Dramaq2020.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020/Pods-Dramaq2020.release.xcconfig"; sourceTree = "<group>"; };
+		891CECFC5442D9D8747777B5 /* libPods-Dramaq2020Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Dramaq2020Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3B3133196C88DD2EB707F4D /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020-Dramaq2020UITests/Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7D9FBAC0A7FBA3DF648220A /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig"; path = "Target Support Files/Pods-Dramaq2020-Dramaq2020UITests/Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig"; sourceTree = "<group>"; };
+		E3FDAFD42CDD1CEB8D4E3AE8 /* Pods-Dramaq2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020/Pods-Dramaq2020.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,7 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D65FBB7C947B5002B7F9B6E6 /* libPods-Dramaq2020.a in Frameworks */,
+				F5BCFBC08CE4F0E6A1DEB5C7 /* libPods-Dramaq2020.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,7 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EB8AA81CFBD34F80D84D605 /* libPods-Dramaq2020Tests.a in Frameworks */,
+				19AABE0FEE8C7DA0DF294BBA /* libPods-Dramaq2020Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,7 +235,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65092120F4ADF2AE4076232B /* libPods-Dramaq2020-Dramaq2020UITests.a in Frameworks */,
+				EE194B616170481F9DC557D2 /* libPods-Dramaq2020-Dramaq2020UITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +274,8 @@
 		15014980241AA8DD0064D04C /* RecordsTableViewSetup */ = {
 			isa = PBXGroup;
 			children = (
+				15DF5B9D244639E300D20FEE /* Entry */,
+				15A07BDE2445E48700A8F55B /* IncomeSetting */,
 				1558BCB624115E0F0072DB26 /* RecordSetting */,
 				1558BCB524115DEE0072DB26 /* DateView */,
 			);
@@ -309,6 +327,9 @@
 			isa = PBXGroup;
 			children = (
 				15014981241BC7930064D04C /* AccountViewController.swift */,
+				1505BCDD242E82F4005C1013 /* CountForPeriodButton.swift */,
+				15DF5BA52447B61800D20FEE /* Balance.swift */,
+				15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */,
 				1501497D241AA7E40064D04C /* Storyboards */,
 				1558BCB724115E410072DB26 /* HomeController */,
 				159EA9492411794A00F106B2 /* AddRecordChildVC */,
@@ -327,7 +348,6 @@
 				1558BCAE24115B050072DB26 /* CountingUtilities.swift */,
 				15F9DECA242CA60100081D5D /* CategoryKeywords.swift */,
 				1519CE892428DB7B00E225B5 /* String+Extension.swift */,
-				155B33DD24125C5E005D5104 /* ManagingRealm.swift */,
 				1558BC5B24115ABA0072DB26 /* Assets.xcassets */,
 				1558BC6024115ABA0072DB26 /* Info.plist */,
 			);
@@ -382,7 +402,8 @@
 			isa = PBXGroup;
 			children = (
 				1558BC8A24115AE80072DB26 /* Record.swift */,
-				1558BC8824115AE70072DB26 /* RealmRecord.swift */,
+				1558BC8824115AE70072DB26 /* RealmSetting.swift */,
+				155B33DD24125C5E005D5104 /* ManagingRealm.swift */,
 				1558BC8D24115AE90072DB26 /* RecordViewCell.swift */,
 				1558BC8E24115AE90072DB26 /* FrequentRecord.swift */,
 			);
@@ -398,6 +419,7 @@
 				1543F6A8242A0512006539EB /* HomeController+SearchBar.swift */,
 				1558BC8B24115AE80072DB26 /* MenuButton.swift */,
 				1558BC8224115AE60072DB26 /* Arrow.swift */,
+				15D93D492448FCD4006327A5 /* EntriesTableVIew.swift */,
 			);
 			path = HomeController;
 			sourceTree = "<group>";
@@ -441,13 +463,38 @@
 			isa = PBXGroup;
 			children = (
 				155B33E32412E7B9005D5104 /* CompactChildViewController.swift */,
+				15DF5BA32446F40800D20FEE /* AddEntryChildVC.swift */,
+				15DF5BA02446EAB600D20FEE /* AddIncomeChildVC.swift */,
+				15DF5BA22446EAF100D20FEE /* AddRecordChildVC */,
+			);
+			path = AddRecordChildVC;
+			sourceTree = "<group>";
+		};
+		15A07BDE2445E48700A8F55B /* IncomeSetting */ = {
+			isa = PBXGroup;
+			children = (
+				15DF5B9B2445E50F00D20FEE /* Income.swift */,
+			);
+			path = IncomeSetting;
+			sourceTree = "<group>";
+		};
+		15DF5B9D244639E300D20FEE /* Entry */ = {
+			isa = PBXGroup;
+			children = (
+				15DF5B9E244639FA00D20FEE /* Entry.swift */,
+			);
+			path = Entry;
+			sourceTree = "<group>";
+		};
+		15DF5BA22446EAF100D20FEE /* AddRecordChildVC */ = {
+			isa = PBXGroup;
+			children = (
 				1558BC8624115AE70072DB26 /* AddRecordChildVC.swift */,
-				1505BCD9242CCBAA005C1013 /* RecordAddedDelegate.swift */,
-				1501495724196A540064D04C /* AddRecordChildVC+Location.swift */,
 				15092A212419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift */,
-				159EA94C2411B60100F106B2 /* AddRecordChildVC+Extension.swift */,
+				1501495724196A540064D04C /* AddRecordChildVC+Location.swift */,
 				1576D2772423CEED0065FBFA /* AddRecordChildVC+Collection.swift */,
 				1576D2792423D0030065FBFA /* CategoryCollectionViewCell.swift */,
+				1505BCDB242E0E0A005C1013 /* KeywordCollectionViewCell.swift */,
 				1558BC8C24115AE90072DB26 /* CategoryView.swift */,
 				159EA94A2411B4CC00F106B2 /* KeywordViewCell.swift */,
 				15180832241FE9480049920D /* NearbyPlaceViewCell.swift */,
@@ -483,9 +530,9 @@
 				1591686824130B130026B06D /* RealmSwift.framework */,
 				1591686424130B100026B06D /* Realm.framework */,
 				1558BCBB24115FA80072DB26 /* RealmSwift.framework */,
-				CF336ED367F0D714D2AD2F88 /* libPods-Dramaq2020.a */,
-				BE42818DBCD967FE0051A6D0 /* libPods-Dramaq2020-Dramaq2020UITests.a */,
-				ED783B72456FBBA753D0AD25 /* libPods-Dramaq2020Tests.a */,
+				374F4B09F6829601A981DA39 /* libPods-Dramaq2020.a */,
+				1C5EBA27EA0DF4D23D0C82E3 /* libPods-Dramaq2020-Dramaq2020UITests.a */,
+				891CECFC5442D9D8747777B5 /* libPods-Dramaq2020Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -493,12 +540,12 @@
 		BF2282B3F1C5E55BBD99FCED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				887F3A4E42898B407E7944A4 /* Pods-Dramaq2020.debug.xcconfig */,
-				173E3DC23FE79B7CFF14C936 /* Pods-Dramaq2020.release.xcconfig */,
-				2B2237C210794596FCCDF5CF /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */,
-				4B598CE23A791FC41752C7B6 /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */,
-				252AEE3DE60415009E739961 /* Pods-Dramaq2020Tests.debug.xcconfig */,
-				A412A58DD0BDE6436EC8CC10 /* Pods-Dramaq2020Tests.release.xcconfig */,
+				E3FDAFD42CDD1CEB8D4E3AE8 /* Pods-Dramaq2020.debug.xcconfig */,
+				7CE84AC5A430B27350826DAB /* Pods-Dramaq2020.release.xcconfig */,
+				B3B3133196C88DD2EB707F4D /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */,
+				D7D9FBAC0A7FBA3DF648220A /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */,
+				641D4636FEB0E76E48EDFB99 /* Pods-Dramaq2020Tests.debug.xcconfig */,
+				0DF3795F2BFD5A77F8B69E56 /* Pods-Dramaq2020Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -510,7 +557,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1558BC7924115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020" */;
 			buildPhases = (
-				0FE11D4FA7ED2E14D2CB7DA5 /* [CP] Check Pods Manifest.lock */,
+				05EE20D1E935CD4673922481 /* [CP] Check Pods Manifest.lock */,
 				1558BC4B24115AB50072DB26 /* Sources */,
 				1558BC4C24115AB50072DB26 /* Frameworks */,
 				1558BC4D24115AB50072DB26 /* Resources */,
@@ -529,7 +576,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1558BC7C24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020Tests" */;
 			buildPhases = (
-				B3B0980DE1AF75A2B4FB51E6 /* [CP] Check Pods Manifest.lock */,
+				28676FCF6B8F32DF4FD24F90 /* [CP] Check Pods Manifest.lock */,
 				1558BC6124115ABB0072DB26 /* Sources */,
 				1558BC6224115ABB0072DB26 /* Frameworks */,
 				1558BC6324115ABB0072DB26 /* Resources */,
@@ -548,7 +595,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1558BC7F24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020UITests" */;
 			buildPhases = (
-				BAB42F7404444B330AF4F681 /* [CP] Check Pods Manifest.lock */,
+				51B8B8C4D63F1CB1193B8F26 /* [CP] Check Pods Manifest.lock */,
 				1558BC6C24115ABB0072DB26 /* Sources */,
 				1558BC6D24115ABB0072DB26 /* Frameworks */,
 				1558BC6E24115ABB0072DB26 /* Resources */,
@@ -637,7 +684,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FE11D4FA7ED2E14D2CB7DA5 /* [CP] Check Pods Manifest.lock */ = {
+		05EE20D1E935CD4673922481 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -659,7 +706,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B3B0980DE1AF75A2B4FB51E6 /* [CP] Check Pods Manifest.lock */ = {
+		28676FCF6B8F32DF4FD24F90 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -681,7 +728,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAB42F7404444B330AF4F681 /* [CP] Check Pods Manifest.lock */ = {
+		51B8B8C4D63F1CB1193B8F26 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -710,6 +757,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15DF5BA42446F40800D20FEE /* AddEntryChildVC.swift in Sources */,
 				159EA94B2411B4CC00F106B2 /* KeywordViewCell.swift in Sources */,
 				1576D27E2423FC180065FBFA /* SummationInRange.swift in Sources */,
 				1543F6A9242A0512006539EB /* HomeController+SearchBar.swift in Sources */,
@@ -726,7 +774,7 @@
 				15014982241BC7930064D04C /* AccountViewController.swift in Sources */,
 				1519CE862428B6EA00E225B5 /* UsernameCell.swift in Sources */,
 				1558BC8F24115AE90072DB26 /* Arrow.swift in Sources */,
-				159EA94D2411B60100F106B2 /* AddRecordChildVC+Extension.swift in Sources */,
+				15DF5B9F244639FA00D20FEE /* Entry.swift in Sources */,
 				15180831241F9AE50049920D /* UIApplication+Extension.swift in Sources */,
 				1558BCAA24115AF30072DB26 /* PTTextField.swift in Sources */,
 				1576D27A2423D0030065FBFA /* CategoryCollectionViewCell.swift in Sources */,
@@ -737,21 +785,25 @@
 				155B33E02412690C005D5104 /* SearchTextField.swift in Sources */,
 				15180833241FE9480049920D /* NearbyPlaceViewCell.swift in Sources */,
 				157C73642413E95400B558CD /* AnalysisViewController.swift in Sources */,
+				15DF5BA62447B61800D20FEE /* Balance.swift in Sources */,
 				1558BCA724115AF30072DB26 /* PTScrollView.swift in Sources */,
 				1558BCAB24115AF30072DB26 /* PTDate.swift in Sources */,
 				15ED26AC2416B8480029DDDB /* NearByEnum.swift in Sources */,
+				1505BCDC242E0E0A005C1013 /* KeywordCollectionViewCell.swift in Sources */,
+				15DF5BA12446EAB600D20FEE /* AddIncomeChildVC.swift in Sources */,
 				155B33E42412E7B9005D5104 /* CompactChildViewController.swift in Sources */,
 				1558BCB424115B050072DB26 /* Constants.swift in Sources */,
-				1505BCDA242CCBAA005C1013 /* RecordAddedDelegate.swift in Sources */,
 				1558BC9424115AE90072DB26 /* HomeController.swift in Sources */,
-				1558BC9524115AE90072DB26 /* RealmRecord.swift in Sources */,
+				1558BC9524115AE90072DB26 /* RealmSetting.swift in Sources */,
 				1558BCAC24115AF30072DB26 /* PTViewController.swift in Sources */,
 				1558BC9B24115AE90072DB26 /* FrequentRecord.swift in Sources */,
+				1505BCDE242E82F4005C1013 /* CountForPeriodButton.swift in Sources */,
 				1558BC9A24115AE90072DB26 /* RecordViewCell.swift in Sources */,
 				1558BCA924115AF30072DB26 /* PTKeywordsLabel.swift in Sources */,
 				1519CE8C2429378300E225B5 /* DetailedAnalysisViewController.swift in Sources */,
 				1501495824196A540064D04C /* AddRecordChildVC+Location.swift in Sources */,
 				155B33DE24125C5E005D5104 /* ManagingRealm.swift in Sources */,
+				15DF5BA82447BD3D00D20FEE /* PiggyBank.swift in Sources */,
 				1558BC9924115AE90072DB26 /* CategoryView.swift in Sources */,
 				1558BC5324115AB50072DB26 /* AppDelegate.swift in Sources */,
 				1558BC9324115AE90072DB26 /* AddRecordChildVC.swift in Sources */,
@@ -759,10 +811,12 @@
 				1558BC9624115AE90072DB26 /* DateSectionView.swift in Sources */,
 				1519CE8A2428DB7B00E225B5 /* String+Extension.swift in Sources */,
 				15ED268C2414FD610029DDDB /* OnboardingViewController.swift in Sources */,
+				15DF5B9C2445E50F00D20FEE /* Income.swift in Sources */,
 				1558BCA824115AF30072DB26 /* PTButton.swift in Sources */,
 				1558BC9824115AE90072DB26 /* MenuButton.swift in Sources */,
 				1558BCB124115B050072DB26 /* UIView+Extension.swift in Sources */,
 				1519CE84242891C500E225B5 /* SoundCell.swift in Sources */,
+				15D93D4A2448FCD4006327A5 /* EntriesTableVIew.swift in Sources */,
 				1558BC5524115AB50072DB26 /* SceneDelegate.swift in Sources */,
 				1543F6AB242A052A006539EB /* HomeController+ScrollView.swift in Sources */,
 				1558BCB224115B050072DB26 /* CountingUtilities.swift in Sources */,
@@ -938,7 +992,7 @@
 		};
 		1558BC7A24115ABB0072DB26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 887F3A4E42898B407E7944A4 /* Pods-Dramaq2020.debug.xcconfig */;
+			baseConfigurationReference = E3FDAFD42CDD1CEB8D4E3AE8 /* Pods-Dramaq2020.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dramaq2020/Dramaq2020.entitlements;
@@ -949,6 +1003,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Petros.Dramaq2020;
 				PRODUCT_NAME = Dramaq2020;
 				SWIFT_VERSION = 5.0;
@@ -958,7 +1013,7 @@
 		};
 		1558BC7B24115ABB0072DB26 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 173E3DC23FE79B7CFF14C936 /* Pods-Dramaq2020.release.xcconfig */;
+			baseConfigurationReference = 7CE84AC5A430B27350826DAB /* Pods-Dramaq2020.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Dramaq2020/Dramaq2020.entitlements;
@@ -978,7 +1033,7 @@
 		};
 		1558BC7D24115ABB0072DB26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 252AEE3DE60415009E739961 /* Pods-Dramaq2020Tests.debug.xcconfig */;
+			baseConfigurationReference = 641D4636FEB0E76E48EDFB99 /* Pods-Dramaq2020Tests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1001,7 +1056,7 @@
 		};
 		1558BC7E24115ABB0072DB26 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A412A58DD0BDE6436EC8CC10 /* Pods-Dramaq2020Tests.release.xcconfig */;
+			baseConfigurationReference = 0DF3795F2BFD5A77F8B69E56 /* Pods-Dramaq2020Tests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1024,7 +1079,7 @@
 		};
 		1558BC8024115ABB0072DB26 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B2237C210794596FCCDF5CF /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */;
+			baseConfigurationReference = B3B3133196C88DD2EB707F4D /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1045,7 +1100,7 @@
 		};
 		1558BC8124115ABB0072DB26 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4B598CE23A791FC41752C7B6 /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */;
+			baseConfigurationReference = D7D9FBAC0A7FBA3DF648220A /* Pods-Dramaq2020-Dramaq2020UITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

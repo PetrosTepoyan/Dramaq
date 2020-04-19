@@ -15,26 +15,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        
-        
-        
-        let mainStoryboard = UIStoryboard(name: launchedBefore ? "Main" : "Onboarding", bundle: nil)
-        let VC = launchedBefore ? mainStoryboard.instantiateInitialViewController() as! HomeController : mainStoryboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
-        guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = VC
-        window?.makeKeyAndVisible()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.window = window
-        
-        if launchedBefore  {
-            print("not first launch")
-        } else {
-            print("first launch")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
-        }
+//        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+//        
+//        
+//        
+//        let mainStoryboard = UIStoryboard(name: launchedBefore ? "Main" : "Onboarding", bundle: nil)
+//        let VC = launchedBefore ? mainStoryboard.instantiateInitialViewController() as! HomeController : mainStoryboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
+//        guard let windowScene = (scene as? UIWindowScene) else { return }
+//        self.window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window?.windowScene = windowScene
+//        window?.rootViewController = VC
+//        window?.makeKeyAndVisible()
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window = window
+//        
+//        if launchedBefore  {
+//            print("not first launch")
+//        } else {
+//            print("first launch")
+//            UserDefaults.standard.set(true, forKey: "launchedBefore")
+//        }
         
         
     }

@@ -10,8 +10,5 @@ import Foundation
 
 protocol RecordAddedDelegate {
     func didAdd(record: Record)
-}
-
-protocol RecordWillBeDisplayed {
-    func didDisplay(record: Record)
+    
 }

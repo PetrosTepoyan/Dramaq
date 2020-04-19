@@ -10,14 +10,11 @@ import Foundation
 import UIKit
 
 class CountingUtilities {
+    let recordsFlat = ManagingRealm().retrieveRecords_flat()
     
     func summation(from date1: Date? = nil, upto date2: Date? = nil, exchanged currency: CurrencyExchange? = nil) -> Double{
-
-        
-        
-        
         if let date1 = date1, let date2 = date2 {
-            let prices = ManagingRealm().retrieveRecords().flatMap { $0 }.filter {$0.date > date1 && $0.date < date2 }.map { $0.price }
+            let prices = recordsFlat.filter {$0.date > date1 && $0.date < date2 }.map { $0.price! }
             return Array(Set(prices)).reduce(0, +)
             
         } else {
@@ -29,7 +26,14 @@ class CountingUtilities {
         
     }
     
-    func beingPricesToBase(currency: Currency) {
+    func summationForToday() -> Double{
+        let today = Date().getDay()
+        let prices = recordsFlat.filter { $0.date.getDay() == today }.map { $0.price! }
+        
+        return prices.reduce(0,+)
+    }
+    
+    func bringPricesToBase(currency: Currency) {
         currency.rates
     }
 
@@ -39,7 +43,7 @@ class CountingUtilities {
         return PTDate().convertStringToTime(string: string)
     }
     
-    fileprivate func distributeForChunksSwitch(_ times: [String?], _ i: Int, _ chunks: inout [Array<Int>]) {
+    func distributeForChunksSwitch(_ times: [String?], _ i: Int, _ chunks: inout [Array<Int>]) {
         if times[i] != nil {
             
             let j = cnv(times[i]!)
