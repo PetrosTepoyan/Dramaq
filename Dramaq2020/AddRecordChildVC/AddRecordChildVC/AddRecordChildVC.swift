@@ -8,7 +8,6 @@
 
 import UIKit
 import RealmSwift
-import Alamofire
 import CoreLocation
 import AVFoundation
 
@@ -25,11 +24,12 @@ class AddRecordChildVC: AddEntryChildVC {
     @IBOutlet weak var scrollableView: UIView!
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var currencyLabel: UILabel!
-    var repeatingPicker = UIPickerView()
+    
     
     var category: Category! = Category.Unknown
     var categoriesInCollection: [Category] = []
     var keywords: [String] = []
+    var suggestedKeywords: [String] = ["nails", "hair", "salon", "beauty", "barbershop","nails", "hair", "salon", "beauty", "barbershop"]
 
     var nearbyPlaces = [Place]() {
         didSet {
@@ -59,28 +59,31 @@ class AddRecordChildVC: AddEntryChildVC {
         
         priceTF.delegate = self
         priceTF.becomeFirstResponder()
-
-//        view.center.x = (parent as! HomeController).view.center.x
-
+        
+        scrollView.addSubview(repetitionPicker)
+        repetitionPicker.frame = CGRect(x: keywordsCollectionView.frame.minX, y: keywordsCollectionView.frame.maxY + 10, width: keywordsCollectionView.frame.width, height: 80)
+        repetitionPicker.delegate = self
+        repetitionPicker.dataSource = self
+        repetitionPicker.pickerViewStyle = .flat
+//        repetitionPicker.viewDepth = 100
+        repetitionPicker.interitemSpacing = 5
+        repetitionPicker.reloadData()
         
         scrollView.contentSize = scrollableView.frame.size
         view.clipsToBounds = true
-        
         
         setupCurrecnyLabel()
         setupNearbyPlacesTableView()
         setupLoc()
         setupCategoryCollectionView()
         
-        keywordsCollectionView.backgroundColor = .clear
         
-        repeatingPicker.delegate = self
-        repeatingPicker.dataSource = self
-        repeatingPicker.frame = CGRect(x: keywordsCollectionView.frame.minX, y: keywordsCollectionView.frame.maxY + 5, width: keywordsCollectionView.frame.width, height: 70)
-        scrollView.addSubview(repeatingPicker)
+        
+        keywordsCollectionView.backgroundColor = .clear
+        keywordsCollectionView.delegate = self
+        
+        
     }
-    
-    
 
     
     
@@ -147,7 +150,7 @@ extension AddRecordChildVC {
         let price = Double((priceStr == "" ? "0.0" : priceStr)!)!
         let place = placeStr!
         
-        let repPat = repetitionPatterns[repeatingPicker.selectedRow(inComponent: 0)]
+        let repPat = chosenRepetition!
         repetition = TimeInterval.getTimeInterval(str: repPat)
         
         
@@ -185,6 +188,7 @@ extension AddRecordChildVC {
         myRec.category = "\(category!)"
         myRec.currency = currency
         myRec.username = "Petros Tepoyan"
+        myRec.repeatsEachTimeInterval = repetition
         
         try! realm.write {
             realm.add(myRec)
@@ -196,7 +200,8 @@ extension AddRecordChildVC {
                                     date: Date(),
                                     category: category,
                                     keywords: keywords,
-                                    currency: currency)
+                                    currency: currency,
+                                    repeatsEachTimeInterval: repetition.value)
         
         
         if parentHome.entries.isEmpty {
@@ -213,6 +218,9 @@ extension AddRecordChildVC {
         
         playSound(sound: .recordWasAdded)
         
+        if let repetit = repetition.value {
+            DramaqNotification.instantiateNotification(title: "Test", subtitle: "You planned to add", body: "Test", imageName: nil, repeatsEach: repetit, identifier: "EntryNotification.\(id)")
+        }
         
         //
         
@@ -223,10 +231,6 @@ extension AddRecordChildVC {
 
 
 extension AddRecordChildVC {
-    
-    
-    
-    
     
     func categoryImagePressed(on categoryView: CategoryView) {
         
@@ -315,20 +319,4 @@ extension AddRecordChildVC {
     
 }
 
-extension AddRecordChildVC {
-    func playSound(sound: Sounds) {
-        guard let soundsAreTurnedOn = UserDefaults.standard.value(forKey: "SoundsAreTurnedOn") else { return }
-        guard soundsAreTurnedOn as! Bool else { return }
-        guard let path = Bundle.main.path(forResource: sound.rawValue, ofType: nil) else { return }
-        
-        let url = URL(fileURLWithPath: path)
-        
-        do {
-            
-            soundPlayer = try AVAudioPlayer(contentsOf: url)
-            soundPlayer?.play()
-        } catch {
-            print("Sound not found")
-        }
-    }
-}
+

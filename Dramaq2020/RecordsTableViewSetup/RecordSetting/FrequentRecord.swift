@@ -19,15 +19,6 @@ class FrequentRecord1: RecordView {
 
 class FrequentRecord: UIView {
     
-//    required public init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//
-//    }
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//
-//    }
     
     var price: Double!
     var place: String!
@@ -71,8 +62,8 @@ class FrequentRecord: UIView {
         let priceLabel = PTLabel()
         let placeLabel = PTLabel()
                 
-        priceLabel.text = "\(record.price)"
-        placeLabel.text = "\(record.place)"
+        priceLabel.text = "\(record.price!)"
+        placeLabel.text = "\(record.place!)"
         
         hStack.addArrangedSubview(priceLabel)
         hStack.addArrangedSubview(placeLabel)

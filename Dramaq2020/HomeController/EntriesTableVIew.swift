@@ -8,13 +8,22 @@
 
 import UIKit
 
-class EntriesTableVIew: UITableView {
+protocol ReloadingDelegate {
+    func returnHomeController() -> HomeController
+}
 
+class EntriesTableVIew: UITableView {
+    
+    var reload: ReloadingDelegate!
+    
     
     override func reloadData() {
         super.reloadData()
-//        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeController") as! HomeController
-//
-//        vc.reloadBalance()
+        print("reloaded")
+        
+        let homeController = reload.returnHomeController()
+        homeController.reloadBalance()
+        homeController.searchField.isUserInteractionEnabled = !homeController.entries.isEmpty
+        
     }
 }

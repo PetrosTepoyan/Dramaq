@@ -10,7 +10,6 @@ import UIKit
 import RealmSwift
 import CoreLocation
 
-
 class HomeController: UIViewController {
     
     @IBOutlet weak var incomeButton: PTButton!
@@ -22,9 +21,7 @@ class HomeController: UIViewController {
     @IBOutlet weak var frequentStack: UIStackView!
     @IBOutlet weak var tableView: EntriesTableVIew!
     @IBOutlet weak var searchField: UISearchBar!
-    @IBOutlet weak var balanceLabel: PTLabel!
-    
-    
+    @IBOutlet weak var balanceLabel: PTLabel!    
     
     var incomes: [[Income]] = []
     var records: [[Record]] = []
@@ -42,7 +39,7 @@ class HomeController: UIViewController {
     var latitude: Double!
     var longitude: Double!
     
-    
+    var reload: ReloadingDelegate?
     
     lazy var realm: Realm = {
         return try! Realm()
@@ -57,11 +54,19 @@ class HomeController: UIViewController {
         constructEntries(records: records, incomes: incomes)
         //
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
+            (granted, error) in
+            if granted {
+                print("yes")
+            } else {
+                print("No")
+            }
+        }
+        
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-    
         
-        
-        
+        tableView.delegate = self
+        tableView.reload = self
         
         tableView.showsVerticalScrollIndicator = false
         searchField.delegate = self
@@ -71,7 +76,6 @@ class HomeController: UIViewController {
         makeAnalysisButtonBeautiful()
         hideKeyboardWhenTouching()
         setupSearchField()
-        reloadBalance()
         
         if records.isEmpty {
             searchField.isUserInteractionEnabled = false
@@ -165,7 +169,6 @@ extension HomeController {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var viewController: UIViewController
-        
         if vc is AddRecordChildVC{
             viewController = storyboard.instantiateViewController(withIdentifier: "AddRecordChildVC") as! AddRecordChildVC
         } else {
@@ -199,7 +202,6 @@ extension HomeController {
         
         
         return viewController as! T
-        
     }
     
     func add(_ child: UIViewController, frame: CGRect? = nil) {

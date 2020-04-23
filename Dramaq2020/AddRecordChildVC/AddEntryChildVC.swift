@@ -8,13 +8,19 @@
 
 import UIKit
 import RealmSwift
+import AKPickerView_Swift
 
+#warning("change scroll view from outlet to var and add to this class so that income would have it too")
 class AddEntryChildVC: CompactChildViewController { // addrecordchildvc will inherit from this
 
     @IBOutlet weak var priceTF: PTTextField!
     @IBOutlet weak var placeTF: PTTextField!
+    
+    var repetitionPicker: AKPickerView! = AKPickerView()
+    var chosenRepetition: String? = "None"
     let repetitionPatterns = ["None", "Daily", "Weekly", "Monthly", "Annualy"]
 
+//    var specificDatePicker: 
     
     lazy var realm: Realm = {
         return try! Realm()
@@ -62,9 +68,6 @@ class AddEntryChildVC: CompactChildViewController { // addrecordchildvc will inh
             
         }
         
-        if sender.state == .ended {
-            parentHome.reloadBalance()
-        }
     }
     
 }

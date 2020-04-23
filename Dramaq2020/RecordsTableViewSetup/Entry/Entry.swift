@@ -53,17 +53,3 @@ class ManageEntries {
     }
     
 }
-
-//class Entry {
-//    
-//    var date: Date!
-//    
-//    init(date: Date) {
-//        self.date = date
-//    }
-//    
-//    
-    
-//    
-//}
-

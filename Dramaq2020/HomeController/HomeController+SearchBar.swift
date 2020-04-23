@@ -11,11 +11,17 @@ import UIKit
 extension HomeController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let searchTextModif = searchText.trimmingCharacters(in: .whitespaces).lowercased()
-        
+    
         let searchedRecordsFlat: [Entry] = entries
             .flatMap { $0 }
             .filter {
-                let dateCheck = $0.date.getDayExpExp().lowercased().contains(searchTextModif)
+                let dateCheck1 = $0.date.getDayExpExp().lowercased().contains(searchTextModif)
+                let dateCheck2 = $0.date.getDayExpExpForDateCheck().lowercased().contains(searchTextModif)
+                let dateCheck3 = $0.date.getDayExp().lowercased().contains(searchTextModif)
+                print($0.date.getDayExpExp().lowercased(),
+                      $0.date.getDayExpExpForDateCheck().lowercased(),
+                      $0.date.getDayExp().lowercased())
+                let dateCheck = dateCheck1 || dateCheck2 || dateCheck3
                 let priceCheck = String($0.price ?? 0.0).contains(searchTextModif)
                 
                 var placeCheck: Bool = false
@@ -47,8 +53,6 @@ extension HomeController: UISearchBarDelegate {
         searching = searchTextModif.count != 0
         tableView.reloadData()
         
-        
-        
         if searchedEntries.isEmpty && searchTextModif.count > 0 {
             setupEmptyRecordsView(message: "No records with the given parameters(")
         } else {
@@ -74,9 +78,6 @@ extension HomeController: UISearchBarDelegate {
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
-        guard !records.isEmpty else { searchBar.isUserInteractionEnabled = false ; return }
-        searchBar.isUserInteractionEnabled = true
         
         if !scrollViewIsShown {
             showingRecordsAnimation()
@@ -115,11 +116,3 @@ extension HomeController: UISearchBarDelegate {
     
 }
 
-
-//extension UITableView {
-//    func reloadDataWithUpdateToSearchBar(isSearchBarEnabled: Bool) {
-//        self.reloadData()
-//        searchBar.isUserInteractionEnabled = isSearchBarEnabled
-//    }
-//    
-//}

@@ -11,6 +11,7 @@ target 'Dramaq2020' do
   pod 'RealmSwift', :modular_headers => true
   pod 'Charts'
   pod "AUPickerCell"
+  pod 'AKPickerView-Swift', :git => 'https://github.com/Akkyie/AKPickerView-Swift.git'
   
   target 'Dramaq2020Tests' do
     inherit! :search_paths

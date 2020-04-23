@@ -30,15 +30,6 @@ enum CategoryColors {
     static let Shop = UIColor(named: Category.Shop.rawValue)
 }
 
-//enum CategoryImages{ // substitute each color to an image
-//    static let Food = UIImage(named: Category.Food.rawValue + "Icon")
-//    static let Entertainment  = UIImage(named: Category.Entertainment.rawValue + "Icon")
-//    static let Shop = UIImage(named: Category.Shop.rawValue + "Icon")
-//
-//    static let notSpecified = UIColor(named: "notSpecified")
-//
-//}
-
 class CategoryView: UIView {
 
     required public init?(coder: NSCoder) {

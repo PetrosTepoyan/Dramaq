@@ -10,10 +10,7 @@ import UIKit
 import RealmSwift
 
 class AddIncomeChildVC: AddEntryChildVC {
-
-//    @IBOutlet weak var priceTF: PTTextField!
-//    @IBOutlet weak var placeTF: PTTextField!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

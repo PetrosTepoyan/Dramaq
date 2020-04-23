@@ -92,7 +92,8 @@ class ManagingRealm {
                                                          date: $0.date,
                                                          category: Category(rawValue: $0.category)!,
                                                          keywords: $0.keywords?.components(separatedBy: ";"),
-                                                         currency: $0.currency)
+                                                         currency: $0.currency,
+                                                         repeatsEachTimeInterval: $0.repeatsEachTimeInterval.value)
             
         }
         

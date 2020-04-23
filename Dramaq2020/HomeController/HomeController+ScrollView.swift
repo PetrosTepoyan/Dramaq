@@ -10,7 +10,7 @@ import UIKit
 extension HomeController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+//        
         let dy = tableView.contentOffset.y
         let generator = UIImpactFeedbackGenerator(style: .medium)
         

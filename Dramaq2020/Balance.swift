@@ -66,13 +66,23 @@ class Balance : Accounting {
     }
     
     func moneyLeftToSpendTillTheEndOfTheMonth() -> Double {
+        
+        let records = ManagingRealm()
+        .retrieveRecords_flat()
+        .map { $0.price ?? 0.0}
+        .reduce(0.0, +)
+        
         let balance = overall()
         guard balance > 0 else { return 0 }
         let currentDay = Calendar(identifier: .gregorian).component(.day, from: Date())
         let daysLeft = Date().daysInMonth() - currentDay
         
         
-        return round(balance / Double(daysLeft))
+        let moneyLeftToSpendForEachDayTillTheEndOfTheMonth = balance / Double(daysLeft)
+        
+        print("Money left to spend for each day", moneyLeftToSpendForEachDayTillTheEndOfTheMonth)
+        print("Money spent today", records)
+        return round(moneyLeftToSpendForEachDayTillTheEndOfTheMonth - records)
     }
     
 //    func moneyPerDay() -> Double {

@@ -7,15 +7,6 @@
 //
 
 import UIKit
-import CoreData
-
-
-//extension UITableView {
-//    override func reloadData(){
-//        
-//    }
-//}
-
 
 extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
@@ -48,11 +39,27 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
         
         let dateView = DateSectionView(date: datesForSections[section])
 
+        let panGesture = UITapGestureRecognizer(target: self, action: #selector(tap))
+        dateView.isUserInteractionEnabled = true
+        dateView.addGestureRecognizer(panGesture)
+        
+        
+        
         return dateView
         
         
     }
     
+    @objc func tap(sender: UITapGestureRecognizer) {
+        let dateView = sender.view as! DateSectionView
+        searchField.text = dateView.date.getDayExp()
+        searchBar(searchField, textDidChange: searchField.text!)
+        searchBarTextDidBeginEditing(searchField)
+        searching = true
+        tableView.reloadData()
+        searchField.reloadInputViews()
+        
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { // Number of Rows in Section
@@ -192,140 +199,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     }
     
     
-    
-    
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = deleteAction(at: indexPath)
-        delete.backgroundColor = .white
-        
-        return UISwipeActionsConfiguration(actions: [delete])
-    }
-    
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let edit = editAction(at: indexPath)
-        edit.backgroundColor = .white
-        
-        return UISwipeActionsConfiguration(actions: [edit])
-    }
-    
-    func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
-        
-        let entry = entries[indexPath.section][indexPath.row]
-        
-        let action = UIContextualAction(style: .destructive, title: "") { (action, actionView, completion) in
-            let id = entry.id!
-            
-            if entry is Record {
-                try! self.realm.write { self.realm.objects(RealmRecord.self)[id].isDeleted = true }
-//                self.records = records.filter { $0.filter { $0.id != id } }
-            } else if entry is Income {
-                try! self.realm.write { self.realm.objects(RealmIncome.self)[id].isDeleted = true }
-            }
-            
-            self.entries[indexPath.section].remove(at: indexPath.row)
-            if self.entries[indexPath.section].isEmpty {
-                self.entries.remove(at: indexPath.section)
-            }
-            
-            UIView.transition(with: self.tableView,
-            duration: 0.35,
-            options: [.curveEaseInOut, .transitionCrossDissolve],
-            animations: { self.tableView.reloadData() })
-            completion(true)
-            
-            actionView.backgroundColor = .red
-            print(actionView)
-        }
-        let image = UIImage(named: "Trash 2-2")
-        action.image = image
-        action.backgroundColor = .white
-        
-        
-        return action
-    }
-    
-    func editAction(at indexPath: IndexPath) -> UIContextualAction {
-        let entry = entries[indexPath.section][indexPath.row]
-        
-        let action = UIContextualAction(style: .normal, title: "") { (action, view, completion) in
-            let id = entry.id!
-            if let entry = entry as? Record {
-                let childView = self.displayAddRecordChildVC(price: String(entry.price ?? 0.0), place: String(entry.place), category: "\(entry.category)", keywords: entry.keywords)
-                childView.idOfEditingRecord = id
-            } else if let entry = entry as? Income{
-                let childView = self.displayAddIncomeChildVC(price: String(entry.price ?? 0.0), source: String(entry.source ?? ""))
-                childView.idOfEditingRecord = id
-            }
-        }
-        let image = UIImage(named: "Edit-2")
-        action.image = image
-        action.backgroundColor = .white
-        
-        
-        return action
-    }
-    
     // MARK: - Non-related functions
     
-    func showingRecordsAnimation(){
-        let chng1: CGFloat = 100.0
-        UIView.animate(
-            withDuration: 0.4,
-            delay: 0,
-            usingSpringWithDamping: 5,
-            initialSpringVelocity: 0.3,
-            options: .curveEaseInOut,
-            animations: {
-                self.tableView.frame  = self.tableView.frame.offsetBy(dx: 0, dy: -270)
-                self.arrowView.center.y -= 260
-                self.arrowView.up()
-                self.addARecord.center.x += 110
-                self.addARecord.center.y -= 55
-                self.incomeButton.center.y -= chng1
-                self.analysisButton.center.y -= chng1
-                self.accountButton.center.y -= chng1
-                self.menuButton.center.y -= chng1
-                self.addRecordView.alpha = 0
-                self.searchField.center.y -= 290
-                self.searchField.center.x -= 70
-                
-                
-                self.view.layoutIfNeeded()
-        }, completion: nil )
-    }
     
-    func hidingRecordsAnimation(){
-        let chng1: CGFloat = 100.0
-        UIView.animate(
-            withDuration: 0.5,
-            delay: 0,
-            usingSpringWithDamping: 5,
-            initialSpringVelocity: 0.3,
-            options: .curveEaseInOut,
-            animations: {
-                self.tableView.frame = self.tableView.frame.offsetBy(dx: 0, dy: 270)
-                self.arrowView.center.y += 220
-                self.arrowView.down()
-                self.addARecord.center.x -= 110
-                self.addARecord.center.y += 55
-                self.incomeButton.center.y += chng1
-                self.analysisButton.center.y += chng1
-                self.accountButton.center.y += chng1
-                self.menuButton.center.y += chng1
-                self.addRecordView.alpha = 1
-                self.searchField.center.y += 290
-                self.searchField.center.x += 70
-                
-                
-                self.view.layoutIfNeeded()
-                
-        }, completion: {finish in
-            self.searchField.endEditing(true)
-        }
-            
-        )
-    }
     
 }
 

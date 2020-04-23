@@ -9,32 +9,36 @@
 import Foundation
 import UIKit
 extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == categoryCollectionView {
             return categoriesInCollection.count
         } else {
-            print(keywords.count)
-            return keywords.count
+            return suggestedKeywords.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == categoryCollectionView {
-            let cell = categoryCollectionView.dequeueReusableCell(withReuseIdentifier: "CategoryViewCollectionCell", for: indexPath) as! CategoryCollectionViewCell
+            let cell = categoryCollectionView
+                .dequeueReusableCell(withReuseIdentifier: "CategoryViewCollectionCell",
+                                     for: indexPath)
+                as! CategoryCollectionViewCell
+            
             cell.backgroundColor = .clear
             let categoryView = CategoryView(category: categoriesInCollection[indexPath.row])
+            
             for i in (categoryView.subviews[0] as! UIStackView).arrangedSubviews {
                 if i is UILabel {
                     i.alpha = 0.0
                 }
             }
             
-            
             cell.view.addSubview(categoryView)
             return cell
         } else {
             let cell = keywordsCollectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCollectionViewCell
-            let keyword = keywords[indexPath.row]
+            let keyword = suggestedKeywords[indexPath.row]
             cell.keyword.text = keyword
             return cell
         }
@@ -46,7 +50,6 @@ extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource
             let categoryView = item.view.subviews[0]  as! CategoryView
             categoryImagePressed(on: categoryView)
         }
-       
         
     }
     
@@ -54,13 +57,12 @@ extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource
         return 30
     }
     
-    
-    
-    
-    
-    
-}
-
-extension AddRecordChildVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard collectionView == keywordsCollectionView else { return CGSize.zero }
+        let label = UILabel(frame: CGRect.zero)
+        label.text = suggestedKeywords[indexPath.item]
+        label.sizeToFit()
+        return CGSize(width: label.frame.width, height: 30)
+    }
     
 }

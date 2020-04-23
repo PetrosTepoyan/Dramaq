@@ -41,7 +41,19 @@ extension Date {
         return formattedDate
     }
     
+    func getDayExpExpForDateCheck() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "d MMMM"
+        let formattedDate = format.string(from: self)
+        return formattedDate
+    }
     
+    func getDayExpExpForDateCheck2() -> String {
+        let format = DateFormatter()
+        format.dateFormat = "EEE, d MMM"
+        let formattedDate = format.string(from: self)
+        return formattedDate
+    }
     
     
 }
