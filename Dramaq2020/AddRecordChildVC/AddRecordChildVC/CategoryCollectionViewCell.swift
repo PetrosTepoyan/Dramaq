@@ -11,6 +11,7 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var view: UIView!
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         

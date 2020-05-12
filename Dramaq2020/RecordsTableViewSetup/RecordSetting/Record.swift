@@ -19,22 +19,7 @@ struct Record: Entry {
     var keywords: [String]?
     var currency: String?
     var repeatsEachTimeInterval: Double?
-//    init(id: Int,
-//         price: Double,
-//         place: String,
-//         date: Date,
-//         category: Category,
-//         keywords: [String]?,
-//         currency: String?) {
-//        
-//        self.id = id
-//        self.price = price
-//        self.place = place
-//        self.date = date
-//        self.category = category
-//        self.keywords = keywords
-//        self.currency = currency
-//    }
+    var purchaseMethod: PurchaseMethods! = .Cash
     
     
 }
@@ -48,51 +33,62 @@ open class RecordView: UIView, EntryView {
     var place: String?
     var time:  String!
     var category: Category!
+    var purchaseMethod: PurchaseMethods!
     var badges: [Badge]?
+    
     var containerView = UIView()
     
     convenience init(record: Record){
         self.init()
     
-        self.id    = record.id
-        self.price = record.price
-        self.currency = record.currency
-        self.place = record.place
-        self.time  = record.date.getTime()
-        self.category = record.category
+        self.id             = record.id
+        self.price          = record.price
+        self.currency       = record.currency
+        self.place          = record.place
+        self.time           = record.date.getTime()
+        self.category       = record.category
+        self.purchaseMethod = record.purchaseMethod
         
+        badges = []
         if record.repeatsEachTimeInterval != nil {
             self.badges = [.Repetitive]
+            
         }
         
-        setupRecordView(price: price, place: place, time: time, category: category, currency: currency, badges: badges)
+        if record.purchaseMethod == .Card {
+            self.badges!.append(Badge.Card)
+        } else {
+            self.badges!.append(Badge.Cash)
+        }
+        
+        
+        prepareLayout()
+        setupRecordView(price   : price,
+                        place   : place,
+                        time    : time,
+                        category: category,
+                        currency: currency,
+                        badges  : badges)
         
         
     }
     
-    convenience init(price: Double?, place: String?, time: String?, category: Category?){
-        self.init()
-        
-        self.price = price
-        self.currency = currency
-        self.place = place
-        self.time  = time
-        self.category = category
-        
-        setupRecordView(price: price, place: place, time: time, category: category ?? Category.Unknown, currency: currency, badges: nil)
-        
-        
+    
+    func prepareLayout(){
+        addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints                   = false
+        containerView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive   = true
+        containerView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        containerView.topAnchor.constraint(equalTo: topAnchor).isActive           = true
+        containerView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive     = true
     }
-    
-    
-    
 
     private func setupRecordView(price: Double?, place: String?, time: String?, category: Category, currency: String?, badges: [Badge]?) {
         
         
 
         let hStack = UIStackView()
-        addSubview(hStack)
+        containerView.addSubview(hStack)
         
         hStack.axis = .horizontal
         hStack.alignment = .fill
@@ -117,13 +113,13 @@ open class RecordView: UIView, EntryView {
         placeLabel.lineBreakMode = .byTruncatingTail
         
         let color = UIColor(named: category.rawValue)
-        backgroundColor     = color
-        layer.cornerRadius = 30
-        layer.masksToBounds = false
-        layer.shadowColor   = color?.cgColor
-        layer.shadowOpacity = 0.6
-        layer.shadowOffset  = CGSize(width: 0, height: 8)
-        layer.shadowRadius  = 4
+        containerView.backgroundColor     = color
+        containerView.layer.cornerRadius = 30
+        containerView.layer.masksToBounds = false
+        containerView.layer.shadowColor   = color?.cgColor
+        containerView.layer.shadowOpacity = 0.6
+        containerView.layer.shadowOffset  = CGSize(width: 0, height: 8)
+        containerView.layer.shadowRadius  = 4
         
         hStack.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -134,34 +130,30 @@ open class RecordView: UIView, EntryView {
             
         ])
         
-        
-        
-        if let badges = badges {
-            for badge in badges {
-                let badgeImageView = UIImageView(image: UIImage(named: badge.rawValue))
-                let side: CGFloat = 25
-                badgeImageView.frame = CGRect(x: hStack.frame.maxX - 5,
-                                              y: hStack.frame.maxY - 8,
-                                              width: side,
-                                              height: side)
-                
-                self.addSubview(badgeImageView)
-                badgeImageView.clipsToBounds = false
-                
-                badgeImageView.translatesAutoresizingMaskIntoConstraints = false
-                NSLayoutConstraint.activate([
-                    badgeImageView.trailingAnchor.constraint(equalTo: super.trailingAnchor, constant: -5),
-                    badgeImageView.bottomAnchor.constraint(equalTo: super.bottomAnchor, constant: 8),
-                    badgeImageView.widthAnchor.constraint(equalToConstant: side),
-                    badgeImageView.heightAnchor.constraint(equalToConstant: side)
-                ])
-                
-            }
-        }
-        
-        
+        guard let badges = badges else { return }
+        for (i, badge) in badges.enumerated() {
 
+            let badgeImageView = UIImageView(image: UIImage(named: badge.rawValue + "Badge"))
+            let side: CGFloat = 25
+            badgeImageView.frame = CGRect(x: hStack.frame.maxX - 5,
+                                          y: hStack.frame.maxY - 8,
+                                          width: side,
+                                          height: side)
+            
+            addSubview(badgeImageView)
+            badgeImageView.clipsToBounds = false
+            
+            badgeImageView.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                badgeImageView.trailingAnchor.constraint(equalTo: super.trailingAnchor, constant: CGFloat(-5 - i*30)),
+                badgeImageView.bottomAnchor.constraint(equalTo: super.bottomAnchor, constant: 8),
+                badgeImageView.widthAnchor.constraint(equalToConstant: side),
+                badgeImageView.heightAnchor.constraint(equalToConstant: side)
+            ])
+            
+        }
     }
+    
     
 }
 

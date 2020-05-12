@@ -36,11 +36,15 @@ extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource
             
             cell.view.addSubview(categoryView)
             return cell
+            
         } else {
             let cell = keywordsCollectionView.dequeueReusableCell(withReuseIdentifier: "KeywordCell", for: indexPath) as! KeywordCollectionViewCell
+            cell.backgroundColor = .clear
             let keyword = suggestedKeywords[indexPath.row]
-            cell.keyword.text = keyword
+            let keywordView = PTKeywordsLabel(text: keyword)
+            cell.view.addSubview(keywordView)
             return cell
+            
         }
     }
     
@@ -54,15 +58,25 @@ extension AddRecordChildVC: UICollectionViewDelegate, UICollectionViewDataSource
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 30
+        return 50
     }
     
+    
+    
+    
+    
+    
+}
+
+extension AddRecordChildVC {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
         guard collectionView == keywordsCollectionView else { return CGSize.zero }
-        let label = UILabel(frame: CGRect.zero)
-        label.text = suggestedKeywords[indexPath.item]
-        label.sizeToFit()
-        return CGSize(width: label.frame.width, height: 30)
+        let kwsize = PTKeywordsLabel(text: suggestedKeywords[indexPath.item]).frame.size
+        
+        print(kwsize)
+        return kwsize
+        
+        
     }
-    
 }

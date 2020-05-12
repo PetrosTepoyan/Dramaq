@@ -84,9 +84,12 @@
 		15DF5BA42446F40800D20FEE /* AddEntryChildVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA32446F40800D20FEE /* AddEntryChildVC.swift */; };
 		15DF5BA62447B61800D20FEE /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA52447B61800D20FEE /* Balance.swift */; };
 		15DF5BA82447BD3D00D20FEE /* PiggyBank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */; };
+		15E8D5C3245603AE00EEE0CA /* HomeController+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8D5C2245603AE00EEE0CA /* HomeController+Notifications.swift */; };
 		15ED268C2414FD610029DDDB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED268B2414FD610029DDDB /* OnboardingViewController.swift */; };
 		15ED269324153B970029DDDB /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED269224153B970029DDDB /* MenuCell.swift */; };
 		15ED26AC2416B8480029DDDB /* NearByEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ED26A92416B8480029DDDB /* NearByEnum.swift */; };
+		15EFA6FD24523963008FBE9F /* PurchaseMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFA6FC24523963008FBE9F /* PurchaseMethod.swift */; };
+		15EFA6FF24523986008FBE9F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15EFA6FE24523986008FBE9F /* UIImage+Extension.swift */; };
 		15F9DECB242CA60100081D5D /* CategoryKeywords.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15F9DECA242CA60100081D5D /* CategoryKeywords.swift */; };
 		1C909B5B808A162FD54583A5 /* libPods-Dramaq2020-Dramaq2020UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA50047A800582B7BF09F99 /* libPods-Dramaq2020-Dramaq2020UITests.a */; };
 		1D994C6518A65F250190812D /* libPods-Dramaq2020Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305D1B1CFE1C8D6B68F789B5 /* libPods-Dramaq2020Tests.a */; };
@@ -127,7 +130,7 @@
 
 /* Begin PBXFileReference section */
 		1501495724196A540064D04C /* AddRecordChildVC+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddRecordChildVC+Location.swift"; sourceTree = "<group>"; };
-		15014981241BC7930064D04C /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		15014981241BC7930064D04C /* AccountViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 1; };
 		1505BCDB242E0E0A005C1013 /* KeywordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordCollectionViewCell.swift; sourceTree = "<group>"; };
 		1505BCDD242E82F4005C1013 /* CountForPeriodButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountForPeriodButton.swift; sourceTree = "<group>"; };
 		15092A1F241947740044D973 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -147,17 +150,17 @@
 		1543DDED244D0FB6004C546B /* ReloadingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloadingExtension.swift; sourceTree = "<group>"; };
 		1543F6A8242A0512006539EB /* HomeController+SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeController+SearchBar.swift"; sourceTree = "<group>"; };
 		1543F6AA242A052A006539EB /* HomeController+ScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HomeController+ScrollView.swift"; sourceTree = "<group>"; };
-		1558BC4F24115AB50072DB26 /* Dramaq2020.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramaq2020.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		1558BC4F24115AB50072DB26 /* Dramaq.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dramaq.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1558BC5224115AB50072DB26 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1558BC5424115AB50072DB26 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1558BC5924115AB50072DB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1558BC5B24115ABA0072DB26 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1558BC5E24115ABA0072DB26 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1558BC6024115ABA0072DB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1558BC6524115ABB0072DB26 /* Dramaq2020Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dramaq2020Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1558BC6524115ABB0072DB26 /* DramaqTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DramaqTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1558BC6924115ABB0072DB26 /* Dramaq2020Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dramaq2020Tests.swift; sourceTree = "<group>"; };
 		1558BC6B24115ABB0072DB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1558BC7024115ABB0072DB26 /* Dramaq2020UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Dramaq2020UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1558BC7024115ABB0072DB26 /* DramaqUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DramaqUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1558BC7424115ABB0072DB26 /* Dramaq2020UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dramaq2020UITests.swift; sourceTree = "<group>"; };
 		1558BC7624115ABB0072DB26 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1558BC8224115AE60072DB26 /* Arrow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
@@ -215,9 +218,12 @@
 		15DF5BA32446F40800D20FEE /* AddEntryChildVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryChildVC.swift; sourceTree = "<group>"; };
 		15DF5BA52447B61800D20FEE /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiggyBank.swift; sourceTree = "<group>"; };
+		15E8D5C2245603AE00EEE0CA /* HomeController+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeController+Notifications.swift"; sourceTree = "<group>"; };
 		15ED268B2414FD610029DDDB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		15ED269224153B970029DDDB /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		15ED26A92416B8480029DDDB /* NearByEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByEnum.swift; sourceTree = "<group>"; };
+		15EFA6FC24523963008FBE9F /* PurchaseMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMethod.swift; sourceTree = "<group>"; };
+		15EFA6FE24523986008FBE9F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		15F9DECA242CA60100081D5D /* CategoryKeywords.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryKeywords.swift; sourceTree = "<group>"; };
 		224DE2885E110D5B88559ED7 /* Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020-Dramaq2020UITests/Pods-Dramaq2020-Dramaq2020UITests.debug.xcconfig"; sourceTree = "<group>"; };
 		23D810BC4C4E4D5F6A7E8586 /* Pods-Dramaq2020.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dramaq2020.debug.xcconfig"; path = "Target Support Files/Pods-Dramaq2020/Pods-Dramaq2020.debug.xcconfig"; sourceTree = "<group>"; };
@@ -332,9 +338,9 @@
 		1558BC5024115AB50072DB26 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1558BC4F24115AB50072DB26 /* Dramaq2020.app */,
-				1558BC6524115ABB0072DB26 /* Dramaq2020Tests.xctest */,
-				1558BC7024115ABB0072DB26 /* Dramaq2020UITests.xctest */,
+				1558BC4F24115AB50072DB26 /* Dramaq.app */,
+				1558BC6524115ABB0072DB26 /* DramaqTests.xctest */,
+				1558BC7024115ABB0072DB26 /* DramaqUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				1505BCDD242E82F4005C1013 /* CountForPeriodButton.swift */,
 				15722B54244E3D1E0028082B /* Notifications.swift */,
 				15DF5BA52447B61800D20FEE /* Balance.swift */,
+				15EFA6FC24523963008FBE9F /* PurchaseMethod.swift */,
 				15DF5BA72447BD3C00D20FEE /* PiggyBank.swift */,
 				1501497D241AA7E40064D04C /* Storyboards */,
 				1558BCB724115E410072DB26 /* HomeController */,
@@ -362,6 +369,7 @@
 				1519CE7B2427A50200E225B5 /* Sounds */,
 				1519CE782427788B00E225B5 /* CurrencyJSON */,
 				1558BCB024115B050072DB26 /* Constants.swift */,
+				15EFA6FE24523986008FBE9F /* UIImage+Extension.swift */,
 				1558BCAE24115B050072DB26 /* CountingUtilities.swift */,
 				15F9DECA242CA60100081D5D /* CategoryKeywords.swift */,
 				1519CE892428DB7B00E225B5 /* String+Extension.swift */,
@@ -419,11 +427,11 @@
 			isa = PBXGroup;
 			children = (
 				1558BC8A24115AE80072DB26 /* Record.swift */,
+				1558BC8D24115AE90072DB26 /* RecordViewCell.swift */,
 				15722B52244DEEE20028082B /* Badge.swift */,
+				1558BC8E24115AE90072DB26 /* FrequentRecord.swift */,
 				1558BC8824115AE70072DB26 /* RealmSetting.swift */,
 				155B33DD24125C5E005D5104 /* ManagingRealm.swift */,
-				1558BC8D24115AE90072DB26 /* RecordViewCell.swift */,
-				1558BC8E24115AE90072DB26 /* FrequentRecord.swift */,
 			);
 			path = RecordSetting;
 			sourceTree = "<group>";
@@ -432,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				1558BC8724115AE70072DB26 /* HomeController.swift */,
+				15E8D5C2245603AE00EEE0CA /* HomeController+Notifications.swift */,
 				1558BC8324115AE60072DB26 /* HomeController+TableView.swift */,
 				158A6B942450F5BB0078A0E1 /* TableViewCellActions.swift */,
 				158A6B962450F5F30078A0E1 /* TableViewAnimations.swift */,
@@ -577,9 +586,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1558BC4E24115AB50072DB26 /* Dramaq2020 */ = {
+		1558BC4E24115AB50072DB26 /* Dramaq */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1558BC7924115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020" */;
+			buildConfigurationList = 1558BC7924115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq" */;
 			buildPhases = (
 				CC7D69A53880EA8B652F7786 /* [CP] Check Pods Manifest.lock */,
 				1558BC4B24115AB50072DB26 /* Sources */,
@@ -591,14 +600,14 @@
 			);
 			dependencies = (
 			);
-			name = Dramaq2020;
+			name = Dramaq;
 			productName = Dramaq2020;
-			productReference = 1558BC4F24115AB50072DB26 /* Dramaq2020.app */;
+			productReference = 1558BC4F24115AB50072DB26 /* Dramaq.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1558BC6424115ABB0072DB26 /* Dramaq2020Tests */ = {
+		1558BC6424115ABB0072DB26 /* DramaqTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1558BC7C24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020Tests" */;
+			buildConfigurationList = 1558BC7C24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "DramaqTests" */;
 			buildPhases = (
 				BB062A2991D3361B5008AFD2 /* [CP] Check Pods Manifest.lock */,
 				1558BC6124115ABB0072DB26 /* Sources */,
@@ -610,14 +619,14 @@
 			dependencies = (
 				1558BC6724115ABB0072DB26 /* PBXTargetDependency */,
 			);
-			name = Dramaq2020Tests;
+			name = DramaqTests;
 			productName = Dramaq2020Tests;
-			productReference = 1558BC6524115ABB0072DB26 /* Dramaq2020Tests.xctest */;
+			productReference = 1558BC6524115ABB0072DB26 /* DramaqTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1558BC6F24115ABB0072DB26 /* Dramaq2020UITests */ = {
+		1558BC6F24115ABB0072DB26 /* DramaqUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1558BC7F24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020UITests" */;
+			buildConfigurationList = 1558BC7F24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "DramaqUITests" */;
 			buildPhases = (
 				190D919E37171CC6334BB578 /* [CP] Check Pods Manifest.lock */,
 				1558BC6C24115ABB0072DB26 /* Sources */,
@@ -629,9 +638,9 @@
 			dependencies = (
 				1558BC7224115ABB0072DB26 /* PBXTargetDependency */,
 			);
-			name = Dramaq2020UITests;
+			name = DramaqUITests;
 			productName = Dramaq2020UITests;
-			productReference = 1558BC7024115ABB0072DB26 /* Dramaq2020UITests.xctest */;
+			productReference = 1558BC7024115ABB0072DB26 /* DramaqUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -657,7 +666,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1558BC4A24115AB50072DB26 /* Build configuration list for PBXProject "Dramaq2020" */;
+			buildConfigurationList = 1558BC4A24115AB50072DB26 /* Build configuration list for PBXProject "Dramaq" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -670,9 +679,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1558BC4E24115AB50072DB26 /* Dramaq2020 */,
-				1558BC6424115ABB0072DB26 /* Dramaq2020Tests */,
-				1558BC6F24115ABB0072DB26 /* Dramaq2020UITests */,
+				1558BC4E24115AB50072DB26 /* Dramaq */,
+				1558BC6424115ABB0072DB26 /* DramaqTests */,
+				1558BC6F24115ABB0072DB26 /* DramaqUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -788,6 +797,7 @@
 				1576D2782423CEED0065FBFA /* AddRecordChildVC+Collection.swift in Sources */,
 				1543DDEE244D0FB6004C546B /* ReloadingExtension.swift in Sources */,
 				1558BC9024115AE90072DB26 /* HomeController+TableView.swift in Sources */,
+				15E8D5C3245603AE00EEE0CA /* HomeController+Notifications.swift in Sources */,
 				1558BC9124115AE90072DB26 /* MenuViewController.swift in Sources */,
 				15092A222419521F0044D973 /* AddRecordChildVC+NearbyPlaces.swift in Sources */,
 				1558BC9724115AE90072DB26 /* Record.swift in Sources */,
@@ -819,6 +829,7 @@
 				1558BCAB24115AF30072DB26 /* PTDate.swift in Sources */,
 				15ED26AC2416B8480029DDDB /* NearByEnum.swift in Sources */,
 				1505BCDC242E0E0A005C1013 /* KeywordCollectionViewCell.swift in Sources */,
+				15EFA6FF24523986008FBE9F /* UIImage+Extension.swift in Sources */,
 				15DF5BA12446EAB600D20FEE /* AddIncomeChildVC.swift in Sources */,
 				155B33E42412E7B9005D5104 /* CompactChildViewController.swift in Sources */,
 				1558BCB424115B050072DB26 /* Constants.swift in Sources */,
@@ -848,6 +859,7 @@
 				1558BCB124115B050072DB26 /* UIView+Extension.swift in Sources */,
 				1519CE84242891C500E225B5 /* SoundCell.swift in Sources */,
 				15D93D4A2448FCD4006327A5 /* EntriesTableVIew.swift in Sources */,
+				15EFA6FD24523963008FBE9F /* PurchaseMethod.swift in Sources */,
 				1558BC5524115AB50072DB26 /* SceneDelegate.swift in Sources */,
 				1543F6AB242A052A006539EB /* HomeController+ScrollView.swift in Sources */,
 				1558BCB224115B050072DB26 /* CountingUtilities.swift in Sources */,
@@ -876,12 +888,12 @@
 /* Begin PBXTargetDependency section */
 		1558BC6724115ABB0072DB26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1558BC4E24115AB50072DB26 /* Dramaq2020 */;
+			target = 1558BC4E24115AB50072DB26 /* Dramaq */;
 			targetProxy = 1558BC6624115ABB0072DB26 /* PBXContainerItemProxy */;
 		};
 		1558BC7224115ABB0072DB26 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 1558BC4E24115AB50072DB26 /* Dramaq2020 */;
+			target = 1558BC4E24115AB50072DB26 /* Dramaq */;
 			targetProxy = 1558BC7124115ABB0072DB26 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1037,7 +1049,7 @@
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = Petros.Dramaq2020;
-				PRODUCT_NAME = Dramaq2020;
+				PRODUCT_NAME = Dramaq;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1057,7 +1069,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Petros.Dramaq2020;
-				PRODUCT_NAME = Dramaq2020;
+				PRODUCT_NAME = Dramaq;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1082,7 +1094,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dramaq2020.app/Dramaq2020";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dramaq.app/Dramaq";
 			};
 			name = Debug;
 		};
@@ -1105,7 +1117,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dramaq2020.app/Dramaq2020";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dramaq.app/Dramaq";
 			};
 			name = Release;
 		};
@@ -1154,7 +1166,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1558BC4A24115AB50072DB26 /* Build configuration list for PBXProject "Dramaq2020" */ = {
+		1558BC4A24115AB50072DB26 /* Build configuration list for PBXProject "Dramaq" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1558BC7724115ABB0072DB26 /* Debug */,
@@ -1163,7 +1175,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1558BC7924115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020" */ = {
+		1558BC7924115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1558BC7A24115ABB0072DB26 /* Debug */,
@@ -1172,7 +1184,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1558BC7C24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020Tests" */ = {
+		1558BC7C24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "DramaqTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1558BC7D24115ABB0072DB26 /* Debug */,
@@ -1181,7 +1193,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1558BC7F24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "Dramaq2020UITests" */ = {
+		1558BC7F24115ABB0072DB26 /* Build configuration list for PBXNativeTarget "DramaqUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1558BC8024115ABB0072DB26 /* Debug */,

@@ -9,7 +9,7 @@
 import RealmSwift
 
 import XCTest
-@testable import Dramaq2020
+@testable import Dramaq
 
 class Dramaq2020Tests: XCTestCase {
 

@@ -25,6 +25,8 @@ class AddRecordChildVC: AddEntryChildVC {
     @IBOutlet weak var categoryCollectionView: UICollectionView!
     @IBOutlet weak var currencyLabel: UILabel!
     
+    var cardButton: PurchaseMethodButton!
+    var cashButton: PurchaseMethodButton!
     
     var category: Category! = Category.Unknown
     var categoriesInCollection: [Category] = []
@@ -46,13 +48,7 @@ class AddRecordChildVC: AddEntryChildVC {
     var longitude: Double!
     
     var soundPlayer: AVAudioPlayer?
-    
-    
-    @IBOutlet weak var collectionLayout: UICollectionViewFlowLayout! {
-        didSet {
-            collectionLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +61,6 @@ class AddRecordChildVC: AddEntryChildVC {
         repetitionPicker.delegate = self
         repetitionPicker.dataSource = self
         repetitionPicker.pickerViewStyle = .flat
-//        repetitionPicker.viewDepth = 100
         repetitionPicker.interitemSpacing = 5
         repetitionPicker.reloadData()
         
@@ -82,9 +77,42 @@ class AddRecordChildVC: AddEntryChildVC {
         keywordsCollectionView.backgroundColor = .clear
         keywordsCollectionView.delegate = self
         
+        scrollView.delaysContentTouches = false
+        nearbyPlacesTableView.delaysContentTouches = false
+        
+        setupPurchaseMethodButtons()
+        
+        
+        
         
     }
 
+    @objc func purchaseMethodButtonPressed(sender: PurchaseMethodButton) {
+        if sender == cardButton {
+            cashButton.backgroundColor = .white
+            cardButton.backgroundColor = .systemBlue
+        } else {
+            cardButton.backgroundColor = .white
+            cashButton.backgroundColor = .systemBlue
+        }
+    }
+    
+    func setupPurchaseMethodButtons(){
+        cardButton = PurchaseMethodButton(frame: CGRect(x:repetitionPicker.frame.minX,
+                                                       y: repetitionPicker.frame.maxY + 10,
+                                                       width: 100, height: 80),
+                                         method: .Card)
+        cashButton = PurchaseMethodButton(frame: CGRect(x:repetitionPicker.frame.maxX - 100,
+                                                       y: repetitionPicker.frame.maxY + 10,
+                                                       width: 100, height: 80), method: .Cash)
+        
+        scrollView.addSubview(cardButton)
+        scrollView.addSubview(cashButton)
+
+        cashButton.addTarget(self, action: #selector(purchaseMethodButtonPressed), for: .touchUpInside)
+        cardButton.addTarget(self, action: #selector(purchaseMethodButtonPressed), for: .touchUpInside)
+        cashButton.backgroundColor = .systemBlue
+    }
     
     
     override func viewDidAppear(_ animated: Bool) {
@@ -143,6 +171,7 @@ extension AddRecordChildVC {
         
         
         
+        
         if priceStr == "" {
             priceStr = "0.0"
         }
@@ -151,8 +180,16 @@ extension AddRecordChildVC {
         let place = placeStr!
         
         let repPat = chosenRepetition!
-        repetition = TimeInterval.getTimeInterval(str: repPat)
+//        repetition = TimeInterval.getTimeInterval(str: repPat)
+        repetition = RealmOptional<Double>(60)
+        var purchaseMeth: PurchaseMethods!
         
+        
+        if cardButton.backgroundColor!.resolvedColor(with: view.traitCollection) != UIColor.systemBackground.resolvedColor(with: view.traitCollection) {
+            purchaseMeth = .Card
+        } else {
+            purchaseMeth = .Cash
+        }
         
         guard idOfEditingRecord == nil else {
             let editingRecord = realm.objects(RealmRecord.self).filter("id = \(self.idOfEditingRecord!)")[0]
@@ -165,6 +202,7 @@ extension AddRecordChildVC {
                 editingRecord.currency = currency
                 editingRecord.username = "Petros Tepoyan"
                 editingRecord.repeatsEachTimeInterval = repetition
+                editingRecord.purchaseMethod = purchaseMeth.rawValue
             }
             
             parentHome.records = ManagingRealm().retrieveRecords()
@@ -189,6 +227,7 @@ extension AddRecordChildVC {
         myRec.currency = currency
         myRec.username = "Petros Tepoyan"
         myRec.repeatsEachTimeInterval = repetition
+        myRec.purchaseMethod = purchaseMeth.rawValue
         
         try! realm.write {
             realm.add(myRec)
@@ -201,7 +240,8 @@ extension AddRecordChildVC {
                                     category: category,
                                     keywords: keywords,
                                     currency: currency,
-                                    repeatsEachTimeInterval: repetition.value)
+                                    repeatsEachTimeInterval: repetition.value,
+                                    purchaseMethod: purchaseMeth)
         
         
         if parentHome.entries.isEmpty {

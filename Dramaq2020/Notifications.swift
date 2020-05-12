@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class DramaqNotification {
+class DramaqNotification: NSObject, UNUserNotificationCenterDelegate{
     
     static func instantiateNotification(title: String, subtitle: String, body: String, imageName: String?, repeatsEach: TimeInterval, identifier: String) {
         let content = UNMutableNotificationContent()
@@ -63,5 +63,19 @@ class DramaqNotification {
         
     }
     
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response)
+        print(response.notification)
+        print(response.notification.request)
+        print(response.notification.request.identifier)
+        
+        if response.notification.request.identifier == "Local Notification" {
+            print("Handling notifications with the Local Notification Identifier")
+        }
+        
+        completionHandler()
+    }
 }
 

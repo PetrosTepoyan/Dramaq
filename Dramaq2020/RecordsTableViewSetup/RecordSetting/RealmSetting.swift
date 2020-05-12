@@ -18,6 +18,7 @@ class RealmRecord: Object {
     @objc dynamic var date: Date = Date()
     @objc dynamic var category: String = "Unknown"
     var repeatsEachTimeInterval = RealmOptional<Double>()
+    @objc dynamic var purchaseMethod: String!
     @objc dynamic var keywords: String?
     @objc dynamic var currency: String?
 //    @objc dynamic var user: RealmUser?

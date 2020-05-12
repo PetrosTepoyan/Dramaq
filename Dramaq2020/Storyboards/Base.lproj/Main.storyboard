@@ -11,7 +11,7 @@
         <!--Analysis View Controller-->
         <scene sceneID="f3Q-eY-syR">
             <objects>
-                <viewController id="cIy-kK-0X8" customClass="AnalysisViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cIy-kK-0X8" customClass="AnalysisViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="center" id="avD-2L-CgW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1580"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="tailTruncation" springLoaded="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Yy-LJ-b1I" customClass="PTButton" customModule="Dramaq2020" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="tailTruncation" springLoaded="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Yy-LJ-b1I" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="16" y="423" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,14 +41,14 @@
                                     <segue destination="dMw-NM-vov" kind="showDetail" id="JVo-8d-gMp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Top category is unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-Q4-g2I" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Top category is unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdb-Q4-g2I" customClass="PTLabel" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="16" y="329" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lower category is unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfS-oP-9nQ" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lower category is unknown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfS-oP-9nQ" customClass="PTLabel" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="16" y="377" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -60,7 +60,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="tailTruncation" springLoaded="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arT-7Z-WLj" customClass="PTButton" customModule="Dramaq2020" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" semanticContentAttribute="forceRightToLeft" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="tailTruncation" springLoaded="YES" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arT-7Z-WLj" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="16" y="469" width="343" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -100,7 +100,7 @@
         <!--Account View Controller-->
         <scene sceneID="adQ-Dw-5tN">
             <objects>
-                <viewController id="lIN-xK-lNW" customClass="AccountViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lIN-xK-lNW" customClass="AccountViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DEO-Wd-QbF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +117,7 @@
                                                 <rect key="frame" x="0.0" y="212" width="375" height="437"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Petros Tepoyan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya1-2J-PkO" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Petros Tepoyan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ya1-2J-PkO" customClass="PTLabel" customModule="Dramaq" customModuleProvider="target">
                                                         <rect key="frame" x="26" y="59" width="323" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -161,7 +161,7 @@
         <!--Menu-->
         <scene sceneID="jB2-Q5-4z6">
             <objects>
-                <tableViewController id="cxE-EB-NEY" customClass="MenuViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="cxE-EB-NEY" customClass="MenuViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4P5-5X-a2x">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +184,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundCell" id="5z2-Qm-J1j" customClass="SoundCell" customModule="Dramaq2020" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SoundCell" id="5z2-Qm-J1j" customClass="SoundCell" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="71.5" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5z2-Qm-J1j" id="YBY-yM-lcN">
@@ -211,7 +211,7 @@
                                     <outlet property="soundSwitcherOutlet" destination="yNw-YX-vFH" id="OJe-ud-rv3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" id="iah-H8-twL" customClass="UsernameCell" customModule="Dramaq2020" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" id="iah-H8-twL" customClass="UsernameCell" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="115" width="375" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iah-H8-twL" id="Tpk-fF-65K">
@@ -258,12 +258,12 @@
         <!--Home Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="HomeController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeController" autoresizesArchivedViewToFullSize="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="HomeController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ox0-MF-kIa" customClass="MenuButton" customModule="Dramaq2020">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ox0-MF-kIa" customClass="MenuButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="16" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="2no-Gh-KRt"/>
@@ -287,7 +287,7 @@
                                             <constraint firstAttribute="height" constant="142" id="3oa-3R-miB"/>
                                         </constraints>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-7C-oxQ" customClass="PTLabel" customModule="Dramaq2020" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Money Left" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM9-7C-oxQ" customClass="PTLabel" customModule="Dramaq" customModuleProvider="target">
                                         <rect key="frame" x="20" y="59" width="262" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="24" id="Z47-0g-8Eh"/>
@@ -308,7 +308,7 @@
                                     <constraint firstAttribute="trailing" secondItem="dM9-7C-oxQ" secondAttribute="trailing" constant="19" id="nrU-Jq-MNg"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3X-Q9-mV5" customClass="MenuButton" customModule="Dramaq2020">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y3X-Q9-mV5" customClass="MenuButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="309" y="20" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="s1v-AI-Nyu"/>
@@ -322,7 +322,7 @@
                                     <segue destination="lIN-xK-lNW" kind="presentation" id="C1w-4k-R60"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4K-1z-G2T" customClass="PTButton" customModule="Dramaq2020">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4K-1z-G2T" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="118" y="83" width="138" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="RcG-MU-HOA"/>
@@ -333,7 +333,7 @@
                                     <action selector="addARecordTouchUpInside:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yIs-bH-qD1"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utM-Pk-2et" customClass="PTButton" customModule="Dramaq2020">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utM-Pk-2et" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="194" y="20" width="107" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="ZBD-WC-oM5"/>
@@ -353,13 +353,13 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQu-gi-x6q" customClass="EntriesTableVIew" customModule="Dramaq2020" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IQu-gi-x6q" customClass="EntriesTableVIew" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="9" y="391" width="358" height="549"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <viewLayoutGuide key="safeArea" id="GsO-ZB-bAp"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordViewCell" rowHeight="79" id="zWM-9e-Hra" customClass="RecordViewCell" customModule="Dramaq2020">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="RecordViewCell" rowHeight="79" id="zWM-9e-Hra" customClass="RecordViewCell" customModule="Dramaq" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="358" height="79"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zWM-9e-Hra" id="aCk-T2-ZRi">
@@ -376,7 +376,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ujl-Gl-YWc"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4l-ou-hfx" customClass="PTButton" customModule="Dramaq2020">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V4l-ou-hfx" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="74" y="20" width="107" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="49" id="1ma-7c-dUy"/>
@@ -434,7 +434,7 @@
         <!--Add Record ChildVC-->
         <scene sceneID="CIw-io-h1O">
             <objects>
-                <viewController storyboardIdentifier="AddRecordChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y6Q-qo-crG" customClass="AddRecordChildVC" customModule="Dramaq2020" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddRecordChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="y6Q-qo-crG" customClass="AddRecordChildVC" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bk2-B4-OST">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -444,10 +444,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9iT-hD-wk0">
-                                        <rect key="frame" x="0.0" y="0.0" width="318" height="618"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="318" height="902"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-SB-CU5" customClass="PTTextField" customModule="Dramaq2020">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="place" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mQ4-SB-CU5" customClass="PTTextField" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="68" y="73" width="180" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -457,7 +457,7 @@
                                                     <action selector="placeTextFieldEditingDidEnd:" destination="y6Q-qo-crG" eventType="editingDidEnd" id="rCm-Ar-PBR"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eq1-f0-jLA" customClass="PTTextField" customModule="Dramaq2020">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eq1-f0-jLA" customClass="PTTextField" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="68" y="0.0" width="180" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -481,7 +481,7 @@
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="CategoryViewCollectionCell" id="h8t-e8-H2U" customClass="CategoryCollectionViewCell" customModule="Dramaq2020" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="top" reuseIdentifier="CategoryViewCollectionCell" id="h8t-e8-H2U" customClass="CategoryCollectionViewCell" customModule="Dramaq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Gyx-nn-VCs">
@@ -504,7 +504,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearbyPlaceCell" textLabel="ZPT-QW-sCH" detailTextLabel="6fb-ZX-iGS" style="IBUITableViewCellStyleSubtitle" id="shM-Rm-wK7" customClass="NearbyViewCell" customModule="Dramaq2020" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NearbyPlaceCell" textLabel="ZPT-QW-sCH" detailTextLabel="6fb-ZX-iGS" style="IBUITableViewCellStyleSubtitle" id="shM-Rm-wK7" customClass="NearbyViewCell" customModule="Dramaq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="235" height="55.5"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="shM-Rm-wK7" id="KHm-Ip-TEO">
@@ -535,13 +535,13 @@
                                                     <outlet property="delegate" destination="y6Q-qo-crG" id="wwn-b9-DYg"/>
                                                 </connections>
                                             </tableView>
-                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="keywords" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-qs-c1n" userLabel="keywords" customClass="PTTextField" customModule="Dramaq2020">
+                                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="keywords" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pfm-qs-c1n" userLabel="keywords" customClass="PTTextField" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="83" y="321" width="120" height="36"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYC-78-Bsj" customClass="PTButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JYC-78-Bsj" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="211" y="324" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="+"/>
@@ -556,43 +556,60 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2d9-oV-cgm">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2d9-oV-cgm">
                                                 <rect key="frame" x="23" y="362" width="273" height="128"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z8B-EF-dVy">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="z8B-EF-dVy">
                                                     <size key="itemSize" width="84" height="30"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 </collectionViewFlowLayout>
                                                 <cells>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCell" id="weS-jT-Eif" customClass="KeywordCollectionViewCell" customModule="Dramaq2020" customModuleProvider="target">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="KeywordCell" id="weS-jT-Eif" customClass="KeywordCollectionViewCell" customModule="Dramaq" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Xz0-DL-BI7">
                                                             <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                             <autoresizingMask key="autoresizingMask"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jG8-52-hnb" customClass="PTKeywordsLabel" customModule="Dramaq2020" customModuleProvider="target">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="jG8-52-hnb" firstAttribute="top" secondItem="Xz0-DL-BI7" secondAttribute="top" id="3va-9z-XVK"/>
-                                                                <constraint firstAttribute="trailing" secondItem="jG8-52-hnb" secondAttribute="trailing" id="OqX-tq-nnM"/>
-                                                                <constraint firstAttribute="bottom" secondItem="jG8-52-hnb" secondAttribute="bottom" id="Tao-6G-6j5"/>
-                                                                <constraint firstItem="jG8-52-hnb" firstAttribute="leading" secondItem="Xz0-DL-BI7" secondAttribute="leading" id="U7u-JS-CPS"/>
-                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="84" height="30"/>
                                                         <connections>
-                                                            <outlet property="keyword" destination="jG8-52-hnb" id="xH5-np-sJa"/>
                                                             <outlet property="view" destination="Xz0-DL-BI7" id="GKq-PQ-k9e"/>
                                                         </connections>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wix-p9-G1X">
+                                                        <rect key="frame" x="0.0" y="49" width="84" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="joc-zj-J1N">
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wF9-wi-fLq">
+                                                        <rect key="frame" x="0.0" y="98" width="84" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VYZ-2Q-7Hq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Irw-Hz-fFg">
+                                                        <rect key="frame" x="94" y="0.0" width="84" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wOs-Tm-3VZ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                    </collectionViewCell>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="4z0-rN-pAd">
+                                                        <rect key="frame" x="94" y="49" width="84" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="uM1-Cs-r3e">
+                                                            <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
                                                     </collectionViewCell>
                                                 </cells>
                                                 <connections>
@@ -606,7 +623,7 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="uAd-NH-Yav"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="uaM-7W-JaO"/>
                             </scrollView>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STB-sL-WcS" customClass="PTButton" customModule="Dramaq2020" customModuleProvider="target">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STB-sL-WcS" customClass="PTButton" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="274" y="452" width="34" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="ellipsis" catalog="system"/>
@@ -626,7 +643,6 @@
                     <connections>
                         <outlet property="categoryCollectionView" destination="iaT-1f-kP1" id="XMc-VQ-Wuz"/>
                         <outlet property="categoryLabel" destination="5II-K0-UTz" id="xez-W8-gPS"/>
-                        <outlet property="collectionLayout" destination="z8B-EF-dVy" id="d96-na-YMS"/>
                         <outlet property="currencyLabel" destination="wI6-km-mnh" id="91g-n2-zRh"/>
                         <outlet property="dragLabel" destination="zfd-KS-NdU" id="AGq-Ew-4pf"/>
                         <outlet property="keywordsCollectionView" destination="2d9-oV-cgm" id="RZL-ib-UyS"/>
@@ -645,7 +661,7 @@
         <!--Compact Child View Controller-->
         <scene sceneID="kb6-fz-12A">
             <objects>
-                <viewController storyboardIdentifier="CompactChildViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iF0-MN-VE3" customClass="CompactChildViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompactChildViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="iF0-MN-VE3" customClass="CompactChildViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qCC-T4-d78">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -673,7 +689,7 @@
         <!--Review View Controller-->
         <scene sceneID="R8L-1y-NfB">
             <objects>
-                <viewController storyboardIdentifier="showReviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W8W-dl-EnJ" customClass="ReviewViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="showReviewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="W8W-dl-EnJ" customClass="ReviewViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MyL-yf-R9Z">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -808,7 +824,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="haF-oG-6rB">
                                         <rect key="frame" x="0.0" y="0.0" width="326" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-BZ-lMo" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="cQw-BZ-lMo" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="97" id="762-P0-M8R"/>
@@ -818,7 +834,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HhQ-j7-nWE" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HhQ-j7-nWE" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="178" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="148" id="Rdu-38-MMZ"/>
@@ -833,7 +849,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="5lF-HS-V3P">
                                         <rect key="frame" x="0.0" y="127" width="326" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-mM-ENF" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="3Nd-mM-ENF" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="148" id="Ckf-Ve-x3r"/>
@@ -844,7 +860,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sTu-Sl-wPM" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="sTu-Sl-wPM" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="178" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="97" id="Kiy-dX-d3E"/>
@@ -859,7 +875,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="h7b-SE-xKl">
                                         <rect key="frame" x="0.0" y="254" width="326" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-nJ-RT1" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="lHh-nJ-RT1" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="97" id="QmN-NP-FeG"/>
@@ -869,7 +885,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-OA-fHW" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="zZF-OA-fHW" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="178" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="148" id="RuB-Jv-3PO"/>
@@ -884,7 +900,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Xvw-ON-lQC">
                                         <rect key="frame" x="0.0" y="381" width="326" height="97"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L6g-fW-26x" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="L6g-fW-26x" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="148" id="6Zc-d3-Cyf"/>
@@ -894,7 +910,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="medium"/>
                                                 </state>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-EA-T9w" customClass="CountForPeriodButton" customModule="Dramaq2020" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="bjl-EA-T9w" customClass="CountForPeriodButton" customModule="Dramaq" customModuleProvider="target">
                                                 <rect key="frame" x="178" y="0.0" width="148" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="148" id="2pO-bq-JM9"/>
@@ -929,7 +945,7 @@
         <!--Summation In Range-->
         <scene sceneID="z5O-IV-QVs">
             <objects>
-                <viewController id="QDt-f4-rnJ" customClass="SummationInRange" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="QDt-f4-rnJ" customClass="SummationInRange" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nO4-uu-mZU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -999,7 +1015,7 @@
         <!--Detailed Analysis View Controller-->
         <scene sceneID="Qkj-83-OeY">
             <objects>
-                <viewController id="TtY-He-x2y" customClass="DetailedAnalysisViewController" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TtY-He-x2y" customClass="DetailedAnalysisViewController" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vqX-OK-j9J">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1024,7 +1040,7 @@
         <!--Add Income ChildVC-->
         <scene sceneID="OBh-fy-Hdm">
             <objects>
-                <viewController storyboardIdentifier="AddIncomeChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQg-7c-RLt" customClass="AddIncomeChildVC" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddIncomeChildVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZQg-7c-RLt" customClass="AddIncomeChildVC" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fu0-sF-hpi">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1036,13 +1052,13 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-eV-mFd" customClass="PTTextField" customModule="Dramaq2020">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RJu-eV-mFd" customClass="PTTextField" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="69" y="55" width="180" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-0W-4un" customClass="PTTextField" customModule="Dramaq2020">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="source" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-0W-4un" customClass="PTTextField" customModule="Dramaq" customModuleProvider="target">
                                 <rect key="frame" x="69" y="130" width="180" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1073,7 +1089,7 @@
         <!--Add Entry ChildVC-->
         <scene sceneID="GNo-sK-GAu">
             <objects>
-                <viewController id="plm-Pa-soc" customClass="AddEntryChildVC" customModule="Dramaq2020" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="plm-Pa-soc" customClass="AddEntryChildVC" customModule="Dramaq" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="A1J-Cd-Hej">
                         <rect key="frame" x="0.0" y="0.0" width="318" height="488"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

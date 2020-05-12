@@ -173,17 +173,6 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
             
         })
         
-//        UIView.animate(withDuration: 0.3, animations: {
-//            viewController.view.alpha     = 1.0
-//            viewController.view.transform = CGAffineTransform.identity
-//            self.cancelLabel.alpha        = 1.0
-//            blurView.alpha = 1.0
-//
-//
-//        }, completion: {finish in
-//
-//        })
-        
         
         let recordView = cell.view.subviews[0] as? RecordView
         guard let id = recordView?.id! else { return }

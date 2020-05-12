@@ -15,8 +15,9 @@ class PTKeywordsLabel: UILabel {
     
     convenience init(text: String) {
         self.init()
-        setupKeywordLabel()
+        
         self.text = text
+        setupKeywordLabel()
     }
     
     func setupKeywordLabel(isSelected: Bool = false){
@@ -28,22 +29,6 @@ class PTKeywordsLabel: UILabel {
         
         
     }
-    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        setupKeywordLabel()
-//
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        setupKeywordLabel()
-//
-//    }
-    
-    
-    
-    
     
     
     

@@ -49,12 +49,13 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         //
-        incomes = ManagingRealm().retrieveIncomes()
-        records = ManagingRealm().retrieveRecords()
-        constructEntries(records: records, incomes: incomes)
+        self.incomes = ManagingRealm().retrieveIncomes()
+        self.records = ManagingRealm().retrieveRecords()
+        self.constructEntries(records: self.records, incomes: self.incomes)
+        
         //
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert]) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.sound, .alert, .criticalAlert]) {
             (granted, error) in
             if granted {
                 print("yes")
@@ -77,11 +78,7 @@ class HomeController: UIViewController {
         hideKeyboardWhenTouching()
         setupSearchField()
         
-        if records.isEmpty {
-            searchField.isUserInteractionEnabled = false
-        } else {
-            searchField.isUserInteractionEnabled = true
-        }
+        searchField.isUserInteractionEnabled = !entries.isEmpty 
         
     }
 
@@ -139,7 +136,10 @@ extension HomeController {
         // unflats flats twice!!!
     }
     
-    func displayAddRecordChildVC(price: String? = nil, place: String? = nil, category: String? = nil, keywords: [String]? = nil) -> AddRecordChildVC{
+    func displayAddRecordChildVC(price: String? = nil,
+                                 place: String? = nil,
+                                 category: String? = nil,
+                                 keywords: [String]? = nil) -> AddRecordChildVC {
         
         let viewController = prepareAddEntryChildVC(for: AddRecordChildVC())
     
@@ -165,7 +165,7 @@ extension HomeController {
         return viewController
     }
     
-    func prepareAddEntryChildVC<T : UIViewController>(for vc: T) -> T {
+    func prepareAddEntryChildVC<T:UIViewController>(for vc: T) -> T {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         var viewController: UIViewController

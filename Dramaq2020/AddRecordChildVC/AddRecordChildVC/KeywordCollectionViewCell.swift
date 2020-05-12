@@ -10,7 +10,14 @@ import UIKit
 
 class KeywordCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var keyword: PTKeywordsLabel!
     @IBOutlet weak var view: UIView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        for i in view.subviews {
+            i.removeFromSuperview()
+        }
+    }
     
 }

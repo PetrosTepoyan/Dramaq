@@ -10,5 +10,7 @@ import Foundation
 
 enum Badge: String, CaseIterable {
     case Repetitive
+    case Card
+    case Cash
     
 }
